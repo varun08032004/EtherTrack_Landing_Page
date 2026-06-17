@@ -1,6 +1,11 @@
-import { useState, useEffect } from "react";
-import founderImg from "./assets/founder.jpg";
+import { useState, useEffect, useRef } from "react";
+import founderImg from "./assets/founder.png";
 import logoImg from "./assets/logo.png";
+import dashboardImg from "./assets/dashboard.png";
+import portfolioImg from "./assets/portfolio.png";
+import marketImg from "./assets/market.png";
+import carbonIntelligenceImg from "./assets/carbonintelligence.png";
+import walletImg from "./assets/wallet.png";
 
 const GLOBAL_CSS = `
   @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Unbounded:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
@@ -120,7 +125,7 @@ const GLOBAL_CSS = `
   .s-cell:nth-child(2)::before { background:var(--org); }
   .s-cell:nth-child(3)::before { background:var(--blu); }
   .s-cell:nth-child(4)::before { background:var(--vio); }
-  .s-num { font-family:var(--font-head);font-size:36px;font-weight:900;color:var(--grn);line-height:1;margin-bottom:6px; }
+  .s-num { font-family:var(--font-head);font-size:36px;font-weight:900;color:var(--grn);line-height:1;margin-bottom:6px;font-variant-numeric:tabular-nums; }
   .s-lbl { font-family:var(--font-mono);font-size:11px;color:var(--mut);letter-spacing:.1em; }
   .s-src { font-family:var(--font-mono);font-size:8px;color:var(--mut2);letter-spacing:.06em;margin-top:5px; }
 
@@ -148,6 +153,20 @@ const GLOBAL_CSS = `
   .gap-facts { margin-top:16px;display:flex;flex-direction:column;gap:7px; }
   .gap-fact { display:flex;align-items:baseline;gap:10px;font-size:13px;color:#7aaa8a;line-height:1.5; }
   .gap-fact::before { content:'→';color:var(--grn);font-family:var(--font-mono);font-size:10px;flex-shrink:0; }
+
+  /* ── GAP TABS ── */
+  .gap-tabs { display:flex;gap:0;border-bottom:1px solid var(--brd);margin-bottom:24px;overflow-x:auto;scrollbar-width:none; }
+  .gap-tabs::-webkit-scrollbar { display:none; }
+  .gap-tab-btn {
+    padding:12px 22px; border:none; background:transparent; cursor:pointer;
+    font-family:var(--font-mono); font-size:10px; letter-spacing:.1em;
+    color:var(--mut); border-bottom:2px solid transparent;
+    transition:all .2s; margin-bottom:-1px; white-space:nowrap; display:flex; align-items:center; gap:8px;
+  }
+  .gap-tab-btn:hover { color:var(--txt); }
+  .gap-tab-btn.on { color:var(--grn); border-bottom-color:var(--grn); }
+  .gap-tab-n { font-family:var(--font-head);font-size:10px;color:var(--mut2); }
+  .gap-tab-btn.on .gap-tab-n { color:var(--grn); }
 
   /* ── TABBED FEATURES ── */
   .feat-tabs { display:flex;gap:0;border-bottom:1px solid var(--brd);margin-bottom:24px; }
@@ -186,6 +205,39 @@ const GLOBAL_CSS = `
   .how-ttl { font-family:var(--font-head);font-size:14px;font-weight:700;margin-bottom:8px; }
   .how-desc { font-size:13px;color:#7aaa8a;font-weight:300;line-height:1.6; }
 
+  /* ── PRICING ── */
+  .pricing-grid { display:grid;grid-template-columns:repeat(4,1fr);gap:14px; }
+  .price-card { background:var(--surf);border:1px solid var(--brd);border-radius:var(--r-lg);padding:28px 26px;display:flex;flex-direction:column;position:relative;transition:border-color .3s,transform .2s; }
+  .price-card:hover { transform:translateY(-3px); }
+  .price-card.popular { border-color:var(--grnd);background:linear-gradient(160deg,var(--surf2),var(--surf)); }
+  .price-badge { position:absolute;top:-11px;right:24px;font-family:var(--font-mono);font-size:9px;font-weight:700;letter-spacing:.1em;padding:4px 10px;border-radius:20px;background:var(--grn);color:var(--bg); }
+  .price-badge.org { background:var(--org); }
+  .price-tier { font-family:var(--font-mono);font-size:9px;letter-spacing:.18em;color:var(--mut);margin-bottom:14px; }
+  .price-name { font-family:var(--font-head);font-size:22px;font-weight:900;margin-bottom:4px; }
+  .price-tag { font-size:12px;color:var(--mut);font-weight:300;margin-bottom:14px; }
+  .price-desc { font-size:13px;color:#7aaa8a;line-height:1.6;font-weight:300;margin-bottom:22px;min-height:40px; }
+  .price-amt-row { display:flex;align-items:baseline;gap:6px;margin-bottom:4px; }
+  .price-amt { font-family:var(--font-head);font-size:30px;font-weight:900; }
+  .price-per { font-size:12px;color:var(--mut);font-weight:300; }
+  .price-gst { font-family:var(--font-mono);font-size:9px;color:var(--mut);margin-bottom:6px; }
+  .price-save { font-family:var(--font-mono);font-size:10px;color:var(--grn);margin-bottom:14px; }
+  .price-pills { display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap; }
+  .price-pill { font-family:var(--font-mono);font-size:9px;padding:5px 11px;border-radius:20px;border:1px solid var(--brd2);color:var(--mut);display:flex;align-items:center;gap:5px; }
+  .price-pill-dot { width:5px;height:5px;border-radius:50%; }
+  .price-divider { height:1px;background:var(--brd);margin-bottom:18px; }
+  .price-feats { display:flex;flex-direction:column;gap:9px;flex:1;margin-bottom:22px; }
+  .price-feat { display:flex;align-items:flex-start;gap:9px;font-size:12.5px;line-height:1.5; }
+  .price-feat.locked { color:var(--mut2); }
+  .price-feat.unlocked { color:#c8e6d2; }
+  .price-feat-icon { flex-shrink:0;font-size:10px;margin-top:2px; }
+  .price-feat.locked .price-feat-icon { color:var(--mut2); }
+  .price-feat.unlocked .price-feat-icon { color:var(--grn); }
+  .price-cta { padding:13px;border-radius:8px;text-align:center;font-family:var(--font-mono);font-size:11px;font-weight:700;letter-spacing:.1em;cursor:pointer;border:1px solid var(--grn);background:transparent;color:var(--grn);transition:all .2s; }
+  .price-cta:hover { background:var(--grn);color:var(--bg); }
+  .price-cta.solid { background:var(--grn);color:var(--bg); }
+  .price-cta.solid:hover { background:#00ff60; }
+  .price-app-note { display:flex;align-items:center;gap:8px;justify-content:center;margin-top:32px;font-family:var(--font-mono);font-size:10px;color:var(--mut);letter-spacing:.06em; }
+
   /* ── SCREENSHOTS ── */
   .ss-section { position:relative;z-index:1;padding:80px 48px;background:var(--surf);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd); }
   .ss-tabs { display:flex;gap:4px;margin-bottom:24px;border-bottom:1px solid var(--brd);flex-wrap:wrap; }
@@ -193,6 +245,7 @@ const GLOBAL_CSS = `
   .ss-tab:hover { color:var(--txt); }
   .ss-tab.on { color:var(--grn);border-bottom-color:var(--grn); }
   .ss-frame { border-radius:var(--r-md);overflow:hidden;border:1px solid var(--brd2);box-shadow:0 20px 60px rgba(0,0,0,.6); }
+  .ss-frame img { width:100%;display:block;background:var(--bg); }
   .ss-bar { background:var(--bg);border-bottom:1px solid var(--brd);padding:10px 16px;display:flex;align-items:center;gap:12px; }
   .ss-dots { display:flex;gap:5px; }
   .ss-dot { width:9px;height:9px;border-radius:50%; }
@@ -274,6 +327,7 @@ const GLOBAL_CSS = `
     .bento .c6 { grid-column:span 12; }
     .how-grid { grid-template-columns:repeat(2,1fr);gap:40px; }
     .how-grid::before { display:none; }
+    .pricing-grid { grid-template-columns:repeat(2,1fr); }
     .founder-card { grid-template-columns:1fr;text-align:center; }
     .founder-photo { margin:0 auto; }
     .gap-card { grid-template-columns:1fr;gap:20px; }
@@ -290,6 +344,7 @@ const GLOBAL_CSS = `
     .actions { flex-direction:column;width:100%;max-width:300px;margin:0 auto; }
     .btn-p,.btn-g { width:100%;text-align:center; }
     .how-grid { grid-template-columns:1fr; }
+    .pricing-grid { grid-template-columns:1fr; }
     .cta-form { flex-direction:column; }
     .footer-top { grid-template-columns:1fr; }
     .footer-bottom { flex-direction:column;text-align:center; }
@@ -313,6 +368,7 @@ const STATS = [
 // Fixed: removed absolute "No other Indian platform" claims.
 const GAPS = [
   {
+    tabLabel: "PRICE DISCOVERY",
     problem: "No transparent price discovery",
     problemDesc: "Carbon credit prices in India are typically negotiated bilaterally via email — two buyers can pay very different amounts for identical credits. No public order book exists anywhere in India — only indicative prices set by intermediaries.",
     tagP: "tp", tagS: "ts",
@@ -322,6 +378,7 @@ const GAPS = [
     tagLabel: "ETHERTRACK SOLUTION",
   },
   {
+    tabLabel: "INTEGRATED WORKFLOW",
     problem: "Emissions and credits live on separate platforms",
     problemDesc: "Companies track emissions in Excel. Buy credits from a broker. Generate ESG reports with a consultant. The data lives in three separate places and must be manually assembled. Manual errors, slow reporting, broken accountability.",
     tagP: "tp", tagS: "ts-star",
@@ -331,6 +388,7 @@ const GAPS = [
     tagLabel: "OUR CORE DIFFERENTIATOR",
   },
   {
+    tabLabel: "DOUBLE COUNTING",
     problem: "Retirement records can be edited — double counting is possible",
     problemDesc: "Every existing Indian platform stores retirement records in a private, editable database. No platform provides a public URL where anyone can verify a retirement without contacting the company.",
     tagP: "tp", tagS: "ts",
@@ -340,6 +398,7 @@ const GAPS = [
     tagLabel: "ETHERTRACK SOLUTION",
   },
   {
+    tabLabel: "CCTS TOOLING",
     // FIX: removed "zero CCTS-specific tooling" absolute claim
     problem: "No CCTS-native trading infrastructure in India",
     problemDesc: "490 obligated CCTS entities from FY2026. Most existing exchanges currently have limited CCTS-specific tooling — no BEE methodology tracking, no GEI calculation, no CCC portfolio management built in.",
@@ -350,6 +409,7 @@ const GAPS = [
     tagLabel: "ETHERTRACK SOLUTION",
   },
   {
+    tabLabel: "MARKET ACCESS",
     problem: "Small projects are locked out of the market",
     problemDesc: "Brokers require 10,000+ credit minimums. A rural solar plant with 200 credits has no viable market access. Thousands of Indian climate projects generate zero revenue from their verified credits.",
     tagP: "tp", tagS: "ts",
@@ -359,6 +419,7 @@ const GAPS = [
     tagLabel: "ETHERTRACK SOLUTION",
   },
   {
+    tabLabel: "REPORTING COSTS",
     problem: "ESG reporting costs ₹5–15L per year in consultant fees",
     problemDesc: "Separate consultants for CDP, BRSR, GRI 305, and TCFD. Data lives in incompatible spreadsheets. Most Indian SMEs skip disclosure entirely because the cost and complexity are prohibitive.",
     tagP: "tp", tagS: "ts",
@@ -377,11 +438,51 @@ const HOW = [
 ];
 
 const TABS = [
-  { id: "dashboard", label: "Dashboard",        url: "app.ethertrack.in/dashboard", badge: "TESTNET" },
-  { id: "portfolio", label: "Portfolio",         url: "app.ethertrack.in/portfolio", badge: "TESTNET" },
-  { id: "market",    label: "Market",            url: "app.ethertrack.in/exchange",  badge: "TESTNET" },
-  { id: "emissions", label: "Emission Tracking", url: "app.ethertrack.in/emissions", badge: "TESTNET" },
-  { id: "wallet",    label: "Wallet",            url: "app.ethertrack.in/wallet",    badge: "TESTNET" },
+  { id: "dashboard",   label: "Dashboard",          url: "app.ethertrack.in/dashboard",          badge: "TESTNET", imgSrc: dashboardImg },
+  { id: "portfolio",   label: "Portfolio",          url: "app.ethertrack.in/portfolio",          badge: "TESTNET", imgSrc: portfolioImg },
+  { id: "market",      label: "Market",             url: "app.ethertrack.in/exchange",           badge: "TESTNET", imgSrc: marketImg },
+  { id: "carbonintel", label: "Carbon Intelligence",url: "app.ethertrack.in/carbon-intelligence", badge: "TESTNET", imgSrc: carbonIntelligenceImg },
+  { id: "wallet",      label: "Wallet",             url: "app.ethertrack.in/wallet",             badge: "TESTNET", imgSrc: walletImg },
+];
+
+// Pricing — mirrors the in-app billing tiers.
+const PRICING = [
+  {
+    tier: "FREE", name: "Free", tag: "Start exploring",
+    desc: "Individuals, students, companies just exploring",
+    price: "₹0", period: "forever", gst: null, save: null,
+    fee: "1.5%", seats: "1 seat", popular: false,
+    locked: ["Portfolio management", "List & sell credits", "Credit retirement", "Portfolio export", "Emission tracking", "Compliance dashboard", "Team management"],
+    unlocked: ["Buy credits from marketplace", "Browse listings & real-time prices", "On-chain transaction receipt", "Basic carbon footprint calculator", "Wallet & trading history", "Email support"],
+    cta: "Get Started", solid: false,
+  },
+  {
+    tier: "STARTER", name: "Starter", tag: "For active traders",
+    desc: "Freelancers, ESG consultants, small NGOs, active traders",
+    price: "₹14,990", period: "/yr", gst: "+ 18% GST", save: "Save ₹2,998.00/yr vs monthly",
+    fee: "1%", seats: "3 seats", popular: false,
+    locked: ["Emission tracking (Growth+)", "Compliance dashboard (Corporate)", "Team management (Corporate)"],
+    unlocked: ["Everything in Free", "Full portfolio management", "List & sell credits on marketplace", "Credit retirement", "Portfolio export (CSV)", "Blockchain audit trail PDF", "3 seats", "Priority email support"],
+    cta: "Get Started", solid: false,
+  },
+  {
+    tier: "GROWTH", name: "Growth", tag: "Most popular",
+    desc: "MSMEs, growing businesses, serious ESG teams",
+    price: "₹79,990", period: "/yr", gst: "+ 18% GST", save: "Save ₹15,998.00/yr vs monthly",
+    fee: "0.75%", seats: "10 seats", popular: true,
+    locked: ["Compliance dashboard (Corporate)", "Team management (Corporate)", "BRSR/CDP/TCFD reports (Corporate)"],
+    unlocked: ["Everything in Starter", "Scope 1 + 2 full tracking", "Basic Scope 3 (5 categories)", "GHG inventory ledger", "CSV export + analytics dashboard", "Carbon intensity metrics", "Basic decarbonisation scenarios", "GHG Protocol PDF report", "10 seats", "Chat support"],
+    cta: "Get Started", solid: true,
+  },
+  {
+    tier: "CORPORATE", name: "Corporate", tag: "For listed companies",
+    desc: "SEBI-listed cos, BRSR filers, ESG teams, CDP/TCFD filers",
+    price: "Contact Sales", period: "", gst: null, save: null,
+    fee: "0.5%", seats: "∞ seats", popular: false,
+    locked: [],
+    unlocked: ["Everything in Growth", "Full Scope 3 (all 15 categories)", "BRSR/CDP/TCFD/GHG PDF reports", "Audit trail + verifier integration", "BV, DNV, EY, Deloitte, TÜV SÜD, BSI, KPMG", "GEI/BEE compliance", "PAT scheme + CCTS (forms A–E2)", "5-year decarbonisation plan", "MRV calendar + SBTi target setting", "Supplier data portal", "Multi-entity consolidation", "Carbon neutrality certificate", "Regulatory deadline alerts", "Custom seats · Custom pricing"],
+    cta: "Contact Sales", solid: false,
+  },
 ];
 
 const TL = [
@@ -406,7 +507,7 @@ const MQ_ITEMS = [
 ];
 
 /* ─── HOOKS ────────────────────────────────────────────────────── */
-function useReveal() {
+function useReveal(deps = []) {
   useEffect(() => {
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
@@ -416,7 +517,8 @@ function useReveal() {
     }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" });
     document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
     return () => obs.disconnect();
-  }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, deps);
 }
 
 // Accept deps so bento glow re-attaches when feature tab changes
@@ -436,6 +538,48 @@ function useBentoGlow(deps = []) {
     return () => handlers.forEach(({ card, fn }) => card.removeEventListener("mousemove", fn));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
+}
+
+/* ─── ANIMATED STAT (scrambles into place once on scroll, then settles) ── */
+function AnimatedStat({ value, color }) {
+  const ref = useRef(null);
+  const [display, setDisplay] = useState(value);
+  const playedRef = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const chars = "0123456789";
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !playedRef.current) {
+          playedRef.current = true;
+          const totalFrames = 16;
+          let frame = 0;
+          const interval = setInterval(() => {
+            frame++;
+            if (frame >= totalFrames) {
+              clearInterval(interval);
+              setDisplay(value);
+              return;
+            }
+            const lockRatio = frame / totalFrames;
+            const scrambled = value.split("").map((ch) => {
+              if (/[0-9]/.test(ch) && Math.random() > lockRatio) {
+                return chars[Math.floor(Math.random() * chars.length)];
+              }
+              return ch;
+            }).join("");
+            setDisplay(scrambled);
+          }, 45);
+        }
+      });
+    }, { threshold: 0.4 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [value]);
+
+  return <div ref={ref} className="s-num" style={{ color }}>{display}</div>;
 }
 
 /* ─── MOCK SCREENSHOT PANES ─────────────────────────────────────── */
@@ -796,10 +940,11 @@ export default function App() {
   const [modal, setModal]           = useState(false);
   const [activeTab, setActiveTab]   = useState(0);
   const [featureTab, setFeatureTab] = useState(0);
+  const [gapTab, setGapTab]         = useState(0);
   const [ctaEmail, setCtaEmail]     = useState("");
   const [ctaSent, setCtaSent]       = useState(false);
 
-  useReveal();
+  useReveal([featureTab, gapTab]);
   useBentoGlow([featureTab]);
 
   const openDemo = () => setModal(true);
@@ -813,7 +958,7 @@ export default function App() {
       {/* ── Mobile nav ── */}
       <div className={`mobile-nav${mobileOpen ? " open" : ""}`}>
         <button className="mobile-close" onClick={() => setMobileOpen(false)}>✕ CLOSE</button>
-        {[["PLATFORM","#platform"],["HOW IT WORKS","#how"],["SCREENSHOTS","#screenshots"],["CCTS TIMELINE","#ccts"],["CONTACT","#demo"]].map(([l,h])=>(
+        {[["FEATURES","#features"],["HOW IT WORKS","#how"],["PRICING","#pricing"],["PLATFORM","#screenshots"],["CCTS TIMELINE","#ccts"],["CONTACT","#demo"]].map(([l,h])=>(
           <a key={l} href={h} onClick={() => setMobileOpen(false)}>{l}</a>
         ))}
         <button className="btn-p" style={{ marginTop:8 }} onClick={() => { setMobileOpen(false); openDemo(); }}>REQUEST DEMO →</button>
@@ -834,7 +979,7 @@ export default function App() {
           ETHERTRACK
         </div>
         <div className="nav-links">
-          {[["PLATFORM","#platform"],["HOW IT WORKS","#how"],["SCREENSHOTS","#screenshots"],["CCTS TIMELINE","#ccts"]].map(([l,h])=>(
+          {[["FEATURES","#features"],["HOW IT WORKS","#how"],["PRICING","#pricing"],["PLATFORM","#screenshots"],["CCTS TIMELINE","#ccts"]].map(([l,h])=>(
             <a key={l} href={h}>{l}</a>
           ))}
         </div>
@@ -879,7 +1024,7 @@ export default function App() {
         <div className="stats-row reveal">
           {STATS.map((s,i) => (
             <div key={i} className="s-cell">
-              <div className="s-num" style={{ color:s.color }}>{s.num}</div>
+              <AnimatedStat value={s.num} color={s.color} />
               <div className="s-lbl">{s.lbl}</div>
               <div className="s-src">{s.src}</div>
             </div>
@@ -887,37 +1032,47 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── Market Gaps — REDESIGNED ── */}
+      {/* ── Market Gaps — TABBED ── */}
       <section className="section" id="platform">
         <div className="s-label reveal">THE MARKET GAP</div>
         <h2 className="s-h2 reveal">Current market is broken.<br/><span style={{ color:"var(--grn)" }}>We fixed six things.</span></h2>
         <p className="s-sub reveal">Every solution below is live and confirmed working on Ethereum Sepolia testnet.</p>
-        <div className="gap-grid">
+        <div className="gap-tabs">
           {GAPS.map((g,i) => (
-            <div key={i} className="gap-card reveal">
-              <div className="gap-num">0{i+1}</div>
-              {/* Problem */}
-              <div>
-                <div className={`gtag ${g.tagP}`}>THE PROBLEM</div>
-                <div className="g-title">{g.problem}</div>
-                <div className="g-desc">{g.problemDesc}</div>
-              </div>
-              {/* Solution */}
-              <div>
-                <div className={`gtag ${g.tagS}`}>{g.tagLabel}</div>
-                <div className="g-title" style={i === 1 ? { color:"var(--grn)" } : {}}>{g.solution}</div>
-                <div className="g-desc">{g.solutionDesc}</div>
-                <div className="gap-facts">
-                  {g.facts.map((f,j) => <div key={j} className="gap-fact">{f}</div>)}
+            <button key={i} className={`gap-tab-btn${gapTab === i ? " on" : ""}`} onClick={() => setGapTab(i)}>
+              <span className="gap-tab-n">0{i+1}</span>{g.tabLabel}
+            </button>
+          ))}
+        </div>
+        <div className="gap-grid">
+          {(() => {
+            const g = GAPS[gapTab];
+            return (
+              <div className="gap-card reveal">
+                <div className="gap-num">0{gapTab+1}</div>
+                {/* Problem */}
+                <div>
+                  <div className={`gtag ${g.tagP}`}>THE PROBLEM</div>
+                  <div className="g-title">{g.problem}</div>
+                  <div className="g-desc">{g.problemDesc}</div>
+                </div>
+                {/* Solution */}
+                <div>
+                  <div className={`gtag ${g.tagS}`}>{g.tagLabel}</div>
+                  <div className="g-title" style={gapTab === 1 ? { color:"var(--grn)" } : {}}>{g.solution}</div>
+                  <div className="g-desc">{g.solutionDesc}</div>
+                  <div className="gap-facts">
+                    {g.facts.map((f,j) => <div key={j} className="gap-fact">{f}</div>)}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })()}
         </div>
       </section>
 
       {/* ── Platform Features — TABBED ── */}
-      <section className="section">
+      <section className="section" id="features">
         <div className="s-label reveal">PLATFORM CAPABILITIES</div>
         <h2 className="s-h2 reveal">Everything carbon.<br/><span style={{ color:"var(--grn)" }}>One infrastructure.</span></h2>
         <p className="s-sub reveal">Built from the ground up for India's voluntary market, CCTS compliance, and the corporate ESG mandate.</p>
@@ -929,6 +1084,63 @@ export default function App() {
         {featureTab === 0 && <ExchangeFeatures />}
         {featureTab === 1 && <ComplianceFeatures />}
         {featureTab === 2 && <OperationsFeatures />}
+      </section>
+
+      {/* ── How It Works ── */}
+      <section className="section" id="how">
+        <div className="s-label reveal">HOW IT WORKS</div>
+        <h2 className="s-h2 reveal">From onboarding to net zero.<br/><span style={{ color:"var(--grn)" }}>Four steps.</span></h2>
+        <div className="how-grid">
+          {HOW.map((s,i) => (
+            <div key={i} className="how-step reveal">
+              <div className="how-n">{s.n}</div>
+              <div className="how-ttl">{s.title}</div>
+              <p className="how-desc">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Pricing ── */}
+      <section className="section" id="pricing" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)", borderBottom:"1px solid var(--brd)" }}>
+        <div className="s-label reveal">PRICING</div>
+        <h2 className="s-h2 reveal">Built for every size.<br/><span style={{ color:"var(--grn)" }}>From solo to SEBI-listed.</span></h2>
+        <p className="s-sub reveal">Lower trading fees and deeper compliance tooling as you grow. All plans include on-chain settlement on Ethereum.</p>
+        <div className="pricing-grid">
+          {PRICING.map((p,i) => (
+            <div key={p.tier} className={`price-card reveal${p.popular ? " popular" : ""}`}>
+              {p.popular && <div className="price-badge">★ MOST POPULAR</div>}
+              {p.tier === "CORPORATE" && <div className="price-badge org">ENTERPRISE</div>}
+              <div className="price-tier">{p.tier}</div>
+              <div className="price-name">{p.name}</div>
+              <div className="price-tag">{p.tag}</div>
+              <div className="price-desc">{p.desc}</div>
+              <div className="price-amt-row">
+                <span className="price-amt">{p.price}</span>
+                {p.period && <span className="price-per">{p.period}</span>}
+              </div>
+              {p.gst && <div className="price-gst">{p.gst}</div>}
+              {p.save && <div className="price-save">{p.save}</div>}
+              <div className="price-pills">
+                <span className="price-pill"><span className="price-pill-dot" style={{ background:"var(--org)" }} />{p.fee} fee</span>
+                <span className="price-pill"><span className="price-pill-dot" style={{ background:"var(--blu)" }} />{p.seats}</span>
+              </div>
+              <div className="price-divider" />
+              <div className="price-feats">
+                {p.locked.map((f,j) => (
+                  <div key={`l${j}`} className="price-feat locked"><span className="price-feat-icon">🔒</span>{f}</div>
+                ))}
+                {p.unlocked.map((f,j) => (
+                  <div key={`u${j}`} className="price-feat unlocked"><span className="price-feat-icon">✓</span>{f}</div>
+                ))}
+              </div>
+              <button className={`price-cta${p.solid ? " solid" : ""}`} onClick={openDemo}>{p.cta}{p.cta === "Get Started" ? " →" : ""}</button>
+            </div>
+          ))}
+        </div>
+        <div className="price-app-note reveal">
+          <span style={{ color:"var(--grn)" }}>●</span> Live in the EtherTrack app · Prices shown exclude GST where noted
+        </div>
       </section>
 
       {/* ── Screenshots ── */}
@@ -953,23 +1165,10 @@ export default function App() {
         </div>
       </section>
 
-      {/* ── How It Works ── */}
-      <section className="section" id="how">
-        <div className="s-label reveal">HOW IT WORKS</div>
-        <h2 className="s-h2 reveal">From onboarding to net zero.<br/><span style={{ color:"var(--grn)" }}>Four steps.</span></h2>
-        <div className="how-grid">
-          {HOW.map((s,i) => (
-            <div key={i} className="how-step reveal">
-              <div className="how-n">{s.n}</div>
-              <div className="how-ttl">{s.title}</div>
-              <p className="how-desc">{s.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* ── Founder ── */}
       <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
+        <div className="s-label reveal">FROM THE FOUNDER</div>
+        <h2 className="s-h2 reveal">Built for a market<br/><span style={{ color:"var(--grn)" }}>that deserved better.</span></h2>
         <div className="founder-card reveal">
           <div className="founder-photo">
             <img src={founderImg} alt="Varun Girish Deshmukh, Founder EtherTrack"
@@ -1049,7 +1248,7 @@ export default function App() {
           <div>
             <div className="footer-col-head">COMPANY</div>
             <ul className="footer-col-links">
-              {[["India CCTS","#ccts"],["Screenshots","#screenshots"],["How It Works","#how"],["Request Demo","#demo"]].map(([l,h])=><li key={l}><a href={h}>{l}</a></li>)}
+              {[["India CCTS","#ccts"],["Pricing","#pricing"],["Screenshots","#screenshots"],["How It Works","#how"],["Request Demo","#demo"]].map(([l,h])=><li key={l}><a href={h}>{l}</a></li>)}
               <li><a href="mailto:support@ethertrack.in">support@ethertrack.in</a></li>
             </ul>
           </div>
