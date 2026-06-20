@@ -1,15 +1,21 @@
 import { useReveal } from "../hooks";
 import { INDUSTRIES } from "../data";
 import CtaBand from "../components/CtaBand";
+import Seo from "../components/Seo";
 
 export default function Industries() {
   useReveal();
 
   return (
     <>
+      <Seo
+        title="Industries — EtherTrack for CCTS-Gazetted Sectors"
+        description="Iron & steel, cement, aluminium, petrochemicals, textiles, pulp & paper, fertiliser, renewable energy, and ESG advisory — every CCTS-gazetted sector covered."
+        path="/industries"
+      />
       <section className="page-hero">
         <div className="eyebrow">INDUSTRIES</div>
-        <h1 className="page-h1">Every sector India's carbon<br/><span style={{ color:"var(--grn)" }}>market touches. All covered.</span></h1>
+        <h1 className="page-h1">Every sector India's carbon<br/><span style={{ color:"var(--grn)" }}>market touches — all covered</span></h1>
         <p className="page-sub">
           Nine CCTS-gazetted sectors face mandatory compliance from FY2026.
           Voluntary-market sellers are locked out by broker minimums.
@@ -63,7 +69,7 @@ export default function Industries() {
       {/* ── What EtherTrack handles for every sector ── */}
       <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
         <div className="s-label reveal">WHAT WE HANDLE FOR EVERY SECTOR</div>
-        <h2 className="s-h2 reveal">One platform.<br/><span style={{ color:"var(--grn)" }}>Every obligation.</span></h2>
+        <h2 className="s-h2 reveal">One platform —<br/><span style={{ color:"var(--grn)" }}>every obligation</span></h2>
         <div className="stats-row reveal" style={{ marginBottom:0 }}>
           {[
             { num:"GEI",  lbl:"CALCULATION TO GAZETTE FORMULA", src:"Scope 1 + Scope 2 · all 9 CCTS sectors", color:"var(--grn)" },
@@ -82,7 +88,7 @@ export default function Industries() {
 
       <CtaBand
         eyebrow="YOUR SECTOR. YOUR OBLIGATIONS."
-        title={<>See exactly how EtherTrack<br/><span style={{ color:"var(--grn)" }}>maps to your requirements.</span></>}
+        title={<>See exactly how EtherTrack<br/><span style={{ color:"var(--grn)" }}>maps to your requirements</span></>}
         subtitle="Every sector has different GEI targets, BEE methodologies, and reporting obligations. In 30 minutes we'll map your specific situation to the exact EtherTrack workflow that covers it."
         note="No commitment · Sector-specific walkthrough · Response within 24 hours"
       />

@@ -2,6 +2,7 @@ import { useReveal } from "../hooks";
 import { SOLUTIONS } from "../data";
 import { useDemoModal } from "../context/DemoModalContext";
 import CtaBand from "../components/CtaBand";
+import Seo from "../components/Seo";
 
 export default function Solutions() {
   const { openDemo } = useDemoModal();
@@ -9,9 +10,14 @@ export default function Solutions() {
 
   return (
     <>
+      <Seo
+        title="Solutions — EtherTrack for Corporates, MSMEs & Project Developers"
+        description="Carbon infrastructure built around how you actually work — corporate BRSR filers, MSMEs, project developers, ESG consultants, and CCTS compliance officers."
+        path="/solutions"
+      />
       <section className="page-hero">
         <div className="eyebrow">SOLUTIONS</div>
-        <h1 className="page-h1">Carbon infrastructure<br/><span style={{ color:"var(--grn)" }}>built for your actual workflow.</span></h1>
+        <h1 className="page-h1">Carbon infrastructure<br/><span style={{ color:"var(--grn)" }}>built for your actual workflow</span></h1>
         <p className="page-sub">
           EtherTrack is not a generic carbon SaaS. Every workflow — from how you log emissions
           to how you retire credits to which report you download — is designed around the specific
@@ -40,7 +46,7 @@ export default function Solutions() {
       {/* ── ESG Consulting Channel Partner section ── */}
       <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
         <div className="s-label reveal">CHANNEL PARTNER PROGRAMME</div>
-        <h2 className="s-h2 reveal">For ESG consulting firms.<br/><span style={{ color:"var(--grn)" }}>EtherTrack makes you more valuable, not less.</span></h2>
+        <h2 className="s-h2 reveal">For ESG consulting firms<br/><span style={{ color:"var(--grn)" }}>EtherTrack makes you more valuable, not less</span></h2>
         <p className="s-sub reveal">
           ESG consulting and audit firms are not EtherTrack's competitors — they are our highest-leverage
           distribution channel. One partnership with a mid-size ESG firm can bring 20–50 corporate clients immediately.
@@ -83,7 +89,7 @@ export default function Solutions() {
       {/* ── Trust signals ── */}
       <section className="section">
         <div className="s-label reveal">WHY TRUST ETHERTRACK</div>
-        <h2 className="s-h2 reveal">Not promises.<br/><span style={{ color:"var(--grn)" }}>Verifiable proof.</span></h2>
+        <h2 className="s-h2 reveal">Not promises —<br/><span style={{ color:"var(--grn)" }}>verifiable proof</span></h2>
         <p className="s-sub reveal">Every claim we make about our platform is publicly verifiable. No marketing speak. No vaporware.</p>
         <div className="bento">
           {[

@@ -4,6 +4,7 @@ import { TABS } from "../data";
 import { ExchangeFeatures, ComplianceFeatures, OperationsFeatures } from "../components/FeatureSections";
 import MockPane from "../components/MockPane";
 import CtaBand from "../components/CtaBand";
+import Seo from "../components/Seo";
 
 const MODULES = [
   {
@@ -67,9 +68,14 @@ export default function Platform() {
 
   return (
     <>
+      <Seo
+        title="Platform — EtherTrack Carbon Trading & Compliance Modules"
+        description="Seven modules covering emissions tracking, on-chain credit trading, retirement, and four regulatory reports — BRSR Core, CDP Climate, TCFD, and GHG Protocol."
+        path="/platform"
+      />
       <section className="page-hero">
         <div className="eyebrow">THE PLATFORM</div>
-        <h1 className="page-h1">Everything your team needs<br/><span style={{ color:"var(--grn)" }}>to manage carbon. One platform.</span></h1>
+        <h1 className="page-h1">Everything your team needs<br/><span style={{ color:"var(--grn)" }}>to manage carbon — one platform</span></h1>
         <p className="page-sub">
           Seven modules covering emissions tracking, credit trading, on-chain retirement,
           and four regulatory reports — designed so your sustainability, finance, and
@@ -80,7 +86,7 @@ export default function Platform() {
       {/* ── 7 Modules — business value first ── */}
       <section className="section" style={{ paddingTop:0 }}>
         <div className="s-label reveal">THE 7 MODULES</div>
-        <h2 className="s-h2 reveal">What each module<br/><span style={{ color:"var(--grn)" }}>actually does for your business.</span></h2>
+        <h2 className="s-h2 reveal">What each module<br/><span style={{ color:"var(--grn)" }}>actually does for your business</span></h2>
         <p className="s-sub reveal">
           Every module below is live on testnet. Each one is designed around
           a specific person in your organisation and the job they need to get done.
@@ -109,7 +115,7 @@ export default function Platform() {
       {/* ── Deep-dive tabs ── */}
       <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
         <div className="s-label reveal">CAPABILITY DEEP-DIVE</div>
-        <h2 className="s-h2 reveal">Under every module.<br/><span style={{ color:"var(--grn)" }}>The detail that matters to compliance.</span></h2>
+        <h2 className="s-h2 reveal">Under every module<br/><span style={{ color:"var(--grn)" }}>The detail that matters to compliance</span></h2>
         <div className="feat-tabs">
           {[
             ["Exchange", "How trading and settlement works"],
@@ -128,7 +134,7 @@ export default function Platform() {
       {/* ── Business value summary ── */}
       <section className="section">
         <div className="s-label reveal">WHY IT MATTERS</div>
-        <h2 className="s-h2 reveal">What EtherTrack replaces<br/><span style={{ color:"var(--grn)" }}>for your business.</span></h2>
+        <h2 className="s-h2 reveal">What EtherTrack replaces<br/><span style={{ color:"var(--grn)" }}>for your business</span></h2>
         <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:12 }}>
           {[
             [
@@ -199,7 +205,7 @@ export default function Platform() {
       {/* ── Screenshots ── */}
       <section className="ss-section" id="screenshots">
         <div className="s-label reveal">THE PRODUCT</div>
-        <h2 className="s-h2 reveal">Every module. <span style={{ color:"var(--grn)" }}>Live on testnet.</span></h2>
+        <h2 className="s-h2 reveal">Every module — <span style={{ color:"var(--grn)" }}>live on testnet</span></h2>
         <p className="s-sub reveal" style={{ marginBottom:32 }}>
           Real screenshots from the live Sepolia build. Click any tab to explore.
         </p>
@@ -224,7 +230,7 @@ export default function Platform() {
 
       <CtaBand
         eyebrow="SEE IT LIVE"
-        title={<>A 30-minute walkthrough covers<br/><span style={{ color:"var(--grn)" }}>every module end to end.</span></>}
+        title={<>A 30-minute walkthrough covers<br/><span style={{ color:"var(--grn)" }}>every module end to end</span></>}
         subtitle="We'll walk through the order book, emission tracking, CCTS module, and regulatory exports live on testnet — using your company's sector and obligations as the example."
         note="No commitment · Live on real testnet · Response within 24 hours"
       />

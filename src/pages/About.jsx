@@ -3,6 +3,7 @@ import { TL, FOUNDER_DOMAINS } from "../data";
 import { useDemoModal } from "../context/DemoModalContext";
 import founderImg from "../assets/founder.jpg";
 import CtaBand from "../components/CtaBand";
+import Seo from "../components/Seo";
 
 export default function About() {
   useReveal();
@@ -10,9 +11,14 @@ export default function About() {
 
   return (
     <>
+      <Seo
+        title="About EtherTrack — Carbon Infrastructure for India"
+        description="EtherTrack Technologies Private Limited builds blockchain-native carbon infrastructure for India's CCTS compliance market. Read our story and regulatory timeline."
+        path="/about"
+      />
       <section className="page-hero">
         <div className="eyebrow">ABOUT ETHERTRACK</div>
-        <h1 className="page-h1">We built what India's<br/><span style={{ color:"var(--grn)" }}>carbon market was missing.</span></h1>
+        <h1 className="page-h1">We built what India's<br/><span style={{ color:"var(--grn)" }}>carbon market was missing</span></h1>
         <p className="page-sub">
           EtherTrack Technologies Private Limited is a blockchain-native carbon infrastructure company.
           We exist because India's carbon market — one of the largest in the world by credit supply —
@@ -41,7 +47,7 @@ export default function About() {
       {/* ── Founder ── */}
       <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
         <div className="s-label reveal">FROM THE FOUNDER</div>
-        <h2 className="s-h2 reveal">Built for a market<br/><span style={{ color:"var(--grn)" }}>that deserved better.</span></h2>
+        <h2 className="s-h2 reveal">Built for a market<br/><span style={{ color:"var(--grn)" }}>that deserved better</span></h2>
         <div className="founder-card reveal">
           <div className="founder-photo">
             <img
@@ -79,7 +85,7 @@ export default function About() {
       {/* ── The solo-build story ── */}
       <section className="section">
         <div className="s-label reveal">THE BUILD</div>
-        <h2 className="s-h2 reveal">7 modules. 3 domains.<br/><span style={{ color:"var(--grn)" }}>One person. All working.</span></h2>
+        <h2 className="s-h2 reveal">7 modules · 3 domains<br/><span style={{ color:"var(--grn)" }}>One person, all working</span></h2>
         <p className="s-sub reveal">
           EtherTrack was built by a single founder simultaneously across three technical domains
           that are rarely combined — carbon market regulation, Solidity smart contract engineering,
@@ -135,7 +141,7 @@ export default function About() {
       {/* ── CCTS Timeline ── */}
       <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }} id="ccts">
         <div className="s-label reveal">THE REGULATORY TIMELINE</div>
-        <h2 className="s-h2 reveal">The window opened.<br/><span style={{ color:"var(--org)" }}>Most companies haven't noticed yet.</span></h2>
+        <h2 className="s-h2 reveal">The window opened —<br/><span style={{ color:"var(--org)" }}>most companies haven't noticed yet</span></h2>
         <p className="s-sub reveal">India's carbon compliance regime has been activating quietly since 2022. The pace is about to become impossible to ignore.</p>
         <div className="tl">
           {TL.map((t,i) => (
@@ -154,7 +160,7 @@ export default function About() {
 
       <CtaBand
         eyebrow="JOIN THE EARLY ACCESS LIST"
-        title={<>We're pre-launch.<br/><span style={{ color:"var(--grn)" }}>Now is exactly the right time.</span></>}
+        title={<>We're pre-launch —<br/><span style={{ color:"var(--grn)" }}>now is exactly the right time</span></>}
         subtitle="Mainnet is coming. Early-access companies get priority onboarding, direct founder support, and first access to the live order book when it opens. Request a demo to get on the list."
         note="No commitment · Direct founder walkthrough · Response within 24 hours"
       />

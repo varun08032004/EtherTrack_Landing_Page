@@ -5,6 +5,7 @@ import { useDemoModal } from "../context/DemoModalContext";
 import { STATS, GAPS, HOW, PRICING, MQ_ITEMS, WHY_NOW, TAM, WHY_WIN } from "../data";
 import AnimatedStat from "../components/AnimatedStat";
 import CtaBand from "../components/CtaBand";
+import Seo from "../components/Seo";
 
 export default function Home() {
   const [gapTab, setGapTab] = useState(0);
@@ -14,6 +15,11 @@ export default function Home() {
 
   return (
     <>
+      <Seo
+        title="EtherTrack — Blockchain-Native Carbon Infrastructure Platform for India"
+        description="Track emissions, trade carbon credits on a live order book, retire on-chain, and generate BRSR, CDP, TCFD, and GHG Protocol reports — all on one platform built for India's CCTS compliance market."
+        path="/"
+      />
       {/* ── Hero ── */}
       <section className="hero">
         <div className="eyebrow">INDIA'S BLOCKCHAIN-NATIVE CARBON INFRASTRUCTURE PLATFORM</div>
@@ -63,7 +69,7 @@ export default function Home() {
       {/* ── Why Now — Five Conditions ── */}
       <section className="section">
         <div className="s-label reveal">WHY NOW AND NOT TWO YEARS AGO</div>
-        <h2 className="s-h2 reveal">Five conditions had to converge.<br/><span style={{ color:"var(--grn)" }}>They all did. Between 2022 and 2026.</span></h2>
+        <h2 className="s-h2 reveal">Five conditions had to converge<br/><span style={{ color:"var(--grn)" }}>They all did — between 2022 and 2026</span></h2>
         <p className="s-sub reveal">
           EtherTrack could not have existed before 2022. Every one of the conditions below
           had to be true simultaneously — and they all became true in a four-year window
@@ -104,7 +110,7 @@ export default function Home() {
       {/* ── Market Opportunity ── */}
       <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
         <div className="s-label reveal">MARKET OPPORTUNITY</div>
-        <h2 className="s-h2 reveal">This is not a niche market.<br/><span style={{ color:"var(--grn)" }}>It is a regulatory inevitability.</span></h2>
+        <h2 className="s-h2 reveal">Not a niche market<br/><span style={{ color:"var(--grn)" }}>A regulatory inevitability</span></h2>
         <p className="s-sub reveal">
           Every number below is a published third-party estimate based on enacted regulation —
           not speculation. The demand is non-discretionary. The infrastructure is what's missing.
@@ -146,7 +152,7 @@ export default function Home() {
       {/* ── Market Gaps ── */}
       <section className="section" id="market-gap">
         <div className="s-label reveal">WHY ETHERTRACK EXISTS</div>
-        <h2 className="s-h2 reveal">India's carbon market has six<br/><span style={{ color:"var(--grn)" }}>fundamental problems. We solved them.</span></h2>
+        <h2 className="s-h2 reveal">India's carbon market has six<br/><span style={{ color:"var(--grn)" }}>fundamental problems — we solved them</span></h2>
         <p className="s-sub reveal">Every solution below is live on Ethereum Sepolia testnet today. Not a roadmap. Not a promise. Working software.</p>
         <div className="gap-tabs">
           {GAPS.map((g,i) => (
@@ -183,7 +189,7 @@ export default function Home() {
       {/* ── Why We Win ── */}
       <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
         <div className="s-label reveal">STRUCTURAL ADVANTAGES</div>
-        <h2 className="s-h2 reveal">Six moats. Not features.<br/><span style={{ color:"var(--grn)" }}>Built into the architecture.</span></h2>
+        <h2 className="s-h2 reveal">Six moats, not features<br/><span style={{ color:"var(--grn)" }}>Built into the architecture</span></h2>
         <p className="s-sub reveal">
           Features can be copied. These six advantages compound over time and become harder to replicate
           the longer EtherTrack operates. None of them rest on being first with a feature alone.
@@ -218,7 +224,7 @@ export default function Home() {
       {/* ── How It Works ── */}
       <section className="section" id="how">
         <div className="s-label reveal">HOW IT WORKS</div>
-        <h2 className="s-h2 reveal">From zero to compliant.<br/><span style={{ color:"var(--grn)" }}>Four steps. One platform.</span></h2>
+        <h2 className="s-h2 reveal">From zero to compliant<br/><span style={{ color:"var(--grn)" }}>Four steps, one platform</span></h2>
         <p className="s-sub reveal">No consultants. No spreadsheets. No switching between tools. The entire carbon compliance workflow lives in a single session on EtherTrack.</p>
         <div className="how-grid">
           {HOW.map((s,i) => (
@@ -234,7 +240,7 @@ export default function Home() {
       {/* ── Pricing ── */}
       <section className="section" id="pricing" style={{ borderTop:"1px solid var(--brd)", borderBottom:"1px solid var(--brd)" }}>
         <div className="s-label reveal">PRICING</div>
-        <h2 className="s-h2 reveal">Transparent pricing.<br/><span style={{ color:"var(--grn)" }}>No surprises. Ever.</span></h2>
+        <h2 className="s-h2 reveal">Transparent pricing<br/><span style={{ color:"var(--grn)" }}>No surprises, ever</span></h2>
         <p className="s-sub reveal">One fixed platform fee, hardcoded in the smart contract and verifiable on Etherscan. As your usage grows, your fee rate drops.</p>
         <div className="pricing-grid">
           {PRICING.map((p) => (
@@ -273,7 +279,7 @@ export default function Home() {
       {/* ── Explore more ── */}
       <section className="section">
         <div className="s-label reveal">EXPLORE ETHERTRACK</div>
-        <h2 className="s-h2 reveal">Built for your role.<br/><span style={{ color:"var(--grn)" }}>See what's relevant to you.</span></h2>
+        <h2 className="s-h2 reveal">Built for your role<br/><span style={{ color:"var(--grn)" }}>See what's relevant to you</span></h2>
         <div className="bento">
           <Link to="/platform" className="b-card c4 reveal" style={{ textDecoration:"none" }}>
             <span className="b-icon">🧩</span>
@@ -298,7 +304,7 @@ export default function Home() {
 
       <CtaBand
         eyebrow="THE CCTS DEADLINE IS NOW"
-        title={<>490 entities. FY2026.<br/><span style={{ color:"var(--org)" }}>The clock is already running.</span></>}
+        title={<>490 entities, FY2026<br/><span style={{ color:"var(--org)" }}>The clock is already running</span></>}
         subtitle="India's Carbon Credit Trading Scheme is not a future obligation — it is live. If your company is in one of the nine gazetted sectors, your GEI baseline period has already started. Request a demo and get ahead of it."
         note="No commitment · 30-minute live walkthrough on testnet · Response within 24 hours"
       />
