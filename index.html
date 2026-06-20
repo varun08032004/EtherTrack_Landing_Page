@@ -1,75 +1,58 @@
-<!--
-  REPLACE your entire existing SEO block in index.html (the part between
-  the viewport meta tag and the <script type="module"> line) with this.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="/logo.png" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  WHY: Your Seo.jsx/Helmet component already injects <title>,
-  meta[name=description], link[rel=canonical], og:title, og:description,
-  og:url, og:type, og:site_name, and twitter:card/title/description
-  PER PAGE at runtime. Keeping those same tags hardcoded here too caused
-  duplicates (two <title> tags, two canonicals, etc).
+    <!-- SEO: static, route-agnostic fallback only -->
+    <!--
+      Title, meta description, canonical, og:title, og:description, og:url,
+      og:type, and og:site_name are injected per-page by Seo.jsx (Helmet)
+      at runtime. Do NOT add them here again — that caused duplicate tags.
+    -->
+    <meta name="keywords" content="EtherTrack, carbon credit trading India, CCTS compliance software, BRSR Core reporting, blockchain carbon credits, ESG compliance India, carbon credit tokenisation, GHG emissions tracking software India, Ethereum carbon market, ISO 14064-3 retirement certificate" />
+    <meta name="author" content="EtherTrack Technologies Private Limited" />
+    <meta name="robots" content="index, follow" />
 
-  KEPT here only because Helmet does NOT set these — so they act as a
-  safe, route-agnostic fallback for non-JS bots (WhatsApp/LinkedIn/X
-  preview scrapers) without colliding with Helmet:
-    - meta keywords
-    - meta author
-    - meta robots
-    - og:image
-    - twitter:image
-    - twitter:card (kept ONLY because some scrapers need it present
-      even before JS runs — Helmet will silently override/dedupe this
-      one correctly since it's a single self-closing meta, not a
-      stacking tag like title/canonical)
-    - JSON-LD schema (Organization + SoftwareApplication)
+    <!-- Open Graph: image only -->
+    <meta property="og:image" content="https://ethertrack.in/logo.png" />
 
-  REMOVED (now exclusively Helmet's job, per page):
-    - <title>
-    - meta description
-    - link rel="canonical"
-    - og:title
-    - og:description
-    - og:url
-    - og:type
-    - og:site_name
--->
+    <!-- Twitter: image only -->
+    <meta name="twitter:image" content="https://ethertrack.in/logo.png" />
 
-<!-- SEO: static, route-agnostic fallback only -->
-<meta name="keywords" content="EtherTrack, carbon credit trading India, CCTS compliance software, BRSR Core reporting, blockchain carbon credits, ESG compliance India, carbon credit tokenisation, GHG emissions tracking software India, Ethereum carbon market, ISO 14064-3 retirement certificate" />
-<meta name="author" content="EtherTrack Technologies Private Limited" />
-<meta name="robots" content="index, follow" />
+    <!-- Organization schema (route-agnostic, safe to stay static) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EtherTrack Technologies Private Limited",
+      "alternateName": "EtherTrack",
+      "url": "https://ethertrack.in/",
+      "logo": "https://ethertrack.in/logo.png",
+      "sameAs": [
+        "https://linkedin.com/company/ethertrack-technologies-private-limited",
+        "https://x.com/EtherTrack"
+      ]
+    }
+    </script>
 
-<!-- Open Graph: image only (title/description/url/type/site_name come from Helmet per page) -->
-<meta property="og:image" content="https://ethertrack.in/logo.png" />
-
-<!-- Twitter: image only -->
-<meta name="twitter:image" content="https://ethertrack.in/logo.png" />
-
-<!-- Organization schema (route-agnostic, safe to stay static) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "EtherTrack Technologies Private Limited",
-  "alternateName": "EtherTrack",
-  "url": "https://ethertrack.in/",
-  "logo": "https://ethertrack.in/logo.png",
-  "sameAs": [
-    "https://linkedin.com/company/ethertrack-technologies-private-limited",
-    "https://x.com/EtherTrack"
-  ]
-}
-</script>
-
-<!-- Product schema (route-agnostic, safe to stay static) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "EtherTrack",
-  "applicationCategory": "BusinessApplication",
-  "description": "Blockchain-based carbon credit trading, GHG emissions tracking, and CCTS/BRSR/CDP/TCFD compliance reporting platform for India.",
-  "operatingSystem": "Web",
-  "url": "https://ethertrack.in/",
-  "offers": { "@type": "Offer", "priceCurrency": "INR" }
-}
-</script>
+    <!-- Product schema (route-agnostic, safe to stay static) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "EtherTrack",
+      "applicationCategory": "BusinessApplication",
+      "description": "Blockchain-based carbon credit trading, GHG emissions tracking, and CCTS/BRSR/CDP/TCFD compliance reporting platform for India.",
+      "operatingSystem": "Web",
+      "url": "https://ethertrack.in/",
+      "offers": { "@type": "Offer", "priceCurrency": "INR" }
+    }
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>
