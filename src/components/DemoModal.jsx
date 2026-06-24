@@ -1,19 +1,57 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { isValidEmail } from "../utils";
+
+const EMAILJS_SERVICE_ID = "service_lsq2fy2";
+const EMAILJS_TEMPLATE_ID = "template_tdqb7h4";          // notifies founder@
+const EMAILJS_AUTOREPLY_TEMPLATE_ID = "template_xhoujfa"; // replies to the lead
+const EMAILJS_PUBLIC_KEY = "ClBYGxIeqR4j9AAjZ";
 
 /* ─── DEMO MODAL ─────────────────────────────────────────────────── */
 export default function DemoModal({ onClose }) {
   const [form, setForm] = useState({ name: "", email: "", company: "", role: "" });
   const [sent, setSent] = useState(false);
   const [emailError, setEmailError] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [serverError, setServerError] = useState("");
+
   const set = k => e => {
     setForm(p => ({ ...p, [k]: e.target.value }));
     if (k === "email") setEmailError(false);
   };
-  const handleSend = () => {
-    if (isValidEmail(form.email)) setSent(true);
-    else setEmailError(true);
+
+  const handleSend = async () => {
+    if (!isValidEmail(form.email)) {
+      setEmailError(true);
+      return;
+    }
+    setServerError("");
+    setSending(true);
+    try {
+      const payload = {
+        name: form.name,
+        email: form.email,
+        company: form.company,
+        role: form.role,
+      };
+
+      // 1. Notify founder@ethertrack.in
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, payload, EMAILJS_PUBLIC_KEY);
+
+      // 2. Auto-reply to the lead (fire-and-forget — don't block success on this)
+      emailjs
+        .send(EMAILJS_SERVICE_ID, EMAILJS_AUTOREPLY_TEMPLATE_ID, payload, EMAILJS_PUBLIC_KEY)
+        .catch(err => console.error("Auto-reply failed:", err));
+
+      setSent(true);
+    } catch (err) {
+      console.error("EmailJS send failed:", err);
+      setServerError("Couldn't send your request. Please try again.");
+    } finally {
+      setSending(false);
+    }
   };
+
   return (
     <div className="modal-bg" onClick={onClose}>
       <div className="modal" onClick={e => e.stopPropagation()}>
@@ -39,7 +77,10 @@ export default function DemoModal({ onClose }) {
                   {k === "email" && emailError && <p style={{ color:"var(--red)", fontFamily:"var(--font-mono)", fontSize:10, marginTop:6 }}>Enter a valid email address</p>}
                 </div>
               ))}
-              <button className="btn-p" style={{ marginTop:".5rem" }} onClick={handleSend}>SEND REQUEST →</button>
+              {serverError && <p style={{ color:"var(--red)", fontFamily:"var(--font-mono)", fontSize:10 }}>{serverError}</p>}
+              <button className="btn-p" style={{ marginTop:".5rem", opacity: sending ? 0.6 : 1 }} onClick={handleSend} disabled={sending}>
+                {sending ? "SENDING…" : "SEND REQUEST →"}
+              </button>
             </div>
           </>
         )}
