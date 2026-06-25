@@ -139,7 +139,7 @@ function SiteFooter() {
       <div className="footer-bottom">
         <div>© 2026 ETHERTRACK TECHNOLOGIES PRIVATE LIMITED · MADE WITH 🌿 IN INDIA</div>
         <div className="footer-socials">
-          <a href="https://www.instagram.com/ethertrack.in/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+          <a href="https://www.instagram.com/ethertrack_official/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
           <a href="https://www.linkedin.com/company/ethertrack-technologies-private-limited/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
           <a href="https://x.com/EtherTrack" target="_blank" rel="noopener noreferrer">TWITTER / X</a>
         </div>
