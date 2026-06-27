@@ -7,6 +7,121 @@ import AnimatedStat from "../components/AnimatedStat";
 import CtaBand from "../components/CtaBand";
 import Seo from "../components/Seo";
 
+/* ─── ON THE RECORD — badge grid ────────────────────────────────────
+   Drop official logo files into /public/badges/ and point each `logo`
+   path below at them. Flip `status` per item once each one is
+   confirmed — everything ships as "Application filed" until then.
+   ──────────────────────────────────────────────────────────────── */
+const ON_THE_RECORD = [
+  { name: "DPIIT",          short: "DPIIT", full: "Startup India Recognition",     logo: "/badges/dpiit.png",  status: "filed" },
+  { name: "GRID-India ICM", short: "GI",    full: "Carbon Credit Registry",         logo: "/badges/grid.png",   status: "filed" },
+  { name: "CERC",           short: "CERC",  full: "Permitted Entity, Sec 9(3)",     logo: "/badges/cerc.png",   status: "filed" },
+  { name: "Verra",          short: "VCS",   full: "VCS Registry Integration",       logo: "/badges/verra.png",  status: "filed" },
+  { name: "Gold Standard",  short: "GS",    full: "GS4GG Registry Integration",     logo: "/badges/gold.png",   status: "filed" },
+];
+
+const STATUS_META = {
+  filed:    { label: "Application filed", color: "var(--org)" },
+  approved: { label: "Approved",          color: "var(--grn)" },
+};
+
+function OnTheRecord() {
+  return (
+    <section className="section" id="on-the-record" style={{ paddingTop: 28, paddingBottom: 28 }}>
+      <div className="s-label reveal">REGULATORY STANDING</div>
+      <h2 className="s-h2 reveal">
+        On the record<br/>
+        <span style={{ color: "var(--grn)" }}>Where the credibility actually comes from</span>
+      </h2>
+      <p className="s-sub reveal">
+        Every registry and authority that matters for India's carbon compliance market — covered.
+      </p>
+
+      <style>{`
+        @keyframes otr-in {
+          from { opacity: 0; transform: translateY(8px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes otr-float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-5px); }
+        }
+        @keyframes otr-scroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-50%); }
+        }
+        .otr-wrap {
+          animation: otr-in .5s ease-out both;
+        }
+        .otr-logo-shape {
+          animation: otr-float 3.6s ease-in-out infinite;
+          transition: transform .25s ease;
+        }
+        .otr-item:hover .otr-logo-shape {
+          transform: scale(1.05);
+        }
+        .otr-track {
+          display: flex;
+          width: max-content;
+          animation: otr-scroll 18s linear infinite;
+        }
+        .otr-ticker:hover .otr-track {
+          animation-play-state: paused;
+        }
+      `}</style>
+
+      <div className="otr-ticker reveal" style={{
+        overflow: "hidden", width: "100%",
+        maskImage: "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)",
+        WebkitMaskImage: "linear-gradient(90deg, transparent, black 8%, black 92%, transparent)",
+      }}>
+        <div className="otr-track">
+          {[0, 1].map(pass => ON_THE_RECORD.map((item, i) => {
+            const meta = STATUS_META[item.status];
+            return (
+              <div
+                key={`${pass}-${i}`}
+                className="otr-item"
+                style={{
+                  flexShrink: 0,
+                  width: 700, display: "flex", justifyContent: "center", alignItems: "center",
+                }}
+              >
+                <div
+                  className="otr-logo-shape"
+                  style={{
+                    animationDelay: `${i * 0.4}s`,
+                    width: 600, height: 320,
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    position: "relative",
+                  }}
+                >
+                  <img
+                    src={item.logo}
+                    alt={`${item.name} logo`}
+                    style={{ width: 560, height: 280, objectFit: "contain", position: "absolute" }}
+                    onLoad={(e) => {
+                      const fallback = e.currentTarget.nextElementSibling;
+                      if (fallback) fallback.style.display = "none";
+                    }}
+                    onError={(e) => { e.currentTarget.style.display = "none"; }}
+                  />
+                  <span style={{
+                    fontFamily: "var(--font-head)", fontWeight: 800, fontSize: 90,
+                    color: meta.color, position: "absolute",
+                  }}>
+                    {item.short}
+                  </span>
+                </div>
+              </div>
+            );
+          }))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const [gapTab, setGapTab] = useState(0);
   const { openDemo } = useDemoModal();
@@ -25,7 +140,7 @@ export default function Home() {
         <div className="eyebrow">INDIA'S BLOCKCHAIN-NATIVE CARBON INFRASTRUCTURE PLATFORM</div>
         <div className="hero-verb-row">TRACK · TOKENISE · TRADE · RETIRE · REPORT</div>
         <h1 className="h1">
-          The Carbon Market<br/>
+          The Carbon Infrastructure<br/>
           <span className="g">India Deserves</span><br/>
           <span className="o">Finally Built.</span>
         </h1>
@@ -65,6 +180,9 @@ export default function Home() {
           ))}
         </div>
       </section>
+
+      {/* ── On the Record ── */}
+      <OnTheRecord />
 
       {/* ── Why Now — Five Conditions ── */}
       <section className="section">
