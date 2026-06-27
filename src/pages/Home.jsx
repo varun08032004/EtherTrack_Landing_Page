@@ -148,10 +148,25 @@ export default function Home() {
       <section className="hero">
         <div className="eyebrow">INDIA'S BLOCKCHAIN-NATIVE CARBON INFRASTRUCTURE PLATFORM</div>
         <div className="hero-verb-row">TRACK · TOKENISE · TRADE · RETIRE · REPORT</div>
-        <h1 className="h1" style={{ fontSize: "clamp(1.9rem, 3.8vw, 3.5rem)", lineHeight: 1.15 }}>
-          <span style={{ display: "block", whiteSpace: "nowrap" }}>The Carbon Infrastructure</span>
-          <span className="g" style={{ display: "block", whiteSpace: "nowrap" }}>India Deserves</span>
-          <span className="o" style={{ display: "block", whiteSpace: "nowrap" }}>Finally Built.</span>
+        <style>{`
+          .hero-h1-line {
+            display: block;
+            white-space: nowrap;
+          }
+          @media (max-width: 640px) {
+            .hero-h1 {
+              font-size: 2rem !important;
+              line-height: 1.25 !important;
+            }
+            .hero-h1-line {
+              white-space: normal !important;
+            }
+          }
+        `}</style>
+        <h1 className="h1 hero-h1" style={{ fontSize: "clamp(1.9rem, 3.8vw, 3.5rem)", lineHeight: 1.15 }}>
+          <span className="hero-h1-line">The Carbon Infrastructure</span>
+          <span className="g hero-h1-line">India Deserves</span>
+          <span className="o hero-h1-line">Finally Built.</span>
         </h1>
         <p className="hero-sub">
           From emission log to verified on-chain retirement — in one session.

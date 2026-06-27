@@ -11,6 +11,25 @@ const NAV_PAGES = [
   ["About", "/about"],
 ];
 
+/* Mobile-only override: shrink the "REQUEST DEMO" pill in the top nav
+   on small screens instead of letting it run full desktop size.
+   Keeps desktop completely untouched. */
+const NAV_RESPONSIVE_CSS = `
+  @media (max-width: 640px) {
+    .nav-cta {
+      font-size: 10px !important;
+      padding: 6px 10px !important;
+      white-space: nowrap !important;
+    }
+    .nav-right {
+      gap: 8px !important;
+    }
+    .nav-status {
+      display: none !important;
+    }
+  }
+`;
+
 function ScrollManager() {
   const { pathname, hash } = useLocation();
   useEffect(() => {
@@ -154,6 +173,7 @@ export default function Layout() {
   return (
     <DemoModalProvider>
       <style>{GLOBAL_CSS}</style>
+      <style>{NAV_RESPONSIVE_CSS}</style>
       <div className="orb orb1" /><div className="orb orb2" /><div className="orb orb3" />
       <ScrollManager />
       <MobileNav open={mobileOpen} onClose={() => setMobileOpen(false)} />
