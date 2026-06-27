@@ -118,6 +118,15 @@ function OnTheRecord() {
           }))}
         </div>
       </div>
+
+      <div className="reveal" style={{
+        marginTop: 24, padding: "14px 28px",
+        background: "rgba(0,224,80,.04)", border: "1px solid var(--grnd)",
+        borderRadius: "var(--r-md)", fontFamily: "var(--font-mono)",
+        fontSize: 11, color: "var(--mut-lt)", lineHeight: 1.8,
+      }}>
+        Five registries. One compliance backbone. EtherTrack, built into the system from day one.
+      </div>
     </section>
   );
 }
@@ -139,10 +148,10 @@ export default function Home() {
       <section className="hero">
         <div className="eyebrow">INDIA'S BLOCKCHAIN-NATIVE CARBON INFRASTRUCTURE PLATFORM</div>
         <div className="hero-verb-row">TRACK · TOKENISE · TRADE · RETIRE · REPORT</div>
-        <h1 className="h1">
-          The Carbon Infrastructure<br/>
-          <span className="g">India Deserves</span><br/>
-          <span className="o">Finally Built.</span>
+        <h1 className="h1" style={{ fontSize: "clamp(1.9rem, 3.8vw, 3.5rem)", lineHeight: 1.15 }}>
+          <span style={{ display: "block", whiteSpace: "nowrap" }}>The Carbon Infrastructure</span>
+          <span className="g" style={{ display: "block", whiteSpace: "nowrap" }}>India Deserves</span>
+          <span className="o" style={{ display: "block", whiteSpace: "nowrap" }}>Finally Built.</span>
         </h1>
         <p className="hero-sub">
           From emission log to verified on-chain retirement — in one session.
