@@ -26,9 +26,9 @@ export const STATS = [
     color: "var(--blu)",
   },
   {
-    num: "4",
+    num: "5",
     lbl: "REGULATORY REPORTS — ONE CLICK EACH",
-    src: "BRSR Core · CDP Climate · TCFD · GHG Protocol ISO 14064-1",
+    src: "BRSR Core · CDP Climate · TCFD · GRI · GHG Protocol ISO 14064-1",
     color: "var(--vio)",
   },
 ];
@@ -107,12 +107,12 @@ export const GAPS = [
   {
     tabLabel: "REPORTING COSTS",
     problem: "Indian companies spend ₹5–15 lakh a year on ESG report consultants",
-    problemDesc: "CDP Climate, BRSR Core, TCFD, and GHG Protocol each require a different format, different calculations, and — typically — a different consultant. The average Indian listed company assembles these reports manually across six weeks, at a cost that makes the exercise prohibitive for most MSMEs. The result: most Indian companies either file nothing or file late.",
+    problemDesc: "CDP Climate, BRSR Core, TCFD, GRI, and GHG Protocol each require a different format, different calculations, and — typically — a different consultant. The average Indian listed company assembles these reports manually across six weeks, at a cost that makes the exercise prohibitive for most MSMEs. The result: most Indian companies either file nothing or file late.",
     tagP: "tp", tagS: "ts",
-    solution: "Four audit-ready regulatory reports — one click, zero consultants",
-    solutionDesc: "Because EtherTrack already holds your emission logs, credit purchases, and retirement records, it can generate BRSR Core (SEBI format), CDP Climate, TCFD, and GHG Protocol (ISO 14064-1) reports automatically. CEA V20.0 2024 factors are embedded. Dual Scope 2 (location-based and market-based) is calculated simultaneously. Blockchain TX hashes are included in every export for auditor verification.",
+    solution: "Five audit-ready regulatory reports — one click, zero consultants",
+    solutionDesc: "Because EtherTrack already holds your emission logs, credit purchases, and retirement records, it can generate BRSR Core (SEBI format), CDP Climate, TCFD, GRI, and GHG Protocol (ISO 14064-1) reports automatically. CEA V20.0 2024 factors are embedded. Dual Scope 2 (location-based and market-based) is calculated simultaneously. Blockchain TX hashes are included in every export for auditor verification.",
     facts: [
-      "BRSR Core · CDP Climate · TCFD · GHG Protocol — all four, one click each",
+      "BRSR Core · CDP Climate · TCFD · GRI · GHG Protocol — all five, one click each",
       "CEA V20.0 Dec 2024 · DEFRA 2024 · IPCC AR6 factors pre-embedded",
       "Dual Scope 2 · auditor-ready · blockchain TX hashes in every PDF",
     ],
@@ -124,22 +124,27 @@ export const HOW = [
   {
     n: "01",
     title: "Register & Complete KYC",
-    desc: "Sign up and complete our 4-step KYC in under 10 minutes. Aadhaar/PAN are cryptographically hashed — the raw numbers are never stored anywhere. Documents go to IPFS via Pinata. Trading access is granted within 1–2 business days after admin review.",
+    desc: "KYC in under 10 minutes. Aadhaar/PAN hashed, never stored raw. Trading access in 1–2 business days.",
   },
   {
     n: "02",
     title: "Log Your Emissions",
-    desc: "Enter Scope 1, 2, and 3 activities manually or bulk-import up to 2,000 records via CSV. Every entry is auto-calculated using DEFRA 2024 and CEA V20.0 2024 factors. Your dashboard instantly shows your total footprint and exactly how many credits you need to offset.",
+    desc: "Log Scope 1, 2, and 3 manually or via bulk CSV. Auto-calculated with DEFRA 2024 and CEA V20.0 factors.",
   },
   {
     n: "03",
-    title: "Buy or List Credits",
-    desc: "Browse the live order book and place market or limit orders, or use the AMM for instant execution on orders under 100 credits. Pay in INR via UPI — GPay, PhonePe, or Paytm — through Razorpay. No ETH wallet, no crypto knowledge required.",
+    title: "Credits Get Tokenised",
+    desc: "Every verified credit is minted on-chain with full metadata — standard, vintage, VCS serial, SDG tags.",
   },
   {
     n: "04",
+    title: "Buy or List Credits",
+    desc: "Trade on the live order book, or use the AMM for instant fills under 100 credits. Pay in INR via UPI.",
+  },
+  {
+    n: "05",
     title: "Retire On-Chain & Report",
-    desc: "Retire credits with one click — permanently burned to the Ethereum null address. Download your BRSR Core, CDP Climate, TCFD, or GHG Protocol PDF instantly. Your ISO 14064-3 certificate includes a QR code that any auditor can verify on Etherscan — no login, no contact with us.",
+    desc: "Retire with one click — permanently burned on-chain. Download your BRSR, CDP, TCFD, GRI, or GHG Protocol PDF instantly.",
   },
 ];
 
@@ -175,7 +180,7 @@ export const PRICING = [
     desc: "MSMEs, growing businesses, and serious ESG teams that need full GHG tracking and regulatory reporting.",
     price: "₹79,990", period: "/yr", gst: "+ 18% GST", save: "Save ₹15,998 vs monthly billing",
     fee: "0.75%", seats: "10 seats", popular: true,
-    locked: ["Compliance dashboard (Corporate)", "Team management (Corporate)", "BRSR/CDP/TCFD reports (Corporate)"],
+    locked: ["Compliance dashboard (Corporate)", "Team management (Corporate)", "BRSR/CDP/TCFD/GRI reports (Corporate)"],
     unlocked: ["Everything in Starter", "Scope 1 + 2 full tracking", "Basic Scope 3 (5 categories)", "GHG inventory ledger", "CSV export + analytics dashboard", "Carbon intensity metrics", "Basic decarbonisation scenarios", "GHG Protocol PDF report", "10 seats included", "Chat support"],
     cta: "Get Started", solid: true,
   },
@@ -188,7 +193,7 @@ export const PRICING = [
     unlocked: [
       "Everything in Growth",
       "Full Scope 3 — all 15 GHG Protocol categories",
-      "BRSR Core · CDP Climate · TCFD · GHG Protocol PDF exports",
+      "BRSR Core · CDP Climate · TCFD · GRI · GHG Protocol PDF exports",
       "Blockchain audit trail + verifier integration",
       "BV, DNV, EY, Deloitte, TÜV SÜD, BSI, KPMG supported",
       "GEI / BEE CCTS compliance module",
@@ -242,7 +247,7 @@ export const MQ_ITEMS = [
   { dot: "var(--org)", text: "SEPOLIA TESTNET LIVE — ALL MODULES OPERATIONAL" },
   { text: "70+ EMISSION FACTORS · DEFRA 2024 · CEA V20.0 2024" },
   { dot: "var(--grn)", text: "0.5% PLATFORM FEE · HARDCODED IN SMART CONTRACT" },
-  { text: "BRSR CORE · CDP CLIMATE · TCFD · GHG PROTOCOL" },
+  { text: "BRSR CORE · CDP CLIMATE · TCFD · GRI · GHG PROTOCOL" },
   { dot: "var(--org)", text: "490 ENTITIES MANDATED · CCTS FY2026" },
   { text: "VCS · GOLD STANDARD · CDM · ACR · BEE CCTS" },
   { text: "ISO 14064-3 RETIREMENT CERTIFICATES · ETHERSCAN VERIFIABLE" },
@@ -257,7 +262,7 @@ export const SOLUTIONS = [
     pain: "Third-party assured BRSR Core is now a legal requirement for India's top 1,000 listed companies. Most still pay ₹5–15 lakh a year to assemble data that sits in six different spreadsheets across four departments. EtherTrack replaces that entire process.",
     fits: [
       "Full GHG inventory across all 3 scopes and all 15 Scope 3 categories",
-      "BRSR Core, CDP, TCFD, and GHG Protocol PDFs generated in one click",
+      "BRSR Core, CDP, TCFD, GRI, and GHG Protocol PDFs generated in one click",
       "Audit trail + verifier integration for BV, DNV, EY, Deloitte, KPMG",
       "Blockchain TX hashes embedded in every export for SEBI assessors",
     ],
@@ -564,6 +569,7 @@ export const FOUNDER_DOMAINS = [
       "CCTS GEI compliance — gazette formula, all 9 sectors",
       "CDP Climate — C4/C6/C6.5 questionnaire mapping",
       "TCFD four-pillar disclosure",
+      "GRI Standards — universal sustainability reporting",
       "ISO 14064-3 retirement certification",
       "CEA V20.0 Dec 2024 · DEFRA 2024 · IPCC AR6 GWP100",
     ],

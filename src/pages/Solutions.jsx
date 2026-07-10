@@ -1,8 +1,13 @@
 import { useReveal } from "../hooks";
+import { Link } from "react-router-dom";
 import { SOLUTIONS } from "../data";
 import { useDemoModal } from "../context/DemoModalContext";
 import CtaBand from "../components/CtaBand";
 import Seo from "../components/Seo";
+
+// Short, ID-safe slug for each persona so the quick-jump chips can scroll
+// straight to a card instead of making someone scan all five.
+const slugify = (audience) => audience.toLowerCase().replace(/[^a-z]+/g, "-").replace(/(^-|-$)/g, "");
 
 export default function Solutions() {
   const { openDemo } = useDemoModal();
@@ -27,9 +32,44 @@ export default function Solutions() {
 
       {/* ── Customer solutions ── */}
       <section className="section" style={{ paddingTop:0 }}>
+        {/* Quick-jump chips — lets someone go straight to their role instead
+            of scanning five full cards to find it. */}
+        <div className="reveal" style={{ display:"flex", flexWrap:"wrap", gap:8, marginBottom:28 }}>
+          {SOLUTIONS.map((s,i) => (
+            <a
+              key={i}
+              href={`#${slugify(s.audience)}`}
+              style={{
+                display:"inline-flex", alignItems:"center", gap:8,
+                padding:"8px 16px", borderRadius:"20px",
+                border:"1px solid var(--brd2)", color:"var(--mut-lt)",
+                fontFamily:"var(--font-mono)", fontSize:11, letterSpacing:".04em",
+                textDecoration:"none", transition:"all .2s",
+              }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--grn)"; e.currentTarget.style.color = "var(--grn)"; }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "var(--brd2)"; e.currentTarget.style.color = "var(--mut-lt)"; }}
+            >
+              <span>{s.icon}</span>{s.audience.replace(/^FOR /, "")}
+            </a>
+          ))}
+        </div>
+
+        {/* 5 cards in a 2-column grid orphans the last one (2+2+1) — instead
+            of letting that look like a layout accident, the last card
+            (CCTS Compliance Officers, currently the most time-urgent driver)
+            spans full width intentionally, as a closer rather than a
+            leftover. */}
+        <style>{`
+          .solutions-grid > .solution-card:last-child {
+            grid-column: 1 / -1;
+          }
+          @media (max-width: 768px) {
+            .solutions-grid > .solution-card:last-child { grid-column: auto; }
+          }
+        `}</style>
         <div className="solutions-grid">
           {SOLUTIONS.map((s,i) => (
-            <div key={i} className="solution-card reveal">
+            <div key={i} id={slugify(s.audience)} className="solution-card reveal" style={{ scrollMarginTop: 100 }}>
               <span className="solution-icon">{s.icon}</span>
               <div className="solution-audience">{s.audience}</div>
               <div className="solution-title">{s.title}</div>
@@ -41,15 +81,33 @@ export default function Solutions() {
             </div>
           ))}
         </div>
+
+        {/* Low-commitment exit — the only action available before this was
+            "book a demo." Someone not ready for a sales call yet had nowhere
+            else to go. This gives them somewhere to keep exploring instead
+            of bouncing. */}
+        <div className="reveal" style={{
+          marginTop: 32, textAlign: "center",
+          fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--mut-lt)",
+        }}>
+          Not ready to talk to sales yet? <Link to="/platform" style={{ color: "var(--grn)" }}>Explore the full platform →</Link>
+        </div>
       </section>
 
-      {/* ── ESG Consulting Channel Partner section ── */}
+      {/* ── ESG Consulting Channel Partner section ──
+          Sits right before the final CTA, after the customer solution grid.
+          It's a different audience — ESG firms as partners, not customers —
+          so it's framed as a clear pivot ("one more way to work with us")
+          rather than interrupting the customer-facing narrative midway
+          through the page, which is what it was doing before. */}
       <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
-        <div className="s-label reveal">CHANNEL PARTNER PROGRAMME</div>
+        <div className="s-label reveal">ONE MORE WAY TO WORK WITH US</div>
+        <div className="s-label reveal" style={{ marginTop: -8 }}>CHANNEL PARTNER PROGRAMME</div>
         <h2 className="s-h2 reveal">For ESG consulting firms<br/><span style={{ color:"var(--grn)" }}>EtherTrack makes you more valuable, not less</span></h2>
         <p className="s-sub reveal">
-          ESG consulting and audit firms are not EtherTrack's competitors — they are our highest-leverage
-          distribution channel. One partnership with a mid-size ESG firm can bring 20–50 corporate clients immediately.
+          Already found your fit above as a customer? Skip this section. If you're an ESG consulting or
+          audit firm instead, EtherTrack is not a competitor — it's your highest-leverage distribution
+          channel. One partnership with a mid-size ESG firm can bring 20–50 corporate clients immediately.
         </p>
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:14, marginBottom:32 }}>
           {[
@@ -83,29 +141,6 @@ export default function Solutions() {
             </div>
           </div>
           <button className="btn-p" onClick={openDemo} style={{ whiteSpace:"nowrap" }}>DISCUSS PARTNERSHIP →</button>
-        </div>
-      </section>
-
-      {/* ── Trust signals ── */}
-      <section className="section">
-        <div className="s-label reveal">WHY TRUST ETHERTRACK</div>
-        <h2 className="s-h2 reveal">Not promises —<br/><span style={{ color:"var(--grn)" }}>verifiable proof</span></h2>
-        <p className="s-sub reveal">Every claim we make about our platform is publicly verifiable. No marketing speak. No vaporware.</p>
-        <div className="bento">
-          {[
-            ["🔗","On-Chain or It Didn't Happen","Every trade, every retirement, every audit log is anchored as a real Ethereum transaction. You can verify any of it on Etherscan right now — no login, no contact with us."],
-            ["📐","Built to Indian Regulatory Standards","SEBI BRSR Core, BEE CCTS methodology, CEA V20.0 grid factor, DEFRA 2024 — every Indian regulatory requirement is embedded, not bolted on. We built for India's compliance landscape from day one."],
-            ["🏦","INR-Native — No Crypto Required","You pay in rupees. UPI, PhonePe, GPay, or Net Banking via Razorpay (RBI authorised). 1% TDS auto-deducted under Section 194S. Your accountant will not be confused."],
-            ["🔐","Privacy-First KYC","Aadhaar and PAN numbers are cryptographically hashed before storage — the raw digits never exist in our database. Documents go to IPFS. The same identity cannot register twice."],
-            ["📜","ISO 14064-3 Certificates","Every on-chain retirement produces an ISO 14064-3 certificate with a QR code that resolves to the public Etherscan record. Your SEBI assessor and CDP reviewer can verify it independently."],
-            ["⚖️","Fee Hardcoded in the Contract","Our platform fee is hardcoded in Marketplace.sol. We cannot change it without deploying a new contract. You can verify it on Etherscan this minute."],
-          ].map(([icon, title, desc], i) => (
-            <div key={i} className="b-card c4 reveal">
-              <span className="b-icon">{icon}</span>
-              <div className="b-title">{title}</div>
-              <div className="b-desc">{desc}</div>
-            </div>
-          ))}
         </div>
       </section>
 

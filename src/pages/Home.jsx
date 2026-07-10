@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useReveal, useBentoGlow } from "../hooks";
 import { useDemoModal } from "../context/DemoModalContext";
-import { STATS, GAPS, HOW, PRICING, MQ_ITEMS, WHY_NOW, TAM, WHY_WIN } from "../data";
+import { STATS, GAPS, HOW, PRICING, MQ_ITEMS, WHY_NOW, WHY_WIN } from "../data";
 import AnimatedStat from "../components/AnimatedStat";
 import CtaBand from "../components/CtaBand";
 import Seo from "../components/Seo";
@@ -29,12 +29,18 @@ function OnTheRecord() {
   return (
     <section className="section" id="on-the-record" style={{ paddingTop: 28, paddingBottom: 28 }}>
       <div className="s-label reveal">REGULATORY STANDING</div>
+      {/* Headline softened: every badge below is still "Application filed",
+          not "Approved" — the old copy ("Where the credibility actually
+          comes from") overpromised against that. This says the honest thing
+          instead: filings are underway, not finished. The color-coded
+          STATUS_META system already tells the truth on hover/detail; this
+          just makes sure the headline doesn't contradict it. */}
       <h2 className="s-h2 reveal">
-        On the record<br/>
-        <span style={{ color: "var(--grn)" }}>Where the credibility actually comes from</span>
+        Building credibility<br/>
+        <span style={{ color: "var(--grn)" }}>with every registry that matters</span>
       </h2>
       <p className="s-sub reveal">
-        Every registry and authority that matters for India's carbon compliance market — covered.
+        Applications filed with India's core carbon and startup registries — status tracked openly, not overstated.
       </p>
 
       <style>{`
@@ -125,7 +131,7 @@ function OnTheRecord() {
         borderRadius: "var(--r-md)", fontFamily: "var(--font-mono)",
         fontSize: 11, color: "var(--mut-lt)", lineHeight: 1.8,
       }}>
-        Five registries. One compliance backbone. EtherTrack, built into the system from day one.
+        Five registries in progress. One compliance backbone, built into EtherTrack from day one.
       </div>
     </section>
   );
@@ -141,7 +147,7 @@ export default function Home() {
     <>
       <Seo
         title="EtherTrack — Blockchain-Native Carbon Infrastructure Platform for India"
-        description="Track emissions, trade carbon credits on a live order book, retire on-chain, and generate BRSR, CDP, TCFD, and GHG Protocol reports — all on one platform built for India's CCTS compliance market."
+        description="Track emissions, trade carbon credits on a live order book, retire on-chain, and generate BRSR, CDP, TCFD, GRI, and GHG Protocol reports — all on one platform built for India's CCTS compliance market."
         path="/"
       />
       {/* ── Hero ── */}
@@ -171,7 +177,7 @@ export default function Home() {
         <p className="hero-sub">
           From emission log to verified on-chain retirement — in one session.
           A platform that closes the entire carbon loop: live order book,
-          hybrid AMM, full GHG inventory, and four regulatory reports, all in one place.
+          hybrid AMM, full GHG inventory, and five regulatory reports, all in one place.
         </p>
         <div className="actions">
           <button className="btn-p" onClick={openDemo}>REQUEST A DEMO →</button>
@@ -205,10 +211,145 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Market Gaps — THE PROBLEM ──
+          Moved up (was after two macro/market-justification sections).
+          A visitor should see the problem being solved before they see
+          market-timing or competitive-moat arguments. */}
+      <section className="section" id="market-gap">
+        <div className="s-label reveal">WHY ETHERTRACK EXISTS</div>
+        <h2 className="s-h2 reveal">India's carbon market has six<br/><span style={{ color:"var(--grn)" }}>fundamental problems — we solved them</span></h2>
+        <p className="s-sub reveal">Every solution below is live on Ethereum Sepolia testnet today. Not a roadmap. Not a promise. Working software.</p>
+        <div className="gap-tabs">
+          {GAPS.map((g,i) => (
+            <button key={i} className={`gap-tab-btn${gapTab === i ? " on" : ""}`} onClick={() => setGapTab(i)}>
+              <span className="gap-tab-n">0{i+1}</span>{g.tabLabel}
+            </button>
+          ))}
+        </div>
+        <div className="gap-grid">
+          {(() => {
+            const g = GAPS[gapTab];
+            return (
+              <div className="gap-card reveal">
+                <div className="gap-num">0{gapTab+1}</div>
+                <div>
+                  <div className={`gtag ${g.tagP}`}>THE PROBLEM</div>
+                  <div className="g-title">{g.problem}</div>
+                  <div className="g-desc">{g.problemDesc}</div>
+                </div>
+                <div>
+                  <div className={`gtag ${g.tagS}`}>{g.tagLabel}</div>
+                  <div className="g-title" style={gapTab === 1 ? { color:"var(--grn)" } : {}}>{g.solution}</div>
+                  <div className="g-desc">{g.solutionDesc}</div>
+                  <div className="gap-facts">
+                    {g.facts.map((f,j) => <div key={j} className="gap-fact">{f}</div>)}
+                  </div>
+                </div>
+              </div>
+            );
+          })()}
+        </div>
+      </section>
+
+      {/* ── How It Works — THE SOLUTION ──
+          Moved up to sit right after the problem it solves. Step count is
+          now `{HOW.length} steps` instead of a hardcoded "Four" — Platform's
+          animated loop uses 5 steps (Track/Tokenise/Trade/Retire/Report);
+          hardcoding a number here risked silently drifting out of sync with
+          that page again. Whatever HOW actually contains, this headline
+          can't contradict it. */}
+      <section className="section" id="how" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
+        <div className="s-label reveal">HOW IT WORKS</div>
+        <h2 className="s-h2 reveal">From zero to compliant<br/><span style={{ color:"var(--grn)" }}>{HOW.length} steps, one platform</span></h2>
+        <p className="s-sub reveal">No consultants. No spreadsheets. No switching between tools. The entire carbon compliance workflow lives in a single session on EtherTrack.</p>
+        {/* GLOBAL_CSS's .how-grid is hardcoded to repeat(4, 1fr), built for
+            the old 4-step version. With HOW now at 5 steps, the 5th item
+            wrapped to its own row. This scoped override fixes the column
+            count and the connecting-line span for 5 items on desktop.
+            Mobile: 5 doesn't split evenly into 2 columns (leaves an
+            orphaned last card), so instead of mirroring GLOBAL_CSS's old
+            2-column tablet stage, this goes straight to a single stacked
+            column below 1024px — cleaner than an unbalanced 2+2+1 grid —
+            and tightens the circle/padding further at phone widths.
+            Desktop (>1024px) is untouched. */}
+        <style>{`
+          .how-grid-5 { grid-template-columns: repeat(5, 1fr); }
+          .how-grid-5::before { left: 10%; right: 10%; }
+          @media (max-width: 1024px) {
+            .how-grid-5 {
+              grid-template-columns: 1fr;
+              gap: 28px;
+              max-width: 480px;
+              margin: 0 auto;
+            }
+            .how-grid-5::before { display: none; }
+            .how-grid-5 .how-step { text-align: left; padding: 0; }
+            .how-grid-5 .how-n {
+              width: 56px; height: 56px; font-size: 18px;
+              margin: 0 0 12px 0;
+            }
+          }
+          @media (max-width: 480px) {
+            .how-grid-5 { gap: 20px; }
+            .how-grid-5 .how-n { width: 48px; height: 48px; font-size: 16px; }
+            .how-grid-5 .how-ttl { font-size: 13px; }
+            .how-grid-5 .how-desc { font-size: 12px; }
+          }
+        `}</style>
+        <div className="how-grid how-grid-5">
+          {HOW.map((s,i) => (
+            <div key={i} className="how-step reveal">
+              <div className="how-n">{s.n}</div>
+              <div className="how-ttl">{s.title}</div>
+              <p className="how-desc">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ── On the Record ── */}
       <OnTheRecord />
 
-      {/* ── Why Now — Five Conditions ── */}
+      {/* ── Why We Win ── */}
+      <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
+        <div className="s-label reveal">STRUCTURAL ADVANTAGES</div>
+        <h2 className="s-h2 reveal">Six moats, not features<br/><span style={{ color:"var(--grn)" }}>Built into the architecture</span></h2>
+        <p className="s-sub reveal">
+          Features can be copied. These six advantages compound over time and become harder to replicate
+          the longer EtherTrack operates. None of them rest on being first with a feature alone.
+        </p>
+        <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
+          {WHY_WIN.map((w,i) => (
+            <div key={i} className="reveal" style={{
+              background:"var(--surf2)", border:"1px solid var(--brd)",
+              borderRadius:"var(--r-lg)", padding:"28px 32px",
+              display:"grid", gridTemplateColumns:"56px 1fr 1fr", gap:28, alignItems:"start",
+            }}>
+              <div style={{
+                width:52, height:52, borderRadius:"50%",
+                background:"var(--bg)", border:`1px solid ${w.color}33`,
+                display:"flex", alignItems:"center", justifyContent:"center",
+                fontSize:22, flexShrink:0,
+              }}>{w.icon}</div>
+              <div>
+                <div style={{ fontFamily:"var(--font-mono)", fontSize:9, color:w.color, letterSpacing:".15em", marginBottom:8 }}>ADVANTAGE {w.n}</div>
+                <div style={{ fontFamily:"var(--font-head)", fontSize:15, fontWeight:700, marginBottom:10, lineHeight:1.3 }}>{w.title}</div>
+                <div style={{ fontSize:13, color:"#9abba6", lineHeight:1.75, fontWeight:300 }}>{w.desc}</div>
+              </div>
+              <div style={{ borderLeft:"1px solid var(--brd)", paddingLeft:28 }}>
+                <div style={{ fontFamily:"var(--font-mono)", fontSize:9, color:"var(--mut-lt)", letterSpacing:".12em", marginBottom:8 }}>WHY IT'S HARD TO REPLICATE</div>
+                <div style={{ fontSize:13, color:"var(--txt)", lineHeight:1.75, fontWeight:300 }}>{w.moat}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── Why Now — Five Conditions ──
+          Urgency argument. Kept, but now positioned after the product has
+          already been explained (problem → solution → credibility → why us)
+          instead of before it — urgency lands better once someone
+          understands what they'd actually be adopting. */}
       <section className="section">
         <div className="s-label reveal">WHY NOW AND NOT TWO YEARS AGO</div>
         <h2 className="s-h2 reveal">Five conditions had to converge<br/><span style={{ color:"var(--grn)" }}>They all did — between 2022 and 2026</span></h2>
@@ -246,136 +387,6 @@ export default function Home() {
           → These five conditions activating together between 2022 and 2026 created a non-discretionary compliance market.
           Companies building their carbon infrastructure now will have established baselines, audit trails,
           and regulatory records before enforcement pressure intensifies.
-        </div>
-      </section>
-
-      {/* ── Market Opportunity ── */}
-      <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
-        <div className="s-label reveal">MARKET OPPORTUNITY</div>
-        <h2 className="s-h2 reveal">Not a niche market<br/><span style={{ color:"var(--grn)" }}>A regulatory inevitability</span></h2>
-        <p className="s-sub reveal">
-          Every number below is a published third-party estimate based on enacted regulation —
-          not speculation. The demand is non-discretionary. The infrastructure is what's missing.
-        </p>
-        <div style={{ display:"grid", gridTemplateColumns:"repeat(2,1fr)", gap:14, marginBottom:40 }}>
-          {TAM.map((t,i) => (
-            <div key={i} className="reveal" style={{
-              background:"var(--surf2)", border:"1px solid var(--brd)",
-              borderRadius:"var(--r-lg)", padding:"28px 30px",
-              borderTop:`3px solid ${t.color}`,
-            }}>
-              <div style={{ fontFamily:"var(--font-mono)", fontSize:10, color:"var(--mut-lt)", letterSpacing:".12em", marginBottom:16 }}>{t.segment.toUpperCase()}</div>
-              <div style={{ display:"flex", gap:32, marginBottom:16, alignItems:"flex-end", flexWrap:"wrap" }}>
-                <div>
-                  <div style={{ fontFamily:"var(--font-mono)", fontSize:9, color:"var(--mut)", marginBottom:4 }}>2026 ESTIMATE</div>
-                  <div style={{ fontFamily:"var(--font-head)", fontSize:26, fontWeight:900, color:t.color, lineHeight:1 }}>{t.now}</div>
-                </div>
-                <div style={{ color:"var(--mut)", fontSize:18, paddingBottom:4 }}>→</div>
-                <div>
-                  <div style={{ fontFamily:"var(--font-mono)", fontSize:9, color:"var(--mut)", marginBottom:4 }}>{t.year} ESTIMATE</div>
-                  <div style={{ fontFamily:"var(--font-head)", fontSize:26, fontWeight:900, color:"var(--txt)", lineHeight:1 }}>{t.future}</div>
-                </div>
-              </div>
-              <div style={{ fontSize:13, color:"#7aaa8a", lineHeight:1.6, marginBottom:10 }}>{t.role}</div>
-              <div style={{ fontFamily:"var(--font-mono)", fontSize:9, color:"var(--mut2)" }}>Source: {t.source}</div>
-            </div>
-          ))}
-        </div>
-        <div className="reveal" style={{
-          padding:"20px 28px", background:"rgba(0,224,80,.04)",
-          border:"1px solid var(--grnd)", borderRadius:"var(--r-md)",
-          fontFamily:"var(--font-mono)", fontSize:11, color:"var(--mut-lt)",
-        }}>
-          Market estimates are third-party published projections, not EtherTrack forecasts.
-          Timing depends on CCTS enforcement pace and CERC Permitted Entity recognition timelines.
-        </div>
-      </section>
-
-      {/* ── Market Gaps ── */}
-      <section className="section" id="market-gap">
-        <div className="s-label reveal">WHY ETHERTRACK EXISTS</div>
-        <h2 className="s-h2 reveal">India's carbon market has six<br/><span style={{ color:"var(--grn)" }}>fundamental problems — we solved them</span></h2>
-        <p className="s-sub reveal">Every solution below is live on Ethereum Sepolia testnet today. Not a roadmap. Not a promise. Working software.</p>
-        <div className="gap-tabs">
-          {GAPS.map((g,i) => (
-            <button key={i} className={`gap-tab-btn${gapTab === i ? " on" : ""}`} onClick={() => setGapTab(i)}>
-              <span className="gap-tab-n">0{i+1}</span>{g.tabLabel}
-            </button>
-          ))}
-        </div>
-        <div className="gap-grid">
-          {(() => {
-            const g = GAPS[gapTab];
-            return (
-              <div className="gap-card reveal">
-                <div className="gap-num">0{gapTab+1}</div>
-                <div>
-                  <div className={`gtag ${g.tagP}`}>THE PROBLEM</div>
-                  <div className="g-title">{g.problem}</div>
-                  <div className="g-desc">{g.problemDesc}</div>
-                </div>
-                <div>
-                  <div className={`gtag ${g.tagS}`}>{g.tagLabel}</div>
-                  <div className="g-title" style={gapTab === 1 ? { color:"var(--grn)" } : {}}>{g.solution}</div>
-                  <div className="g-desc">{g.solutionDesc}</div>
-                  <div className="gap-facts">
-                    {g.facts.map((f,j) => <div key={j} className="gap-fact">{f}</div>)}
-                  </div>
-                </div>
-              </div>
-            );
-          })()}
-        </div>
-      </section>
-
-      {/* ── Why We Win ── */}
-      <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
-        <div className="s-label reveal">STRUCTURAL ADVANTAGES</div>
-        <h2 className="s-h2 reveal">Six moats, not features<br/><span style={{ color:"var(--grn)" }}>Built into the architecture</span></h2>
-        <p className="s-sub reveal">
-          Features can be copied. These six advantages compound over time and become harder to replicate
-          the longer EtherTrack operates. None of them rest on being first with a feature alone.
-        </p>
-        <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
-          {WHY_WIN.map((w,i) => (
-            <div key={i} className="reveal" style={{
-              background:"var(--surf2)", border:"1px solid var(--brd)",
-              borderRadius:"var(--r-lg)", padding:"28px 32px",
-              display:"grid", gridTemplateColumns:"56px 1fr 1fr", gap:28, alignItems:"start",
-            }}>
-              <div style={{
-                width:52, height:52, borderRadius:"50%",
-                background:"var(--bg)", border:`1px solid ${w.color}33`,
-                display:"flex", alignItems:"center", justifyContent:"center",
-                fontSize:22, flexShrink:0,
-              }}>{w.icon}</div>
-              <div>
-                <div style={{ fontFamily:"var(--font-mono)", fontSize:9, color:w.color, letterSpacing:".15em", marginBottom:8 }}>ADVANTAGE {w.n}</div>
-                <div style={{ fontFamily:"var(--font-head)", fontSize:15, fontWeight:700, marginBottom:10, lineHeight:1.3 }}>{w.title}</div>
-                <div style={{ fontSize:13, color:"#9abba6", lineHeight:1.75, fontWeight:300 }}>{w.desc}</div>
-              </div>
-              <div style={{ borderLeft:"1px solid var(--brd)", paddingLeft:28 }}>
-                <div style={{ fontFamily:"var(--font-mono)", fontSize:9, color:"var(--mut-lt)", letterSpacing:".12em", marginBottom:8 }}>WHY IT'S HARD TO REPLICATE</div>
-                <div style={{ fontSize:13, color:"var(--txt)", lineHeight:1.75, fontWeight:300 }}>{w.moat}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ── How It Works ── */}
-      <section className="section" id="how">
-        <div className="s-label reveal">HOW IT WORKS</div>
-        <h2 className="s-h2 reveal">From zero to compliant<br/><span style={{ color:"var(--grn)" }}>Four steps, one platform</span></h2>
-        <p className="s-sub reveal">No consultants. No spreadsheets. No switching between tools. The entire carbon compliance workflow lives in a single session on EtherTrack.</p>
-        <div className="how-grid">
-          {HOW.map((s,i) => (
-            <div key={i} className="how-step reveal">
-              <div className="how-n">{s.n}</div>
-              <div className="how-ttl">{s.title}</div>
-              <p className="how-desc">{s.desc}</p>
-            </div>
-          ))}
         </div>
       </section>
 
