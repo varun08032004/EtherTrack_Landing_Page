@@ -1,0 +1,256 @@
+{
+  "id": "what-are-carbon-credits",
+  "slug": "what-are-carbon-credits",
+
+  "seo": {
+    "metaTitle": "What Are Carbon Credits? A Complete Guide (2026)",
+    "metaDescription": "Carbon credits explained from scratch — what they are, how they're created, who buys them, and what India's CCTS means for your business.",
+    "focusKeyword": "what are carbon credits",
+    "secondaryKeywords": [
+      "carbon credits India",
+      "carbon credit meaning",
+      "carbon credit life cycle",
+      "carbon credit trading India",
+      "CCTS India",
+      "carbon market India",
+      "carbon credit for businesses"
+    ],
+    "urlSlug": "what-are-carbon-credits",
+    "canonicalUrl": "https://ethertrack.in/insights/what-are-carbon-credits",
+    "robots": "index, follow",
+    "ogTitle": "What Are Carbon Credits? A Complete Guide (2026)",
+    "ogDescription": "Carbon credits explained from scratch — what they are, how they're created, who buys them, and what India's CCTS means for your business.",
+    "ogImage": "/images/blogs/what-are-carbon-credits/og.webp",
+    "twitterTitle": "What Are Carbon Credits? Complete Guide 2026",
+    "twitterDescription": "What carbon credits are, how they're created, who buys them, and what India's CCTS means for your business."
+  },
+
+  "articleInfo": {
+    "h1": "What Are Carbon Credits? A Complete Guide (2026)",
+    "subtitle": "Carbon credits are the financial instrument behind the global effort to price emissions. Here is everything you need to understand them — from what a single credit actually represents to why India just launched its own trading scheme.",
+    "author": {
+      "name": "Varun Girish Deshmukh",
+      "designation": "Founder & CEO, EtherTrack Technologies",
+      "photo": "/authors/varun-deshmukh.webp",
+      "bio": "Varun Girish Deshmukh is the Founder and CEO of EtherTrack Technologies Private Limited (CIN: U62090PN2026PTC257708), building India's blockchain-native carbon credit infrastructure platform — covering emission tracking, tokenised credit trading, on-chain retirement, and automated regulatory reporting."
+    },
+    "publishedDate": "2026-07-25",
+    "updatedDate": "2026-07-25",
+    "readingTime": "8 min",
+    "category": "Carbon Markets",
+    "tags": ["Carbon Credits", "Carbon Markets", "CCTS", "India", "ESG", "Net Zero"],
+    "heroImage": {
+      "src": "/images/blogs/what-are-carbon-credits/hero.webp",
+      "alt": "Abstract illustration of a carbon credit token glowing green against a dark background, with subtle icons of a wind turbine, factory, and blockchain node",
+      "caption": "One carbon credit = one tonne of CO₂ verified, registered, and retired.",
+      "imagePrompt": "Dark background (#0a0f0a), wide cinematic 16:9 ratio. Abstract isometric illustration — a glowing green tokenised certificate floating in the center, surrounded by subtle icons of a factory, a wind turbine, a blockchain node, and a leaf. Green (#00e050) and amber (#f97316) accent colors only. No text. Premium, editorial, corporate feel."
+    }
+  },
+
+  "tableOfContents": [
+    "What Is a Carbon Credit?",
+    "Why Carbon Credits Exist",
+    "The Life Cycle of a Carbon Credit",
+    "Who Creates Carbon Credits?",
+    "Who Buys Carbon Credits — and Why?",
+    "India's Carbon Credit Trading Scheme",
+    "How EtherTrack Fits In",
+    "Key Takeaways"
+  ],
+
+  "article": {
+    "introduction": {
+      "content": "Most people have heard of carbon credits. Far fewer can explain what one actually is.\n\nThat is a problem — because carbon credits are no longer a niche environmental instrument. They are becoming a legal compliance requirement for hundreds of Indian businesses, a line item in CFO budgets, and a traded financial asset on regulated exchanges.\n\nThis article explains what a carbon credit is, how one gets created, who buys them and why, and what India's new Carbon Credit Trading Scheme means for your organisation. No jargon. No fluff. Just what you need to know."
+    },
+
+    "sections": [
+      {
+        "id": "what-is-a-carbon-credit",
+        "heading": "What Is a Carbon Credit?",
+        "content": "A carbon credit is a certificate that represents the verified reduction or removal of one metric tonne of carbon dioxide — or its equivalent in other greenhouse gases — from the Earth's atmosphere.\n\nThree words in that definition matter: verified, reduction, and equivalent.\n\nVerified means an independent auditor has confirmed the reduction actually happened. It is not a promise or a plan. Someone checked the numbers.\n\nReduction means one of two things: either an emission that would have occurred was prevented — a coal plant that switched to solar — or carbon already in the atmosphere was removed, such as through a forest restoration project.\n\nEquivalent is what extends carbon credits beyond CO₂ alone. Methane, nitrous oxide, and other greenhouse gases each trap different amounts of heat. Scientists express all of them in terms of their CO₂-equivalent warming effect. So one carbon credit always equals one tonne of CO₂e — one tonne of carbon dioxide, or the warming equivalent of one tonne of CO₂ in any other gas.\n\nIn practice, one carbon credit is abbreviated as 1 CC, 1 VCU in the voluntary market, or 1 CCC (Carbon Credit Certificate) under India's CCTS.",
+        "infoBox": {
+          "type": "definition",
+          "title": "1 Carbon Credit = 1 tCO₂e",
+          "content": "One carbon credit represents the verified reduction or removal of one metric tonne of carbon dioxide equivalent from the atmosphere. It is a standardised unit — the same way one kilogram is a standard unit of weight, one carbon credit is a standard unit of verified climate action."
+        }
+      },
+
+      {
+        "id": "why-carbon-credits-exist",
+        "heading": "Why Carbon Credits Exist",
+        "content": "When a factory releases CO₂, that gas does not stay above the factory. It mixes into the global atmosphere, where it contributes to warming everywhere on Earth. The climate system does not care where emissions came from.\n\nThis creates a market problem: the factory has no private financial incentive to reduce its emissions. The costs of climate change — extreme weather, rising seas, damaged crops — are shared across billions of people over decades. But the cost of reducing emissions falls entirely on the one facility making the reduction.\n\nEconomists call this an externality. Carbon credits are the mechanism designed to correct it — by creating a price for emitting CO₂. When a price exists, facilities that can reduce emissions cheaply have a reason to do so. And facilities that find reduction expensive can pay for reductions elsewhere, achieving the same atmospheric outcome at lower total cost.\n\nThis is the economic logic behind every carbon market in the world — from the EU Emissions Trading System to India's newly launched CCTS."
+      },
+
+      {
+        "id": "life-cycle-of-a-carbon-credit",
+        "heading": "The Life Cycle of a Carbon Credit",
+        "content": "A carbon credit is not issued by a government. It originates from a real-world project and goes through a structured process before becoming a tradeable instrument.\n\nStep 1 — Project Design. A developer identifies an activity that will reduce emissions — a wind farm replacing coal, a mangrove restoration, a landfill capturing methane. They write a Project Design Document describing exactly how reductions will be measured.\n\nStep 2 — Validation. An accredited third-party auditor reviews the project design and confirms it is credible — that the baseline is realistic and the reduction would not have happened without the carbon credit incentive.\n\nStep 3 — Monitoring and Verification. Once operational, the project tracks its actual emission reductions. Another round of independent verification confirms that the reported reductions occurred. This process — Monitoring, Reporting, and Verification, or MRV — is the backbone of carbon credit credibility.\n\nStep 4 — Issuance. A registry issues credits to the developer's account. Each credit gets a unique serial number recording its project origin, vintage year, and the standard under which it was issued.\n\nStep 5 — Trading. The developer sells credits — directly to buyers or on an exchange. Credits can transfer multiple times before reaching their final owner.\n\nStep 6 — Retirement. When a buyer uses a credit to offset their emissions, they retire it — a permanent action in the registry's ledger. A retired credit cannot be sold, transferred, or used again. This is what prevents double-counting.",
+        "infoBox": {
+          "type": "important",
+          "title": "Retirement Is Permanent and Public",
+          "content": "The moment a carbon credit is retired, it is permanently cancelled. Most registries maintain public retirement databases — anyone can search them to verify that a company's claimed offsets are real and have not been sold twice."
+        }
+      },
+
+      {
+        "id": "who-creates-carbon-credits",
+        "heading": "Who Creates Carbon Credits?",
+        "content": "Carbon credits are created by project developers — organisations that design, fund, and operate emission reduction projects. The main project types are:\n\nRenewable Energy — a solar or wind project replacing fossil fuel electricity generation earns credits for the emissions it displaces.\n\nForestry and Land Use (REDD+) — projects that preserve forests from deforestation, or actively restore degraded land, earn credits as trees absorb CO₂.\n\nMethane Capture — landfills, agricultural operations, and natural gas facilities that capture methane before it escapes into the atmosphere. Because methane is roughly 28 times more potent than CO₂, even modest methane capture generates substantial credits.\n\nIndustrial Efficiency — energy efficiency improvements in manufacturing facilities. Under India's CCTS, this is the primary pathway through which Indian industrial companies generate Carbon Credit Certificates.\n\nCarbon Removal — newer technologies like biochar and direct air capture that physically extract CO₂ from the atmosphere. The most permanent form of credit, and currently the most expensive.",
+        "table": {
+          "title": "Carbon Project Types at a Glance",
+          "headers": ["Project Type", "How it Works", "India Relevance"],
+          "rows": [
+            ["Renewable Energy", "Displaces fossil fuel electricity", "Very High — grid EF 0.727 tCO₂/MWh"],
+            ["REDD+ Forestry", "Preserves or restores forests", "High — India has significant forest cover"],
+            ["Methane Capture", "Prevents methane from escaping", "High — landfills, agriculture, gas networks"],
+            ["Industrial Efficiency", "Reduces emission intensity per unit output", "Very High — primary CCTS pathway"],
+            ["Carbon Removal", "Physically extracts CO₂ from atmosphere", "Emerging — currently limited in India"]
+          ],
+          "footnote": "CEA V20.0 December 2024 grid emission factor. CCTS = Carbon Credit Trading Scheme, BEE, Ministry of Power."
+        }
+      },
+
+      {
+        "id": "who-buys-carbon-credits",
+        "heading": "Who Buys Carbon Credits — and Why?",
+        "content": "Carbon credit buyers fall into two distinct groups.\n\nCompliance buyers are companies legally required to hold credits. If a government caps the emissions a facility can produce and that facility exceeds its cap, it must acquire credits to make up the shortfall — or pay a penalty. For compliance buyers, credits are not optional. They are a regulatory requirement, like a tax.\n\nVoluntary buyers choose to purchase credits without a legal obligation. Their motivations include public net-zero commitments, supply chain decarbonisation requirements from larger customers, and ESG reporting pressures from investors. Airlines, technology companies, and consumer brands are among the largest voluntary buyers globally.\n\nThe distinction matters because it determines price sensitivity and urgency. A compliance buyer facing a regulatory deadline will pay what it takes. A voluntary buyer has more flexibility — but also more selectivity about the quality and story behind the credits they purchase.",
+        "infoBox": {
+          "type": "warning",
+          "title": "Carbon Credits Are Not a Licence to Keep Polluting",
+          "content": "A common misconception is that buying credits permits continued emissions. It does not. Credits are intended for emissions a company cannot yet eliminate — after genuine reduction efforts. Using credits to avoid emission reductions entirely is what greenwashing means, and it is increasingly scrutinised by regulators and investors."
+        }
+      },
+
+      {
+        "id": "india-ccts",
+        "heading": "India's Carbon Credit Trading Scheme",
+        "content": "In June 2023, India's Bureau of Energy Efficiency (BEE) notified the Carbon Credit Trading Scheme (CCTS) under the Energy Conservation Act — creating India's first mandatory domestic carbon market.\n\nUnlike the EU's hard cap system, India's CCTS uses Greenhouse Gas Emission Intensity (GEI) targets — measuring emissions per unit of output rather than total emissions. A steel plant, for example, might have a target of emitting no more than X tonnes of CO₂ per tonne of crude steel. Outperform the target, earn Carbon Credit Certificates (CCCs) to sell. Miss the target, buy CCCs or pay a penalty.\n\nNine industrial sectors are currently covered: Iron & Steel, Cement, Aluminium, Fertilisers, Petroleum Refineries, Petrochemicals, Paper & Pulp, Chlor-Alkali, and Textiles. CCCs trade on IEX and PXIL within a regulated price band of ₹600 to ₹1,200 per certificate, under oversight from CERC. GRID-India maintains the official registry.\n\nFor facilities in these nine sectors, this is not a future obligation. The baseline period is underway. If your company has not yet begun tracking emission intensity by facility, you are already behind.",
+        "infoBox": {
+          "type": "alert",
+          "title": "Is Your Company a BEE Designated Consumer?",
+          "content": "If your facility operates in any of the nine CCTS sectors and meets the energy consumption threshold, you have pending GEI compliance obligations. The baseline period is active now. A dedicated guide to the CCTS — covering sector-specific targets, registry mechanics, and exchange trading — is coming in the next article."
+        }
+      },
+
+      {
+        "id": "how-ethertrack-fits-in",
+        "heading": "How EtherTrack Fits In",
+        "content": "EtherTrack is building the digital infrastructure that India's carbon market currently lacks.\n\nRight now, most Indian businesses track emissions in spreadsheets, navigate credit purchases through brokers, assemble regulatory reports manually at significant cost, and receive retirement certificates as PDFs with no independent verification pathway.\n\nEtherTrack connects all of this in one platform. Emission data entered once — via manual entry, CSV, ERP sync, or AI parser — automatically feeds your GHG inventory, your carbon credit gap calculation, and your regulatory reports (BRSR Core, CDP, TCFD, and GHG Protocol) simultaneously. No reconciliation. No consultant.\n\nOn the trading side, the platform offers a live order book and hybrid AMM liquidity pool for buying and selling carbon credits, with payment in Indian Rupees via UPI, card, or bank transfer. Every retirement generates an ISO 14064-3 certificate with a QR code that resolves to a permanent on-chain record — verifiable by any auditor, independently, without contacting us.\n\nFor CCTS-covered facilities, a dedicated compliance module tracks GEI positions plant by plant, runs intra-group netting calculations, and routes orders to IEX or PXIL.\n\nEtherTrack is currently live on Ethereum Sepolia testnet with all seven modules functional. Mainnet deployment is pending final security audit.",
+        "infoBox": {
+          "type": "cta-soft",
+          "title": "See It Live — No Commitment",
+          "content": "Every module is live on testnet today. Log a test emission, buy a credit, retire it on-chain, download the certificate, generate a BRSR export — using your company's sector as the example. Visit app.ethertrack.in to explore."
+        }
+      },
+
+      {
+        "id": "key-takeaways",
+        "heading": "Key Takeaways",
+        "items": [
+          "A carbon credit represents the verified reduction or removal of exactly one metric tonne of CO₂ equivalent. It is not a promise — an independent auditor has confirmed it happened.",
+          "Carbon credits exist to create a financial price for emissions, aligning private incentives with the public interest in emission reduction.",
+          "Every credit goes through a structured life cycle: project design → validation → monitoring and verification (MRV) → issuance → trading → permanent retirement.",
+          "Compliance buyers are legally required to hold credits. Voluntary buyers choose to purchase them for net-zero commitments, ESG reporting, or supply chain requirements.",
+          "India's CCTS — notified in 2023 — is a mandatory compliance market covering nine industrial sectors. GEI targets are already active. Facilities that outperform earn sellable CCCs; those that miss must buy or pay penalties.",
+          "Carbon credits are not a licence to keep polluting. They are intended for emissions a business cannot yet eliminate — after genuine reduction efforts."
+        ]
+      }
+    ]
+  },
+
+  "faqs": [
+    {
+      "question": "What is a carbon credit in simple terms?",
+      "answer": "A carbon credit is a certificate proving that one tonne of greenhouse gas has been prevented from entering — or removed from — the atmosphere. It has been independently measured, verified, and registered. Companies buy and retire credits to compensate for their own emissions they cannot yet eliminate."
+    },
+    {
+      "question": "What is 1 carbon credit worth in India?",
+      "answer": "Under India's CCTS, Carbon Credit Certificates trade within a regulated band of ₹600 to ₹1,200 per credit. In the voluntary market, prices vary by project quality — from roughly ₹400 for older renewable energy credits to ₹2,500 or more for high-quality nature-based or Article 6-authorised credits."
+    },
+    {
+      "question": "Who regulates carbon credits in India?",
+      "answer": "The CCTS is administered by the Bureau of Energy Efficiency (BEE) under the Ministry of Power, with trading oversight from CERC. GRID-India maintains the Carbon Credit Certificate registry. Voluntary credits in India are regulated by international standards bodies — primarily Verra and Gold Standard."
+    },
+    {
+      "question": "What does retirement mean for a carbon credit?",
+      "answer": "Retirement is the permanent cancellation of a credit in the registry's ledger. Once retired, a credit cannot be sold, transferred, or used again by anyone. This is what prevents double-counting. Most registries maintain public retirement databases that anyone can search to verify a retirement claim."
+    },
+    {
+      "question": "What are the nine sectors covered under India's CCTS?",
+      "answer": "Iron & Steel, Cement, Aluminium, Fertilisers, Petroleum Refineries, Petrochemicals, Paper & Pulp, Chlor-Alkali, and Textiles. Facilities in these sectors that meet the energy consumption threshold will have mandatory GEI targets assigned."
+    },
+    {
+      "question": "What is MRV and why does it matter?",
+      "answer": "MRV stands for Monitoring, Reporting, and Verification — the quality control process that confirms a carbon credit represents a real emission reduction. Without MRV, there is no way to know whether a reported reduction actually happened. Every credible carbon credit programme requires it before credits are issued."
+    }
+  ],
+
+  "references": [
+    {
+      "id": 1,
+      "citation": "Ministry of Power, Government of India. (2023). Carbon Credit Trading Scheme, 2023. Gazette of India Extraordinary.",
+      "url": "https://beeindia.gov.in/en/what-we-do/carbon-credit-trading-scheme"
+    },
+    {
+      "id": 2,
+      "citation": "IPCC. (2021). Sixth Assessment Report (AR6) — Working Group I. Intergovernmental Panel on Climate Change.",
+      "url": "https://www.ipcc.ch/assessment-report/ar6"
+    },
+    {
+      "id": 3,
+      "citation": "Verra. (2024). Verified Carbon Standard — Program Guide. Version 4.5.",
+      "url": "https://verra.org/programs/verified-carbon-standard"
+    },
+    {
+      "id": 4,
+      "citation": "Central Electricity Regulatory Commission. (2024). CERC (Terms and Conditions for Purchase and Sale of Carbon Credit Certificates) Regulations, 2024.",
+      "url": "https://cerc.gov.in"
+    },
+    {
+      "id": 5,
+      "citation": "GHG Protocol. (2015). Corporate Value Chain (Scope 3) Accounting and Reporting Standard. WRI and WBCSD.",
+      "url": "https://ghgprotocol.org/corporate-value-chain-scope-3-standard"
+    }
+  ],
+
+  "relatedArticles": [
+    {
+      "slug": "what-is-india-ccts",
+      "title": "India's Carbon Credit Trading Scheme (CCTS) — Everything Your Business Needs to Know",
+      "description": "A full guide to India's mandatory carbon market — who is covered, what GEI targets mean, how CCCs are earned and traded, and what non-compliance costs.",
+      "category": "CCTS",
+      "readingTime": "10 min",
+      "status": "upcoming"
+    },
+    {
+      "slug": "compliance-vs-voluntary-carbon-markets",
+      "title": "Compliance vs Voluntary Carbon Markets — A Complete Comparison",
+      "description": "What separates India's CCTS from the voluntary market, how credits differ between them, and what each means for your business strategy.",
+      "category": "Carbon Markets",
+      "readingTime": "9 min",
+      "status": "upcoming"
+    },
+    {
+      "slug": "scope-1-2-3-emissions-explained",
+      "title": "Scope 1, 2, and 3 Emissions Explained for Indian Businesses",
+      "description": "The three scope categories in GHG Protocol reporting — with real examples, common mistakes, and what SEBI's BRSR Core requires.",
+      "category": "Carbon Accounting",
+      "readingTime": "9 min",
+      "status": "upcoming"
+    }
+  ],
+
+  "cta": {
+    "headline": "Your carbon compliance journey starts with knowing your footprint.",
+    "subheadline": "EtherTrack tracks Scope 1, 2 and 3 emissions, generates BRSR and GHG Protocol reports automatically, and connects you to India's carbon credit market — in one platform.",
+    "primaryButton": {
+      "label": "Request a Demo",
+      "action": "openDemo"
+    },
+    "secondaryButton": {
+      "label": "Explore Live Testnet",
+      "url": "https://app.ethertrack.in"
+    },
+    "note": "No commitment · 30-minute live walkthrough · Response within 24 hours"
+  }
+}

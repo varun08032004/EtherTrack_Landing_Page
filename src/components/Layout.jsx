@@ -5,15 +5,13 @@ import logoImg from "../assets/logo.png";
 import { DemoModalProvider, useDemoModal } from "../context/DemoModalContext";
 
 const NAV_PAGES = [
-  ["Features", "/platform"],
+  ["Features",  "/platform"],
   ["Solutions", "/solutions"],
-  ["Industries", "/industries"],
-  ["About", "/about"],
+  ["Industries","/industries"],
+  ["Blogs",     "/insights"],
+  ["About",     "/about"],
 ];
 
-/* Mobile-only override: shrink the "REQUEST DEMO" pill in the top nav
-   on small screens instead of letting it run full desktop size.
-   Keeps desktop completely untouched. */
 const NAV_RESPONSIVE_CSS = `
   @media (max-width: 640px) {
     .nav-cta {
@@ -138,20 +136,22 @@ function SiteFooter() {
             <li><Link to="/about">About</Link></li>
             <li><Link to="/about#ccts">India CCTS</Link></li>
             <li><Link to="/#pricing">Pricing</Link></li>
+            <li><Link to="/insights">Insights</Link></li>
             <li><a href="mailto:support@ethertrack.in">support@ethertrack.in</a></li>
           </ul>
         </div>
         <div>
           <div className="footer-col-head">LEGAL</div>
           <ul className="footer-col-links">
-            {/* TODO: add real links once pages are built */}
             {["Privacy Policy","Terms of Service","Disclaimer"].map(l=><li key={l}><a href="#" style={{ opacity:.4, cursor:"default" }}>{l} (coming soon)</a></li>)}
           </ul>
           <div style={{ marginTop:20, fontFamily:"var(--font-mono)", fontSize:8, color:"var(--mut2)", lineHeight:2 }}>
             <div>Sepolia Testnet · Pre-Launch</div>
             <div>Mainnet Pending Security Audit</div>
-            <div>Incorporating: India (MCA)</div>
-            <div>CIN: Pending incorporation</div>
+            <div>Incorporated in India (MCA)</div>
+            <div>CIN: U62090PN2026PTC257708</div>
+            <div>PAN: AAJCE8329G</div>
+            <div>GSTIN: 27AAJCE8329G1ZD</div>
           </div>
         </div>
       </div>
