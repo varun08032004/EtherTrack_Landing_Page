@@ -5,6 +5,108 @@ import Seo from "../components/Seo";
 
 const ETPL_OPS_API = (import.meta.env.VITE_ETPL_OPS_API || 'https://etpl-ops.onrender.com').replace(/\/$/, '');
 
+const FALLBACK_JOBS = [
+  {
+    id: '1',
+    title: 'Full Stack Engineer (React + Go)',
+    type: 'full-time',
+    department: 'Engineering',
+    location: 'Remote (India)',
+    salary_min: 1800000,
+    salary_max: 3000000,
+    description: 'Build the core platform — order book, AMM, GHG engine, compliance module, and on-chain retirement workflows. You\'ll work across the stack: React/TypeScript frontend, Go microservices, PostgreSQL, and Solidity smart contracts on Ethereum Sepolia.',
+    requirements: [
+      '3+ years production React/TypeScript experience',
+      'Strong Go or similar backend language (Node.js, Java, Rust)',
+      'PostgreSQL schema design and query optimization',
+      'Experience with blockchain/ETH development a plus',
+      'Comfortable with CI/CD, Docker, observability stacks'
+    ],
+    responsibilities: [
+      'Ship end-to-end features from API design to deployed contracts',
+      'Optimize order book matching engine and AMM curves',
+      'Build GHG calculation engine with IPCC/GHG Protocol compliance',
+      'Integrate with CERC, GRID-India, Verra, Gold Standard registries',
+      'Maintain high test coverage and documentation standards'
+    ],
+    benefits: [
+      'Competitive equity (ESOP pool)',
+      'Remote-first, flexible hours',
+      '₹50k annual learning budget',
+      'Health insurance for you + dependents',
+      '30-day notice buyout support'
+    ],
+    openings_count: 2,
+    posted_at: new Date().toISOString()
+  },
+  {
+    id: '2',
+    title: 'Carbon Markets Associate',
+    type: 'full-time',
+    department: 'Carbon Markets',
+    location: 'Remote (India)',
+    salary_min: 1200000,
+    salary_max: 2000000,
+    description: 'Bridge the gap between our platform and India\'s compliance carbon market (CCTS). Work with project developers, corporates, and verifiers to onboard credits, navigate CERC/GRID-India processes, and ensure our product matches real regulatory workflows.',
+    requirements: [
+      '2+ years in carbon markets, ESG consulting, or climate finance',
+      'Deep knowledge of CCTS, PAT scheme, BRSR Core, CERC regulations',
+      'Experience with Verra VCS, Gold Standard, or CDM projects',
+      'Strong written communication — you\'ll write specs, guides, and regulatory summaries',
+      'Comfortable talking to both engineers and compliance officers'
+    ],
+    responsibilities: [
+      'Map CCTS compliance workflows to platform features',
+      'Onboard project developers and manage credit listing pipeline',
+      'Liaise with VVBs (BV, DNV, EY, etc.) for verification integration',
+      'Maintain internal registry of gazetted sectors, methodologies, and forms',
+      'Produce content for Insights blog and developer documentation'
+    ],
+    benefits: [
+      'Competitive equity (ESOP pool)',
+      'Remote-first, flexible hours',
+      '₹50k annual learning budget',
+      'Health insurance for you + dependents',
+      'Industry conference budget'
+    ],
+    openings_count: 1,
+    posted_at: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
+  },
+  {
+    id: '3',
+    title: 'Product Designer (Systems-focused)',
+    type: 'full-time',
+    department: 'Product',
+    location: 'Remote (India)',
+    salary_min: 1500000,
+    salary_max: 2500000,
+    description: 'Design complex, data-dense interfaces for carbon trading, GHG inventory management, and regulatory reporting. You\'ll own the design system, work closely with engineers on implementation, and turn regulatory complexity into intuitive workflows.',
+    requirements: [
+      '4+ years product design for B2B/SaaS or developer tools',
+      'Expert in Figma — design systems, auto-layout, tokens, prototyping',
+      'Strong systems thinking — can model complex domain logic visually',
+      'Comfortable with React/TypeScript basics for designer-engineer handoff',
+      'Portfolio showing dashboards, data tables, or complex forms'
+    ],
+    responsibilities: [
+      'Own end-to-end design for trading dashboard, GHG workspace, compliance center',
+      'Evolve and maintain the EtherTrack design system (tokens, components, patterns)',
+      'Conduct user research with compliance officers, ESG leads, traders',
+      'Write design specs and collaborate with engineers on pixel-perfect implementation',
+      'Design onboarding flows for corporate, MSME, and consultant personas'
+    ],
+    benefits: [
+      'Competitive equity (ESOP pool)',
+      'Remote-first, flexible hours',
+      '₹50k annual learning budget',
+      'Health insurance for you + dependents',
+      'Latest design tools + hardware budget'
+    ],
+    openings_count: 1,
+    posted_at: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString()
+  }
+];
+
 export default function Careers() {
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,7 +120,7 @@ export default function Careers() {
   const [appStatus, setAppStatus] = useState('idle');
   const [appError, setAppError] = useState(null);
   const [formErrors, setFormErrors] = useState({});
-  const reveal = useReveal([jobs.length]);
+  useReveal([jobs.length]);
 
   useEffect(() => {
     fetchJobs();
@@ -30,10 +132,16 @@ export default function Careers() {
       const res = await fetch(`${ETPL_OPS_API}/api/public/jobs`);
       if (!res.ok) throw new Error('Failed to fetch jobs');
       const data = await res.json();
-      setJobs(data.jobs || []);
+      if (data.jobs && data.jobs.length > 0) {
+        setJobs(data.jobs);
+        setError(null);
+      } else {
+        throw new Error('No jobs returned');
+      }
     } catch (err) {
-      console.error('[Careers] fetchJobs error:', err);
-      setError(err.message);
+      console.warn('[Careers] API unavailable, using fallback jobs:', err.message);
+      setJobs(FALLBACK_JOBS);
+      setError(null);
     } finally {
       setLoading(false);
     }
@@ -119,42 +227,37 @@ export default function Careers() {
     return `Up to ${fmt(max)}/yr`;
   }
 
-  function formatExperience(min, max) {
-    if (!min && !max) return 'Any experience';
-    if (min && max) return `${min} - ${max} years`;
-    if (min) return `${min}+ years`;
-    return `Up to ${max} years`;
-  }
-
-  // Render job list based on state
-  let jobsContent;
-  if (loading) {
-    jobsContent = (
-      <div style={{ display: "flex", justifyContent: "center", padding: 60 }}>
-        <div style={{ width: 32, height: 32, border: "3px solid var(--brd)", borderTopColor: "var(--grn)", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
-      </div>
-    );
-  } else if (error) {
-    jobsContent = (
-      <div className="reveal" style={{ maxWidth: 600, margin: "0 auto", textAlign: "center", padding: 40, background: "var(--surf)", border: "1px solid var(--brd)", borderRadius: "var(--r-lg)" }}>
-        <div style={{ color: "var(--red)", marginBottom: 12 }}>⚠️ Unable to load jobs</div>
-        <div style={{ color: "var(--mut-lt)", marginBottom: 16 }}>{error}</div>
-        <button className="btn-p" onClick={fetchJobs}>Retry</button>
-      </div>
-    );
-  } else if (jobs.length === 0) {
-    jobsContent = (
-      <div className="reveal" style={{ maxWidth: 600, margin: "0 auto", textAlign: "center", padding: 60, background: "var(--surf)", border: "1px solid var(--brd)", borderRadius: "var(--r-lg)" }}>
-        <div style={{ fontSize: 48, marginBottom: 16 }}>🎉</div>
-        <div className="b-title" style={{ fontFamily: "var(--font-head)", fontSize: 20, fontWeight: 700, marginBottom: 8 }}>No open roles right now</div>
-        <div style={{ color: "var(--mut-lt)", marginBottom: 20 }}>We're fully staffed for this cycle. Check back soon — we grow in steps, not spurts.</div>
-        <Link to="/" className="btn-p">← Back to Home</Link>
-      </div>
-    );
-  } else {
-    jobsContent = (
+// Render job list based on state
+  const renderJobsContent = () => {
+    if (loading) {
+      return (
+        <div style={{ display: "flex", justifyContent: "center", padding: 60 }}>
+          <div style={{ width: 32, height: 32, border: "3px solid var(--brd)", borderTopColor: "var(--grn)", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
+        </div>
+      );
+    }
+    if (error) {
+      return (
+        <div className="reveal" style={{ maxWidth: 600, margin: "0 auto", textAlign: "center", padding: 40, background: "var(--surf)", border: "1px solid var(--brd)", borderRadius: "var(--r-lg)" }}>
+          <div style={{ color: "var(--red)", marginBottom: 12 }}>⚠️ Unable to load jobs</div>
+          <div style={{ color: "var(--mut-lt)", marginBottom: 16 }}>{error}</div>
+          <button className="btn-p" onClick={fetchJobs}>Retry</button>
+        </div>
+      );
+    }
+    if (jobs.length === 0) {
+      return (
+        <div className="reveal" style={{ maxWidth: 600, margin: "0 auto", textAlign: "center", padding: 60, background: "var(--surf)", border: "1px solid var(--brd)", borderRadius: "var(--r-lg)" }}>
+          <div style={{ fontSize: 48, marginBottom: 16 }}>🎉</div>
+          <div className="b-title" style={{ fontFamily: "var(--font-head)", fontSize: 20, fontWeight: 700, marginBottom: 8 }}>No open roles right now</div>
+          <div style={{ color: "var(--mut-lt)", marginBottom: 20 }}>We're fully staffed for this cycle. Check back soon — we grow in steps, not spurts.</div>
+          <Link to="/" className="btn-p">← Back to Home</Link>
+        </div>
+      );
+    }
+    return (
       <div style={{ display: "flex", flexDirection: "column", gap: 16, maxWidth: 900, margin: "0 0 0 0" }}>
-        {jobs.map((job, i) => (
+        {jobs.map((job) => (
           <div key={job.id} className="reveal job-card" style={{ 
             background: "var(--surf)", 
             border: "1px solid var(--brd)", 
@@ -214,6 +317,7 @@ export default function Careers() {
         ))}
       </div>
     );
+  };
 
   return (
     <>
@@ -249,7 +353,7 @@ export default function Careers() {
           <h2 className="s-h2">Positions we're hiring for</h2>
         </div>
 
-        {jobsContent}
+        {renderJobsContent()}
 
         <style>{`
           @keyframes spin { to { transform: rotate(360deg); } }
@@ -400,5 +504,4 @@ export default function Careers() {
       </section>
     </>
   );
-}
 }
