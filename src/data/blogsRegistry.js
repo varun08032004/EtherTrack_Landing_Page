@@ -5,16 +5,18 @@
 //   3. Add it to the BLOGS array
 // That's it. The engine handles everything else.
 
+import carbonMarketsExplained from "./blogs/carbon-markets-explained.json";
 import whatAreCarbonCredits from "./blogs/what-are-carbon-credits.json";
 
 // Add future blogs here ↓
-// import howCarbonTradingWorks from "./blogs/how-carbon-credit-trading-works.json";
-// import indiaCCTS            from "./blogs/what-is-india-ccts.json";
+// import indiaCCTS from "./blogs/what-is-india-ccts.json";
+// import scope123  from "./blogs/scope-1-2-3-emissions-explained.json";
 
 export const BLOGS = [
-  whatAreCarbonCredits,
-  // howCarbonTradingWorks,
+  carbonMarketsExplained,   // Blog #2 — newest first
+  whatAreCarbonCredits,     // Blog #1
   // indiaCCTS,
+  // scope123,
 ];
 
 export const getBlogBySlug = (slug) =>

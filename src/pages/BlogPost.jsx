@@ -234,6 +234,156 @@ function FAQs({ faqs }) {
   );
 }
 
+/* ─── Illustration Components ────────────────────────────────────────────── */
+
+// Type: "stat" — big pull-quote style number/fact
+function StatCallout({ items }) {
+  return (
+    <div style={{
+      display: "grid",
+      gridTemplateColumns: `repeat(${Math.min(items.length, 3)}, 1fr)`,
+      gap: 12, margin: "28px 0",
+    }}>
+      {items.map((item, i) => (
+        <div key={i} style={{
+          background: "var(--surf)", border: "1px solid var(--brd)",
+          borderTop: `3px solid ${item.color || "var(--grn)"}`,
+          borderRadius: "var(--r-lg)", padding: "24px 20px",
+          textAlign: "center",
+        }}>
+          <div style={{
+            fontFamily: "var(--font-head)", fontSize: 38,
+            fontWeight: 900, color: item.color || "var(--grn)",
+            lineHeight: 1, marginBottom: 10,
+          }}>{item.value}</div>
+          <div style={{
+            fontFamily: "var(--font-mono)", fontSize: 9,
+            letterSpacing: ".12em", color: "var(--mut)",
+            marginBottom: 8,
+          }}>{item.label?.toUpperCase()}</div>
+          {item.sub && (
+            <div style={{ fontSize: 11, color: "var(--mut-lt)", lineHeight: 1.6, fontWeight: 300 }}>
+              {item.sub}
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Type: "compare" — two-column side-by-side comparison
+function CompareCard({ left, right }) {
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 2, margin: "28px 0", borderRadius: "var(--r-lg)", overflow: "hidden" }}>
+      {[left, right].map((side, i) => (
+        <div key={i} style={{
+          background: "var(--surf)", border: "1px solid var(--brd)",
+          borderTop: `3px solid ${side.color}`,
+          padding: "24px 22px",
+        }}>
+          <div style={{
+            fontFamily: "var(--font-mono)", fontSize: 9,
+            letterSpacing: ".14em", color: side.color,
+            fontWeight: 700, marginBottom: 14,
+          }}>{side.label?.toUpperCase()}</div>
+          <div style={{ fontFamily: "var(--font-head)", fontSize: 16, fontWeight: 700, color: "var(--txt)", marginBottom: 12 }}>
+            {side.title}
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+            {side.points?.map((p, j) => (
+              <div key={j} style={{ display: "flex", gap: 8, fontSize: 12, color: "var(--mut-lt)", lineHeight: 1.6 }}>
+                <span style={{ color: side.color, flexShrink: 0, marginTop: 2 }}>→</span>
+                {p}
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Type: "flow" — horizontal step flow diagram
+function FlowDiagram({ steps }) {
+  return (
+    <div style={{ margin: "28px 0" }}>
+      <style>{`
+        @media (max-width: 640px) {
+          .flow-wrap { flex-direction: column !important; }
+          .flow-arrow { transform: rotate(90deg) !important; }
+        }
+      `}</style>
+      <div className="flow-wrap" style={{ display: "flex", alignItems: "stretch", gap: 0 }}>
+        {steps.map((step, i) => (
+          <div key={i} style={{ display: "flex", alignItems: "center", flex: 1 }}>
+            <div style={{
+              flex: 1, background: "var(--surf)",
+              border: `1px solid ${step.color || "var(--brd)"}`,
+              borderRadius: "var(--r-md)", padding: "16px 14px",
+              textAlign: "center",
+            }}>
+              <div style={{ fontSize: 22, marginBottom: 8 }}>{step.icon}</div>
+              <div style={{
+                fontFamily: "var(--font-mono)", fontSize: 8,
+                letterSpacing: ".12em", color: step.color || "var(--grn)",
+                marginBottom: 6, fontWeight: 700,
+              }}>STEP {i + 1}</div>
+              <div style={{ fontFamily: "var(--font-head)", fontSize: 12, fontWeight: 700, color: "var(--txt)", marginBottom: 4 }}>
+                {step.label}
+              </div>
+              <div style={{ fontSize: 10, color: "var(--mut-lt)", lineHeight: 1.5, fontWeight: 300 }}>
+                {step.desc}
+              </div>
+            </div>
+            {i < steps.length - 1 && (
+              <div className="flow-arrow" style={{
+                fontFamily: "var(--font-mono)", fontSize: 14,
+                color: "var(--mut)", padding: "0 6px", flexShrink: 0,
+              }}>→</div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Type: "image" — AI-generated image inline
+function InlineImage({ src, alt, caption }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) return null;
+  return (
+    <div style={{ margin: "28px 0" }}>
+      <img
+        src={src} alt={alt}
+        style={{
+          width: "100%", borderRadius: "var(--r-lg)",
+          display: "block", objectFit: "cover",
+        }}
+        onError={() => setFailed(true)}
+      />
+      {caption && (
+        <div style={{
+          fontFamily: "var(--font-mono)", fontSize: 9,
+          color: "var(--mut)", textAlign: "center",
+          marginTop: 8, lineHeight: 1.6,
+        }}>{caption}</div>
+      )}
+    </div>
+  );
+}
+
+// Illustration dispatcher
+function Illustration({ data }) {
+  if (!data) return null;
+  if (data.type === "stat")    return <StatCallout items={data.items} />;
+  if (data.type === "compare") return <CompareCard left={data.left} right={data.right} />;
+  if (data.type === "flow")    return <FlowDiagram steps={data.steps} />;
+  if (data.type === "image")   return <InlineImage src={data.src} alt={data.alt} caption={data.caption} />;
+  return null;
+}
+
 /* ─── Section Renderer ───────────────────────────────────────────────────── */
 function Section({ section }) {
   return (
@@ -248,26 +398,12 @@ function Section({ section }) {
       </h2>
 
       {section.content && parseParagraphs(section.content)}
+      {section.illustration && <Illustration data={section.illustration} />}
       {section.infoBox && <InfoBox box={section.infoBox} />}
       {section.table && <BlogTable table={section.table} />}
       {section.mythVsFact && <MythVsFact items={section.mythVsFact} />}
       {section.caseStudy && <CaseStudy cs={section.caseStudy} />}
       {section.items && <KeyTakeaways items={section.items} />}
-
-      {section.diagramDescription && (
-        <div style={{
-          margin: "24px 0", padding: "18px 22px",
-          background: "var(--surf)", border: "1px dashed var(--brd)",
-          borderRadius: "var(--r-md)",
-        }}>
-          <div style={{ fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--mut)", letterSpacing: ".12em", marginBottom: 8 }}>
-            DIAGRAM — {section.diagramDescription.title?.toUpperCase()}
-          </div>
-          <div style={{ fontSize: 12, color: "var(--mut-lt)", lineHeight: 1.7 }}>
-            {section.diagramDescription.description}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

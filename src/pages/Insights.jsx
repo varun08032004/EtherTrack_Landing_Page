@@ -54,8 +54,8 @@ export default function Insights() {
                 className="reveal insights-row"
                 style={{
                   display: "grid",
-                  gridTemplateColumns: "80px 1fr auto",
-                  gap: 28,
+                  gridTemplateColumns: "60px 1fr auto",
+                  gap: 24,
                   alignItems: "start",
                   padding: "28px 0",
                   borderBottom: "1px solid var(--brd)",
@@ -66,13 +66,13 @@ export default function Insights() {
                 {/* Index number */}
                 <div className="insights-num" style={{
                   fontFamily: "var(--font-head)",
-                  fontSize: 64,
+                  fontSize: 42,
                   fontWeight: 900,
                   color: "rgba(255,255,255,0.18)",
                   lineHeight: 1,
                   paddingTop: 4,
                   userSelect: "none",
-                  minWidth: 80,
+                  minWidth: 60,
                 }}>
                   {String(i + 1).padStart(2, "0")}
                 </div>

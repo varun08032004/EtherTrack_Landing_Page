@@ -1,28 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ethertrack.in/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <lastmod>2026-01-11</lastmod>
   </url>
   <url>
     <loc>https://ethertrack.in/platform</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.95</priority>
+    <lastmod>2026-01-11</lastmod>
   </url>
   <url>
     <loc>https://ethertrack.in/solutions</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.9</priority>
+    <lastmod>2026-01-11</lastmod>
   </url>
   <url>
-    <loc>https://ethertrack.in/industries</loc>
+    <loc>https://ethertrack.in/careers</loc>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
+    <lastmod>2026-01-11</lastmod>
   </url>
   <url>
     <loc>https://ethertrack.in/about</loc>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-01-11</lastmod>
+  </url>
+  <url>
+    <loc>https://ethertrack.in/industries</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2026-01-11</lastmod>
+  </url>
+  <url>
+    <loc>https://ethertrack.in/insights</loc>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+    <lastmod>2026-01-11</lastmod>
   </url>
 </urlset>

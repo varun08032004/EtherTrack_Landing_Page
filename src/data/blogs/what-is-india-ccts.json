@@ -1,0 +1,337 @@
+{
+  "id": "what-is-india-ccts",
+  "slug": "what-is-india-ccts",
+
+  "seo": {
+    "metaTitle": "India's Carbon Credit Trading Scheme (CCTS) — Complete Guide 2026",
+    "metaDescription": "Everything Indian businesses need to know about the CCTS — who is covered, how GEI targets work, how CCCs are earned and traded, and what non-compliance costs.",
+    "focusKeyword": "India carbon credit trading scheme CCTS",
+    "secondaryKeywords": [
+      "CCTS India",
+      "carbon credit certificate India",
+      "BEE designated consumer",
+      "GEI target India",
+      "carbon compliance India",
+      "IEX carbon credits",
+      "GRID-India carbon registry",
+      "carbon credit trading India 2026"
+    ],
+    "urlSlug": "what-is-india-ccts",
+    "canonicalUrl": "https://ethertrack.in/insights/what-is-india-ccts",
+    "robots": "index, follow",
+    "ogTitle": "India's Carbon Credit Trading Scheme (CCTS) — Complete Guide 2026",
+    "ogDescription": "Who is covered, how GEI targets work, how CCCs are earned and traded, and what non-compliance costs for Indian businesses.",
+    "ogImage": "/images/blogs/what-is-india-ccts/og.webp",
+    "twitterTitle": "India CCTS Explained — Complete Guide for 2026",
+    "twitterDescription": "9 sectors. Mandatory GEI targets. Live compliance market. Everything Indian businesses need to know about the CCTS."
+  },
+
+  "articleInfo": {
+    "h1": "India's Carbon Credit Trading Scheme (CCTS) — Complete Guide (2026)",
+    "subtitle": "India's first mandatory carbon market is no longer a proposal. The CCTS is notified, the baseline period is active, and nine industrial sectors already have compliance obligations. This is what your business needs to understand.",
+    "author": {
+      "name": "Varun Girish Deshmukh",
+      "designation": "Founder & CEO, EtherTrack Technologies",
+      "photo": "/authors/varun-deshmukh.webp",
+      "bio": "Varun Girish Deshmukh is the Founder and CEO of EtherTrack Technologies Private Limited (CIN: U62090PN2026PTC257708), building India's blockchain-native carbon credit infrastructure platform — covering emission tracking, tokenised credit trading, on-chain retirement, and automated regulatory reporting."
+    },
+    "publishedDate": "2026-09-21",
+    "updatedDate": "2026-09-21",
+    "readingTime": "10 min",
+    "category": "CCTS",
+    "tags": ["CCTS", "Carbon Credits", "BEE", "India", "Compliance", "Carbon Trading", "GEI", "ESG"],
+    "heroImage": {
+      "src": "/images/blogs/what-is-india-ccts/hero.webp",
+      "alt": "Illustration of India's carbon credit compliance framework with nine industrial sectors feeding into a central trading exchange",
+      "caption": "India's CCTS creates mandatory emission intensity targets for nine industrial sectors — with tradeable Carbon Credit Certificates as the compliance instrument.",
+      "imagePrompt": "Dark background (#0a0f0a), wide cinematic 16:9 ratio. Abstract isometric illustration of India's industrial landscape — nine small factory icons (steel, cement, aluminium, fertiliser, refinery, petrochemicals, paper, chlor-alkali, textiles) arranged in a circle, connected by glowing green (#00e050) lines flowing into a central exchange node with the Ashoka Chakra subtly embedded in it. Amber (#f97316) glow on non-compliant facilities, green glow on compliant ones. Premium, editorial, authoritative. No text."
+    }
+  },
+
+  "tableOfContents": [
+    "What Is the CCTS and Why Was It Created?",
+    "Who Is Covered — The Nine Gazetted Sectors",
+    "How GEI Targets Work",
+    "How Carbon Credit Certificates Are Earned",
+    "How CCCs Are Traded",
+    "The CCTS Registry — GRID-India ICM",
+    "What Non-Compliance Costs",
+    "How EtherTrack Fits In",
+    "Key Takeaways"
+  ],
+
+  "article": {
+    "introduction": {
+      "content": "For most of India's post-independence industrial history, the cost of emitting greenhouse gases was zero. Factories, refineries, and cement plants released CO₂ as a free input to production — no price, no penalty, no obligation.\n\nThat changed in June 2023. When the Ministry of Power notified the Carbon Credit Trading Scheme under the Energy Conservation Act, it established for the first time that industrial emissions in India have a cost — and that cost is enforceable.\n\nThe CCTS is not a proposal or a pilot. It is notified regulation. Nine industrial sectors are covered. Baseline periods are underway. Carbon Credit Certificates will be issued, tracked, and traded on regulated exchanges. Facilities that miss their targets face financial penalties.\n\nThis article is a complete practical guide to the CCTS — what it is, who it covers, how compliance works, what the certificates trade for, and what happens if your facility misses its target. If your company operates in any of the nine covered sectors, this is not background reading. It is operational knowledge."
+    },
+
+    "sections": [
+      {
+        "id": "what-is-ccts",
+        "heading": "What Is the CCTS and Why Was It Created?",
+        "content": "The Carbon Credit Trading Scheme (CCTS) is India's first mandatory domestic carbon market, notified by the Bureau of Energy Efficiency (BEE) under the Ministry of Power in June 2023, pursuant to the Energy Conservation Act 2001 as amended in 2022.\n\nThe scheme has three connected objectives. First, to create a financial incentive for industrial emission reduction by making it profitable to outperform emission intensity targets and costly to underperform. Second, to build the market infrastructure — registries, exchanges, verification frameworks — that India needs to participate credibly in global carbon markets under Article 6 of the Paris Agreement. Third, to support India's Nationally Determined Contribution (NDC) commitment to reduce the emission intensity of its GDP by 45% from 2005 levels by 2030.\n\nThe CCTS operates on an intensity-based model rather than a hard cap. Instead of telling a facility it can emit a maximum of X tonnes annually, the CCTS tells it that its emissions per unit of output must not exceed a specified threshold. This intensity approach accommodates India's economic growth ambitions — a steel plant can produce more steel, as long as it becomes progressively more efficient at doing so.\n\nOversight is distributed across three institutions. BEE sets the GEI targets and administers the scheme. CERC (Central Electricity Regulatory Commission) regulates trading on the exchanges. GRID-India (Grid Controller of India) operates the Carbon Credit Certificate registry.",
+        "illustration": {
+          "type": "stat",
+          "items": [
+            { "value": "2023", "label": "Year CCTS was notified", "sub": "Under the Energy Conservation Act, Ministry of Power", "color": "#f97316" },
+            { "value": "9", "label": "Gazetted industrial sectors", "sub": "Covering India's most emissions-intensive industries", "color": "#22c55e" },
+            { "value": "45%", "label": "India's NDC target", "sub": "Reduction in GDP emission intensity by 2030 vs 2005", "color": "#3b82f6" }
+          ]
+        },
+        "infoBox": {
+          "type": "important",
+          "title": "Three Institutions, One Market",
+          "content": "BEE sets targets and administers the scheme. CERC regulates exchange trading and sets the price band. GRID-India maintains the official registry of all Carbon Credit Certificates. Understanding which institution governs which function is important for compliance — a query about your GEI target goes to BEE; a query about exchange trading goes to CERC; a query about your registry holdings goes to GRID-India."
+        }
+      },
+
+      {
+        "id": "nine-sectors",
+        "heading": "Who Is Covered — The Nine Gazetted Sectors",
+        "content": "The CCTS currently covers nine industrial sectors, collectively accounting for a significant share of India's total industrial greenhouse gas emissions. Participation is mandatory for facilities in these sectors that meet or exceed the energy consumption threshold that qualifies them as BEE Designated Consumers.\n\nThe nine sectors are: Iron & Steel, Cement, Aluminium, Fertilisers, Petroleum Refineries, Petrochemicals, Paper & Pulp, Chlor-Alkali, and Textiles.\n\nBEE Designated Consumer status is determined by annual energy consumption. The threshold varies by sector but is generally set at energy consumption levels that identify large industrial facilities — typically those consuming 500 MTOE (metric tonnes of oil equivalent) or more annually. If your facility is already registered with BEE under the Perform, Achieve and Trade (PAT) scheme, it is almost certainly a Designated Consumer for CCTS purposes as well, since the PAT scheme and CCTS target the same population of large industrial energy consumers.\n\nFacilities that are not yet CCTS-covered — those below the Designated Consumer threshold or in sectors outside the nine — can participate voluntarily. The voluntary mechanism allows any entity to register emission reduction projects, generate CCCs, and sell them to compliance buyers. This creates a pathway for smaller industrial facilities, renewable energy developers, and other project types to participate in India's carbon market without mandatory compliance obligations.",
+        "table": {
+          "title": "The Nine CCTS Sectors — At a Glance",
+          "headers": ["Sector", "GEI Metric", "Key Emission Sources", "PAT Overlap"],
+          "rows": [
+            ["Iron & Steel", "tCO₂ per tonne crude steel", "Blast furnace, DRI, power consumption", "Yes"],
+            ["Cement", "tCO₂ per tonne cementitious material", "Clinker production, kiln fuel", "Yes"],
+            ["Aluminium", "tCO₂ per tonne aluminium", "Electrolysis, anode effects, power", "Yes"],
+            ["Fertilisers", "tCO₂ per tonne product", "Ammonia synthesis, steam reforming", "Yes"],
+            ["Petroleum Refineries", "tCO₂ per Solomon Complexity Factor unit", "Distillation, cracking, hydrogen production", "Yes"],
+            ["Petrochemicals", "tCO₂ per tonne product", "Cracking, polymerisation, utilities", "Yes"],
+            ["Paper & Pulp", "tCO₂ per tonne product", "Pulping, drying, steam and power", "Yes"],
+            ["Chlor-Alkali", "tCO₂ per tonne product", "Electrolysis, steam, auxiliaries", "Yes"],
+            ["Textiles", "tCO₂ per tonne product", "Dyeing, finishing, steam, power", "Yes"]
+          ],
+          "footnote": "GEI = Greenhouse Gas Emission Intensity. Solomon Complexity Factor is a refinery-specific output metric. PAT = Perform, Achieve and Trade scheme, BEE."
+        },
+        "infoBox": {
+          "type": "alert",
+          "title": "Already in PAT? You Are Likely a CCTS Designated Consumer",
+          "content": "If your facility participated in any cycle of the PAT scheme, your energy consumption data is already with BEE and you almost certainly meet the Designated Consumer threshold for CCTS. Do not wait for a formal notification — begin tracking your GEI now so your baseline is established correctly."
+        }
+      },
+
+      {
+        "id": "how-gei-targets-work",
+        "heading": "How GEI Targets Work",
+        "content": "GEI — Greenhouse Gas Emission Intensity — is the fundamental metric of CCTS compliance. It measures how much greenhouse gas a facility emits per unit of output, rather than measuring total emissions.\n\nFor a steel plant, GEI might be expressed as tonnes of CO₂ equivalent per tonne of crude steel produced. For a cement plant, it is tonnes of CO₂ equivalent per tonne of cementitious material. For a petroleum refinery, the denominator is the Solomon Complexity Factor — a normalised measure of refinery output that accounts for differences in product mix.\n\nBEE assigns each Designated Consumer a GEI target for each compliance cycle. If a facility's actual GEI falls below (i.e., is better than) its target, it has generated a surplus. If its actual GEI exceeds its target, it has a deficit.\n\nGEI targets are set to become progressively more stringent over successive compliance cycles. The trajectory is not fixed indefinitely — BEE reviews and revises targets at the start of each cycle based on sector-wide performance, technology availability, and India's evolving climate commitments. The expectation, however, is consistent tightening: facilities that invest in efficiency improvements now will be better positioned in every subsequent cycle.\n\nGEI is calculated using emission factors published by BEE and, where relevant, the Central Electricity Authority (CEA). Scope 1 emissions (direct combustion of fuels) and Scope 2 emissions (purchased electricity, using the CEA grid emission factor of 0.727 tCO₂/MWh as of V20.0 December 2024) are included. The MRV process — Monitoring, Reporting, and Verification — requires facilities to submit annual GEI data, which is independently verified before CCCs are issued or deficit positions are confirmed.",
+        "illustration": {
+          "type": "compare",
+          "left": {
+            "label": "Outperform GEI Target",
+            "title": "Earn Carbon Credit Certificates",
+            "color": "#22c55e",
+            "points": [
+              "Actual emission intensity < assigned GEI target",
+              "Surplus = (Target GEI − Actual GEI) × Output",
+              "Surplus converted to CCCs at 1 CCC per tonne",
+              "CCCs deposited into GRID-India registry account",
+              "Can sell on IEX / PXIL for ₹600–₹1,200 per CCC"
+            ]
+          },
+          "right": {
+            "label": "Miss GEI Target",
+            "title": "Must Buy or Pay Penalty",
+            "color": "#ef4444",
+            "points": [
+              "Actual emission intensity > assigned GEI target",
+              "Deficit = (Actual GEI − Target GEI) × Output",
+              "Must purchase CCCs equal to deficit volume",
+              "Buy on IEX / PXIL within the compliance window",
+              "Failure to cover deficit → regulatory penalty"
+            ]
+          }
+        }
+      },
+
+      {
+        "id": "how-cccs-are-earned",
+        "heading": "How Carbon Credit Certificates Are Earned",
+        "content": "A Carbon Credit Certificate is not issued automatically. It is earned through a formal process that involves monitoring, reporting, third-party verification, and registry issuance — the same MRV framework that governs all credible carbon markets.\n\nThe process begins with data collection. Throughout the compliance year, each Designated Consumer tracks its production output, fuel consumption, purchased electricity, and process emissions. This data feeds into the GEI calculation.\n\nAt the end of the compliance period, the facility submits a monitoring report to BEE detailing its actual GEI performance. An accredited third-party verification body — a VVB, which may be an organisation like Bureau Veritas, DNV, or EY — independently audits the report, checking data accuracy, measurement methodology, and emission factor application.\n\nOnce verified, BEE confirms the GEI outcome. For facilities that outperformed their target, GRID-India issues CCCs to the facility's registry account — one CCC per tonne of CO₂ equivalent of verified surplus performance. The CCCs are uniquely numbered, carry the compliance cycle vintage, and are linked to the issuing facility's identity in the registry.\n\nCCCs issued under the CCTS are distinct from voluntary carbon credits. They cannot be generated by simply claiming to have reduced emissions — the GEI target provides the counterfactual baseline, and third-party verification provides the assurance. Only genuine, verified outperformance generates certificates.",
+        "illustration": {
+          "type": "flow",
+          "steps": [
+            { "icon": "📊", "label": "Monitor GEI", "desc": "Track output, fuel, electricity and process emissions throughout the year", "color": "#3b82f6" },
+            { "icon": "📋", "label": "Submit Report", "desc": "File annual monitoring report with GEI calculation to BEE", "color": "#a855f7" },
+            { "icon": "🔍", "label": "VVB Verification", "desc": "Accredited auditor independently checks the data and confirms GEI", "color": "#f97316" },
+            { "icon": "✅", "label": "BEE Confirms", "desc": "BEE reviews verified report and confirms surplus or deficit position", "color": "#22c55e" },
+            { "icon": "🪙", "label": "CCCs Issued", "desc": "GRID-India deposits CCCs into your registry account — 1 per tonne surplus", "color": "#22c55e" }
+          ]
+        },
+        "infoBox": {
+          "type": "process",
+          "title": "One CCC = One Tonne of Verified Surplus Performance",
+          "content": "A CCC is not issued for reducing emissions — it is issued for outperforming a target. If your assigned GEI target is 0.80 tCO₂/tonne and your actual GEI is 0.75 tCO₂/tonne, you earn 0.05 CCCs per tonne of output. At 1 million tonnes of output, that is 50,000 CCCs — worth ₹30M to ₹60M at current exchange prices."
+        }
+      },
+
+      {
+        "id": "how-cccs-are-traded",
+        "heading": "How CCCs Are Traded",
+        "content": "Carbon Credit Certificates are financial instruments. Once issued into a facility's GRID-India registry account, they can be transferred, sold, or retired through regulated trading on IEX (Indian Energy Exchange) and PXIL (Power Exchange India Limited) — the two exchanges designated for CCTS trading under CERC oversight.\n\nCERC has established a price band for exchange-traded CCCs: a floor of ₹600 and a ceiling of ₹1,200 per certificate. This band provides predictability — buyers know the maximum they will pay; sellers know the minimum they will receive. Within the band, actual trade prices are determined by supply and demand.\n\nTrading happens in defined windows aligned with the compliance cycle. Facilities with surplus CCCs list them on the exchange. Facilities with deficit positions buy. If a facility cannot find enough supply at the ceiling price on the exchange — an unlikely scenario in a liquid market but possible in early cycles — the regulator has mechanisms to address shortfalls.\n\nOTC (over-the-counter) trading is also possible — direct bilateral transactions between two registered participants outside the exchange — but exchange trading is preferred for transparency and price discovery.\n\nCCCs can also be banked — carried forward from one compliance cycle to the next — subject to BEE rules on banking limits. This allows surplus-generating facilities to accumulate certificates and sell them when prices are higher, or to use them in future compliance cycles if their own GEI worsens. Borrowing — using future-cycle allocations against a current shortfall — is not provided for in the current CCTS design.",
+        "illustration": {
+          "type": "stat",
+          "items": [
+            { "value": "₹600", "label": "CCTS price floor per CCC", "sub": "Minimum exchange-traded price set by CERC", "color": "#22c55e" },
+            { "value": "₹1,200", "label": "CCTS price ceiling per CCC", "sub": "Maximum exchange-traded price set by CERC", "color": "#f97316" },
+            { "value": "IEX + PXIL", "label": "Designated exchanges", "sub": "The two CERC-regulated platforms for CCC trading", "color": "#3b82f6" }
+          ]
+        }
+      },
+
+      {
+        "id": "grid-india-registry",
+        "heading": "The CCTS Registry — GRID-India ICM",
+        "content": "The official registry for India's CCTS is operated by GRID-India — the Grid Controller of India — through its Indian Carbon Market (ICM) function. Every CCC that exists in India's compliance market has an entry in this registry.\n\nThe registry performs four functions. Issuance: when BEE confirms a facility's surplus performance, GRID-India issues the corresponding CCCs into the facility's registry account. Transfer: when a CCC is sold, the registry records the transfer from the seller's account to the buyer's account — maintaining a complete chain of custody. Retirement: when a facility uses CCCs to cover a compliance deficit, the registry permanently retires the corresponding certificates, removing them from circulation. Reporting: the registry provides public and regulatory visibility into total CCC supply, trading volumes, and retirements — the foundation of market transparency.\n\nRegistered participants must have an active GRID-India ICM account to hold, transfer, or retire CCCs. The account registration process requires company incorporation documents, facility identification, and designated consumer status confirmation from BEE.\n\nThe GRID-India registry does not handle payments — it records credit positions only. Actual financial settlement for trades on IEX or PXIL happens through the exchange's clearing mechanism. The registry and the exchange communicate to confirm that CCCs have transferred upon settlement.",
+        "infoBox": {
+          "type": "important",
+          "title": "No GRID-India Account = No Market Access",
+          "content": "You cannot hold, buy, sell, or retire CCCs without an active GRID-India ICM registry account. Account registration requires your BEE Designated Consumer registration number, MCA incorporation documents, and facility details. This process takes time — begin it well before your first compliance deadline, not after."
+        }
+      },
+
+      {
+        "id": "non-compliance-costs",
+        "heading": "What Non-Compliance Costs",
+        "content": "The CCTS is not a reporting exercise. Non-compliance carries financial consequences that BEE has the authority to enforce under the Energy Conservation Act.\n\nA facility that fails to cover its GEI deficit — either by purchasing sufficient CCCs on the exchange or by demonstrating it has already retired the required volume — faces a financial penalty. The penalty structure is designed to exceed the cost of compliance: if paying the penalty were cheaper than buying CCCs, rational actors would simply pay the penalty and nothing would change.\n\nBeyond the direct financial penalty, non-compliance creates secondary risks. Regulatory exposure: BEE can escalate enforcement action for persistent or significant non-compliance. Reputational exposure: CCTS compliance status is likely to become a disclosed metric in regulatory filings and BRSR sustainability reports — visible to investors, lenders, and customers. Financing exposure: ESG-focused lenders and bond markets are increasingly incorporating carbon compliance status into credit assessment.\n\nFor facilities in export-facing sectors — particularly steel, cement, and aluminium — non-compliance with India's domestic carbon market also creates exposure to the EU Carbon Border Adjustment Mechanism (CBAM). CBAM requires importers of these products into the EU to pay a carbon price equivalent to what European producers pay under the EU ETS. India's CCTS compliance record is expected to be relevant to CBAM calculations — facilities with a credible domestic carbon compliance track record may be better positioned for CBAM.",
+        "mythVsFact": [
+          {
+            "myth": "We can wait until CCTS enforcement is fully operational before worrying about GEI targets",
+            "fact": "GEI baseline periods are already active. The data being collected now will determine your initial target and your compliance position in the first formal cycle. Poor data quality or late monitoring start means your baseline will be unfavourable — potentially locking in harder targets than necessary."
+          },
+          {
+            "myth": "Only the largest industrial companies need to worry about CCTS",
+            "fact": "Any facility in the nine gazetted sectors that meets the BEE Designated Consumer energy consumption threshold is covered — regardless of company size. There are over 1,000 Designated Consumers across India's nine covered sectors. Many are mid-sized operations, not just large conglomerates."
+          },
+          {
+            "myth": "We can just buy CCCs at the last minute to cover any deficit",
+            "fact": "CCC availability depends on how many facilities outperformed in that compliance cycle. If the market is tight — many facilities below target, few above — prices will be at or near the ceiling and volume may be limited. Early engagement with the market, including forward purchase agreements, is a better strategy than last-minute buying."
+          }
+        ]
+      },
+
+      {
+        "id": "how-ethertrack-fits-in",
+        "heading": "How EtherTrack Fits In",
+        "content": "CCTS compliance requires four things to work in sequence: accurate GEI monitoring, timely reporting, market access to trade CCCs, and regulatory report generation. EtherTrack provides all four in one platform.\n\nFor GEI monitoring, the emission tracking module covers Scope 1 and Scope 2 emissions across all activity types relevant to India's CCTS sectors — combustion of coal, natural gas, HSD, FO/LSHS, and purchased electricity at the current CEA V20.0 grid emission factor of 0.727 tCO₂/MWh. Data can be entered manually, uploaded via CSV, synced from ERP systems, or parsed by the AI assistant. A maker-checker approval workflow ensures a second review on every entry before it feeds the GEI calculation.\n\nFor market access, the exchange module provides a live order book and hybrid AMM liquidity pool for buying and selling CCCs, with payment in Indian Rupees via UPI, card, or bank transfer. The compliance module runs plant-wise GEI position tracking across multi-plant organisations, calculates intra-group netting positions to identify the most cost-efficient trading strategy, and routes orders to IEX or PXIL.\n\nFor reporting, the BRSR Core module auto-generates Section C regulatory disclosures — including the emission intensity metrics that are mandatory under SEBI's BRSR ISF December 2024 update — directly from the same emission dataset used for CCTS monitoring. No reconciliation, no re-entry, no consultant.\n\nEtherTrack is currently live on Ethereum Sepolia testnet with all seven modules functional. Mainnet deployment is pending final security audit. The platform is applying for DPIIT recognition and GRID-India ICM registry integration.",
+        "infoBox": {
+          "type": "cta-soft",
+          "title": "See CCTS Compliance Live on Testnet",
+          "content": "The CCTS compliance module — including GEI tracking, plant-wise netting, and exchange order routing — is live on testnet today. Request a demo and we will walk through your sector's specific GEI metrics, using your facility type as the example."
+        }
+      },
+
+      {
+        "id": "key-takeaways",
+        "heading": "Key Takeaways",
+        "items": [
+          "The CCTS is India's first mandatory domestic carbon market, notified in June 2023 under the Energy Conservation Act. It is not a proposal — it is active regulation with enforceable compliance obligations.",
+          "Nine industrial sectors are currently covered: Iron & Steel, Cement, Aluminium, Fertilisers, Petroleum Refineries, Petrochemicals, Paper & Pulp, Chlor-Alkali, and Textiles. Facilities meeting the BEE Designated Consumer energy threshold are mandatory participants.",
+          "The CCTS uses an intensity-based GEI (Greenhouse Gas Emission Intensity) target rather than a hard emission cap — measuring CO₂ equivalent per unit of industrial output, not total emissions. This accommodates production growth while driving efficiency improvement.",
+          "Facilities that outperform their GEI target earn Carbon Credit Certificates (CCCs) — one per tonne of verified surplus performance. Facilities that miss their target must purchase CCCs or face financial penalties.",
+          "CCCs are traded on IEX and PXIL under CERC oversight, within a regulated price band of ₹600 (floor) to ₹1,200 (ceiling) per certificate. GRID-India ICM operates the official registry for issuance, transfer, and retirement.",
+          "The CCC issuance process requires monitoring, annual reporting, third-party verification by an accredited VVB, BEE confirmation, and registry issuance. There is no shortcut — CCCs are earned through verified performance, not claimed.",
+          "Non-compliance penalties are designed to exceed the cost of buying CCCs — making it more expensive to ignore the obligation than to comply. Secondary risks include BRSR disclosure exposure, ESG financing impact, and EU CBAM implications for export-facing sectors.",
+          "GEI baseline periods are already active. The data being collected now determines your initial target. Facilities not yet monitoring their GEI are already behind."
+        ]
+      }
+    ]
+  },
+
+  "faqs": [
+    {
+      "question": "When does CCTS compliance actually begin?",
+      "answer": "The CCTS was notified in June 2023 and baseline monitoring periods are already underway. BEE publishes sector-specific GEI targets and compliance cycle timelines separately. FY 2025–26 is being treated as an initial baseline and preparatory phase, with formal compliance obligations — including mandatory CCC surrender — intensifying through FY 2026–27 and beyond as BEE confirms cycle-specific targets."
+    },
+    {
+      "question": "How do I know if my facility is a BEE Designated Consumer?",
+      "answer": "BEE Designated Consumer status is determined by annual energy consumption thresholds that vary by sector. As a practical guide: if your facility participated in any PAT scheme cycle, it is almost certainly a Designated Consumer. If you are unsure, check with BEE directly or review your facility's annual energy audit reports — DC status is typically confirmed by BEE and communicated to the facility in writing."
+    },
+    {
+      "question": "What is the difference between a CCC and a voluntary carbon credit?",
+      "answer": "A CCC (Carbon Credit Certificate) is issued under India's mandatory CCTS by GRID-India, based on verified outperformance of a BEE-assigned GEI target. It can only be used for CCTS compliance. A voluntary carbon credit (VCU, GS VER) is issued by an independent registry like Verra or Gold Standard for verified emission reduction projects, for use in voluntary offsetting. They are different instruments, from different registries, for different purposes — they cannot generally be used interchangeably."
+    },
+    {
+      "question": "Can facilities outside the nine sectors participate in the CCTS?",
+      "answer": "Yes — through the voluntary mechanism. Companies and project developers outside the nine mandatory sectors can register emission reduction projects under the CCTS voluntary framework, generate CCCs, and sell them to compliance buyers. This creates a pathway for renewable energy developers, SMEs, and other entities to participate in India's carbon market without mandatory compliance obligations."
+    },
+    {
+      "question": "What is the EU CBAM and why does it matter for Indian exporters?",
+      "answer": "The EU Carbon Border Adjustment Mechanism (CBAM) requires importers of steel, cement, aluminium, fertiliser, and other covered products into the EU to pay a carbon price equivalent to what EU producers pay under the EU ETS. For Indian exporters in these sectors, CBAM is a direct financial cost that grows as EU carbon prices rise. India's domestic CCTS compliance record — demonstrating that your production has a credible, verified carbon price — is expected to be relevant to CBAM calculations. Facilities with strong CCTS compliance may face lower net CBAM exposure."
+    },
+    {
+      "question": "What happens if we cannot buy enough CCCs to cover our deficit?",
+      "answer": "If a facility cannot purchase sufficient CCCs — either because supply is constrained or the price ceiling is insufficient to clear the market — BEE has regulatory discretion to address shortfalls on a case-by-case basis. However, this is not a reliable strategy. The penalty for non-compliance is designed to exceed the cost of buying CCCs at the ceiling price, making voluntary compliance the economically rational choice. Building a forward purchasing strategy well before the compliance deadline is far preferable to relying on regulatory discretion."
+    }
+  ],
+
+  "references": [
+    {
+      "id": 1,
+      "citation": "Ministry of Power, Government of India. (2023). Carbon Credit Trading Scheme, 2023. Gazette of India Extraordinary, Part II, Section 3(i).",
+      "url": "https://beeindia.gov.in/en/what-we-do/carbon-credit-trading-scheme"
+    },
+    {
+      "id": 2,
+      "citation": "Bureau of Energy Efficiency. (2024). Guidelines for Carbon Credit Trading Scheme Implementation. BEE, Ministry of Power.",
+      "url": "https://beeindia.gov.in"
+    },
+    {
+      "id": 3,
+      "citation": "Central Electricity Regulatory Commission. (2024). CERC (Terms and Conditions for Purchase and Sale of Carbon Credit Certificates) Regulations, 2024.",
+      "url": "https://cerc.gov.in"
+    },
+    {
+      "id": 4,
+      "citation": "Central Electricity Authority. (2024). CO2 Baseline Database for the Indian Power Sector, Version 20.0, December 2024. CEA, Ministry of Power.",
+      "url": "https://cea.nic.in"
+    },
+    {
+      "id": 5,
+      "citation": "European Commission. (2023). Carbon Border Adjustment Mechanism (CBAM). European Commission.",
+      "url": "https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en"
+    }
+  ],
+
+  "relatedArticles": [
+    {
+      "slug": "carbon-markets-explained",
+      "title": "Carbon Markets Explained — Compliance vs Voluntary (2026)",
+      "description": "How carbon markets work, who participates, how prices are set, and where India fits in the global picture.",
+      "category": "Carbon Markets",
+      "readingTime": "9 min",
+      "status": "published"
+    },
+    {
+      "slug": "what-are-carbon-credits",
+      "title": "What Are Carbon Credits? A Complete Guide (2026)",
+      "description": "The fundamentals — what a carbon credit is, how it is created, who buys it, and why it exists.",
+      "category": "Carbon Markets",
+      "readingTime": "8 min",
+      "status": "published"
+    },
+    {
+      "slug": "scope-1-2-3-emissions-explained",
+      "title": "Scope 1, 2, and 3 Emissions Explained for Indian Businesses",
+      "description": "The three scope categories in GHG Protocol reporting — with real examples, common mistakes, and what SEBI's BRSR Core requires.",
+      "category": "Carbon Accounting",
+      "readingTime": "9 min",
+      "status": "upcoming"
+    }
+  ],
+
+  "cta": {
+    "headline": "Your CCTS baseline is already being measured. Is your GEI tracking in place?",
+    "subheadline": "EtherTrack tracks GEI plant by plant, runs intra-group netting calculations, routes orders to IEX and PXIL, and generates your BRSR compliance disclosures — all from one platform.",
+    "primaryButton": {
+      "label": "Request a Demo",
+      "action": "openDemo"
+    },
+    "secondaryButton": {
+      "label": "Explore Live Testnet",
+      "url": "https://app.ethertrack.in"
+    },
+    "note": "No commitment · 30-minute live walkthrough · Response within 24 hours"
+  }
+}

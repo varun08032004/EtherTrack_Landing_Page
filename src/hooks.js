@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export function useReveal(deps = []) {
   useEffect(() => {
@@ -31,4 +31,45 @@ export function useBentoGlow(deps = []) {
     return () => handlers.forEach(({ card, fn }) => card.removeEventListener("mousemove", fn));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
+}
+
+const ETPL_OPS_API = (import.meta.env.VITE_ETPL_OPS_API || 'https://etpl-ops.onrender.com').replace(/\/$/, '');
+
+// Hook to fetch live pricing from etpl-ops
+export function usePricing() {
+  const [pricing, setPricing] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    let mounted = true;
+    async function fetchPricing() {
+      try {
+        setLoading(true);
+        const res = await fetch(`${ETPL_OPS_API}/api/public/pricing`);
+        if (!res.ok) throw new Error('Failed to fetch pricing');
+        const data = await res.json();
+        if (mounted) {
+          setPricing(data.pricing);
+          setError(null);
+        }
+      } catch (err) {
+        if (mounted) {
+          console.error('[usePricing] error:', err);
+          setError(err.message);
+          // Fallback to hardcoded defaults
+          setPricing({
+            starter: { monthly: 1499, annual: 14990 },
+            growth: { monthly: 7999, annual: 79990 },
+          });
+        }
+      } finally {
+        if (mounted) setLoading(false);
+      }
+    }
+    fetchPricing();
+    return () => { mounted = false; };
+  }, []);
+
+  return { pricing, loading, error };
 }

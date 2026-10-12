@@ -105,8 +105,8 @@ export default function Solutions() {
         <div className="s-label reveal" style={{ marginTop: -8 }}>CHANNEL PARTNER PROGRAMME</div>
         <h2 className="s-h2 reveal">For ESG consulting firms<br/><span style={{ color:"var(--grn)" }}>EtherTrack makes you more valuable, not less</span></h2>
         <p className="s-sub reveal">
-          Already found your fit above as a customer? Skip this section. If you're an ESG consulting or
-          audit firm instead, EtherTrack is not a competitor — it's your highest-leverage distribution
+          Already found your fit above as a customer? This section is for ESG consulting and audit firms.
+          If that's you, EtherTrack is not a competitor — it's your highest-leverage distribution
           channel. One partnership with a mid-size ESG firm can bring 20–50 corporate clients immediately.
         </p>
         <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:14, marginBottom:32 }}>

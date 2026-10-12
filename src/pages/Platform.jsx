@@ -62,7 +62,7 @@ const MODULES = [
       "Your credit shortfall calculated live, so you know exactly what to buy",
       "Set a price alert once and get notified the moment it's hit",
     ],
-    proof: "Every figure on this screen is pulled live from your wallet, your holdings, and the current market — nothing is a cached snapshot.",
+    proof: "Every figure is drawn from your wallet, holdings, and the current market — nothing is a cached snapshot.",
     color: "#22c55e",
   },
   {

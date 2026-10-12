@@ -10,6 +10,7 @@ const NAV_PAGES = [
   ["Industries","/industries"],
   ["Blogs",     "/insights"],
   ["About",     "/about"],
+  ["Careers",   "/careers"],
 ];
 
 const NAV_RESPONSIVE_CSS = `
@@ -137,6 +138,7 @@ function SiteFooter() {
             <li><Link to="/about#ccts">India CCTS</Link></li>
             <li><Link to="/#pricing">Pricing</Link></li>
             <li><Link to="/insights">Insights</Link></li>
+            <li><Link to="/careers">Careers</Link></li>
             <li><a href="mailto:support@ethertrack.in">support@ethertrack.in</a></li>
           </ul>
         </div>

@@ -160,8 +160,9 @@ export const PRICING = [
   {
     tier: "FREE", name: "Free", tag: "Start exploring today",
     desc: "Ideal for individuals, students, and companies that want to understand carbon trading before committing.",
-    price: "₹0", period: "forever", gst: null, save: null,
-    fee: "1.5%", seats: "1 seat", popular: false,
+    price: "₹0", period: "/yr", gst: null, save: null,
+    fee: "1.50%", seats: "1 seat", popular: false,
+    platformFeeNote: "Platform fee on trades",
     locked: ["Portfolio management", "List & sell credits", "Credit retirement", "Portfolio export", "Emission tracking", "Compliance dashboard", "Team management"],
     unlocked: ["Buy credits from the marketplace", "Browse live listings & real-time prices", "On-chain transaction receipt", "Basic carbon footprint calculator", "Wallet & trading history", "Email support"],
     cta: "Get Started", solid: false,
@@ -169,8 +170,9 @@ export const PRICING = [
   {
     tier: "STARTER", name: "Starter", tag: "For active traders",
     desc: "Freelancers, ESG consultants, small NGOs, and active credit traders who need the full marketplace experience.",
-    price: "₹14,990", period: "/yr", gst: "+ 18% GST", save: "Save ₹2,998 vs monthly billing",
-    fee: "1%", seats: "3 seats", popular: false,
+    price: "Base price", period: "/yr", gst: "+ 18% GST", save: "Set via etpl_ops",
+    fee: "1.00%", seats: "3 seats", popular: false,
+    platformFeeNote: "Platform fee on trades",
     locked: ["Emission tracking (Growth+)", "Compliance dashboard (Corporate)", "Team management (Corporate)"],
     unlocked: ["Everything in Free", "Full portfolio management", "List & sell credits on the marketplace", "On-chain credit retirement", "Portfolio export (CSV)", "Blockchain audit trail PDF", "3 seats included", "Priority email support"],
     cta: "Get Started", solid: false,
@@ -178,8 +180,9 @@ export const PRICING = [
   {
     tier: "GROWTH", name: "Growth", tag: "Most popular",
     desc: "MSMEs, growing businesses, and serious ESG teams that need full GHG tracking and regulatory reporting.",
-    price: "₹79,990", period: "/yr", gst: "+ 18% GST", save: "Save ₹15,998 vs monthly billing",
+    price: "Base price", period: "/yr", gst: "+ 18% GST", save: "Set via etpl_ops",
     fee: "0.75%", seats: "10 seats", popular: true,
+    platformFeeNote: "Platform fee on trades",
     locked: ["Compliance dashboard (Corporate)", "Team management (Corporate)", "BRSR/CDP/TCFD/GRI reports (Corporate)"],
     unlocked: ["Everything in Starter", "Scope 1 + 2 full tracking", "Basic Scope 3 (5 categories)", "GHG inventory ledger", "CSV export + analytics dashboard", "Carbon intensity metrics", "Basic decarbonisation scenarios", "GHG Protocol PDF report", "10 seats included", "Chat support"],
     cta: "Get Started", solid: true,
@@ -187,8 +190,10 @@ export const PRICING = [
   {
     tier: "CORPORATE", name: "Corporate", tag: "For listed companies",
     desc: "SEBI-listed companies, BRSR filers, large ESG teams, and organisations with CDP/TCFD obligations.",
-    price: "Contact Sales", period: "", gst: null, save: null,
-    fee: "0.5%", seats: "Unlimited seats", popular: false,
+    price: "Starting from", period: "/yr", gst: "+ 18% GST", save: "Set via etpl_ops",
+    fee: "0.50%", seats: "Unlimited seats", popular: false,
+    isStartingFrom: true,
+    platformFeeNote: "Platform fee on trades",
     locked: [],
     unlocked: [
       "Everything in Growth",
@@ -246,7 +251,7 @@ export const TL = [
 export const MQ_ITEMS = [
   { dot: "var(--org)", text: "SEPOLIA TESTNET LIVE — ALL MODULES OPERATIONAL" },
   { text: "70+ EMISSION FACTORS · DEFRA 2024 · CEA V20.0 2024" },
-  { dot: "var(--grn)", text: "0.5% PLATFORM FEE · HARDCODED IN SMART CONTRACT" },
+  { dot: "var(--grn)", text: "CONFIGURABLE PLATFORM FEE · PER TIER · SET VIA ERP" },
   { text: "BRSR CORE · CDP CLIMATE · TCFD · GRI · GHG PROTOCOL" },
   { dot: "var(--org)", text: "490 ENTITIES MANDATED · CCTS FY2026" },
   { text: "VCS · GOLD STANDARD · CDM · ACR · BEE CCTS" },
