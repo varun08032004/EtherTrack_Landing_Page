@@ -5,12 +5,19 @@ export default function AnimatedStat({ value, color }) {
   const [display, setDisplay] = useState(value);
   const playedRef = useRef(false);
 
+  const prefersReduced = typeof window !== "undefined" && window.matchMedia
+    && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (prefersReduced) {
+    setDisplay(value);
+  }
+
   useEffect(() => {
+    if (prefersReduced) {
+      return;
+    }
     const el = ref.current;
     if (!el) return;
-    const prefersReduced = typeof window !== "undefined" && window.matchMedia
-      && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) { setDisplay(value); return; }
     const chars = "0123456789";
     const obs = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -39,7 +46,7 @@ export default function AnimatedStat({ value, color }) {
     }, { threshold: 0.4 });
     obs.observe(el);
     return () => obs.disconnect();
-  }, [value]);
+  }, [value, prefersReduced]);
 
   return <div ref={ref} className="s-num" style={{ color }}>{display}</div>;
 }

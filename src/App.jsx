@@ -9,6 +9,8 @@ import About from "./pages/About";
 import Blogs from "./pages/Insights";
 import BlogPost from "./pages/BlogPost";
 import Careers from "./pages/Careers";
+import NotFound from "./pages/NotFound";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const router = createBrowserRouter([
   {
@@ -24,13 +26,16 @@ const router = createBrowserRouter([
       { path: "insights/:slug", element: <BlogPost /> },
       { path: "careers",        element: <Careers /> },
     ],
+    errorElement: <NotFound />,
   },
 ]);
 
 export default function App() {
   return (
     <HelmetProvider>
-      <RouterProvider router={router} />
+      <ErrorBoundary>
+        <RouterProvider router={router} />
+      </ErrorBoundary>
     </HelmetProvider>
   );
 }

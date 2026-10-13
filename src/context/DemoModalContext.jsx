@@ -1,7 +1,6 @@
-import { createContext, useContext, useState } from "react";
+import { useState } from "react";
 import DemoModal from "../components/DemoModal";
-
-const Ctx = createContext({ openDemo: () => {} });
+import { Ctx } from "./DemoModalContext.const";
 
 export function DemoModalProvider({ children }) {
   const [open, setOpen] = useState(false);
@@ -12,5 +11,3 @@ export function DemoModalProvider({ children }) {
     </Ctx.Provider>
   );
 }
-
-export const useDemoModal = () => useContext(Ctx);

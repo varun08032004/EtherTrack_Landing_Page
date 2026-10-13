@@ -1,7 +1,7 @@
 import { useReveal } from "../hooks";
 import { Link } from "react-router-dom";
 import { SOLUTIONS } from "../data";
-import { useDemoModal } from "../context/DemoModalContext";
+import { useDemoModal } from "../hooks/useDemoModal";
 import CtaBand from "../components/CtaBand";
 import Seo from "../components/Seo";
 
@@ -32,8 +32,6 @@ export default function Solutions() {
 
       {/* ── Customer solutions ── */}
       <section className="section" style={{ paddingTop:0 }}>
-        {/* Quick-jump chips — lets someone go straight to their role instead
-            of scanning five full cards to find it. */}
         <div className="reveal" style={{ display:"flex", flexWrap:"wrap", gap:8, marginBottom:28 }}>
           {SOLUTIONS.map((s,i) => (
             <a
@@ -54,11 +52,6 @@ export default function Solutions() {
           ))}
         </div>
 
-        {/* 5 cards in a 2-column grid orphans the last one (2+2+1) — instead
-            of letting that look like a layout accident, the last card
-            (CCTS Compliance Officers, currently the most time-urgent driver)
-            spans full width intentionally, as a closer rather than a
-            leftover. */}
         <style>{`
           .solutions-grid > .solution-card:last-child {
             grid-column: 1 / -1;
@@ -82,10 +75,7 @@ export default function Solutions() {
           ))}
         </div>
 
-        {/* Low-commitment exit — the only action available before this was
-            "book a demo." Someone not ready for a sales call yet had nowhere
-            else to go. This gives them somewhere to keep exploring instead
-            of bouncing. */}
+        
         <div className="reveal" style={{
           marginTop: 32, textAlign: "center",
           fontFamily: "var(--font-mono)", fontSize: 12, color: "var(--mut-lt)",
@@ -94,12 +84,7 @@ export default function Solutions() {
         </div>
       </section>
 
-      {/* ── ESG Consulting Channel Partner section ──
-          Sits right before the final CTA, after the customer solution grid.
-          It's a different audience — ESG firms as partners, not customers —
-          so it's framed as a clear pivot ("one more way to work with us")
-          rather than interrupting the customer-facing narrative midway
-          through the page, which is what it was doing before. */}
+{/* ── ESG Consulting Channel Partner section ── */}
       <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
         <div className="s-label reveal">ONE MORE WAY TO WORK WITH US</div>
         <div className="s-label reveal" style={{ marginTop: -8 }}>CHANNEL PARTNER PROGRAMME</div>
@@ -137,7 +122,7 @@ export default function Solutions() {
               Interested in a partner agreement?
             </div>
             <div style={{ fontSize:14, color:"var(--mut-lt)", fontWeight:300 }}>
-              We're signing founding partner agreements now — before mainnet. First three partners get preferential revenue-share terms.
+              We're signing founding partner agreements now — before Polygon mainnet. First three partners get preferential revenue-share terms.
             </div>
           </div>
           <button className="btn-p" onClick={openDemo} style={{ whiteSpace:"nowrap" }}>DISCUSS PARTNERSHIP →</button>

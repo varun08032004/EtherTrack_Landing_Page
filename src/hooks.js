@@ -33,35 +33,59 @@ export function useBentoGlow(deps = []) {
   }, deps);
 }
 
-const ETPL_OPS_API = (import.meta.env.VITE_ETPL_OPS_API || 'https://etpl-ops.onrender.com').replace(/\/$/, '');
+const LOCAL_API = 'http://localhost:5001';
+const PROD_API = 'https://etpl-ops.onrender.com';
+const CONFIGURED_API = (import.meta.env.VITE_ETPL_OPS_API || PROD_API).replace(/\/$/, '');
 
-// Hook to fetch live pricing from etpl-ops
+const API_ENDPOINTS = [LOCAL_API, PROD_API, CONFIGURED_API].filter((v, i, a) => a.indexOf(v) === i);
+
+async function fetchWithFallback(path, options = {}) {
+  let lastError;
+  for (const baseUrl of API_ENDPOINTS) {
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3000);
+      const res = await fetch(`${baseUrl}${path}`, { ...options, signal: controller.signal });
+      clearTimeout(timeoutId);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      return await res.json();
+    } catch (err) {
+      lastError = err;
+      console.warn(`[api] ${baseUrl}${path} failed:`, err.message);
+    }
+  }
+  throw lastError || new Error('All API endpoints failed');
+}
+
+// Base prices — always present, upgraded with live data when API responds
+const BASE_PRICING = {
+  starter: { monthly: 1499, annual: 14990 },
+  growth: { monthly: 7999, annual: 79990 },
+};
+
+// Hook to fetch live pricing from etpl-ops (tries localhost → prod → configured)
+// Starts with BASE_PRICING immediately, upgrades when live data arrives
 export function usePricing() {
-  const [pricing, setPricing] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [pricing, setPricing] = useState(BASE_PRICING);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [live, setLive] = useState(false);
 
   useEffect(() => {
     let mounted = true;
     async function fetchPricing() {
       try {
         setLoading(true);
-        const res = await fetch(`${ETPL_OPS_API}/api/public/pricing`);
-        if (!res.ok) throw new Error('Failed to fetch pricing');
-        const data = await res.json();
+        const data = await fetchWithFallback('/api/public/pricing');
         if (mounted) {
           setPricing(data.pricing);
+          setLive(true);
           setError(null);
         }
       } catch (err) {
         if (mounted) {
-          console.error('[usePricing] error:', err);
+          console.warn('[usePricing] live fetch failed, keeping base prices:', err.message);
           setError(err.message);
-          // Fallback to hardcoded defaults
-          setPricing({
-            starter: { monthly: 1499, annual: 14990 },
-            growth: { monthly: 7999, annual: 79990 },
-          });
         }
       } finally {
         if (mounted) setLoading(false);
@@ -71,5 +95,37 @@ export function usePricing() {
     return () => { mounted = false; };
   }, []);
 
-  return { pricing, loading, error };
+  return { pricing, loading, error, live };
+}
+
+export function useJobs() {
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    let mounted = true;
+    async function fetchJobs() {
+      try {
+        setLoading(true);
+        const data = await fetchWithFallback('/api/public/jobs');
+        if (mounted) {
+          setJobs(data.jobs || []);
+          setError(null);
+        }
+      } catch (err) {
+        if (mounted) {
+          console.error('[useJobs] all endpoints failed:', err);
+          setError(err.message);
+          setJobs([]);
+        }
+      } finally {
+        if (mounted) setLoading(false);
+      }
+    }
+    fetchJobs();
+    return () => { mounted = false; };
+  }, []);
+
+  return { jobs, loading, error };
 }

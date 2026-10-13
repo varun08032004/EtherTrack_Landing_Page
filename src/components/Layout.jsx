@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import { Link, NavLink, Outlet, useLocation } from "react-router-dom";
 import { GLOBAL_CSS } from "../styles";
 import logoImg from "../assets/logo.png";
-import { DemoModalProvider, useDemoModal } from "../context/DemoModalContext";
+import { DemoModalProvider } from "../context/DemoModalContext";
+import { useDemoModal } from "../hooks/useDemoModal";
+import GA4 from "./GA4";
+import CookieConsent from "./CookieConsent";
 
 const NAV_PAGES = [
   ["Features",  "/platform"],
@@ -88,13 +91,9 @@ function MobileNav({ open, onClose }) {
 }
 
 function AnnouncementBar() {
-  const [dismissed, setDismissed] = useState(false);
-
-  useEffect(() => {
-    try {
-      if (window.localStorage.getItem("et_ann_dismissed") === "1") setDismissed(true);
-    } catch { /* localStorage unavailable, ignore */ }
-  }, []);
+  const [dismissed, setDismissed] = useState(() => {
+    try { return window.localStorage.getItem("et_ann_dismissed") === "1"; } catch { return false; }
+  });
 
   const dismiss = () => {
     setDismissed(true);
@@ -106,8 +105,8 @@ function AnnouncementBar() {
     <div className="ann">
       <div className="ann-dot" />
       <span style={{ color:"var(--org)" }}>SEPOLIA TESTNET LIVE</span>
-      &nbsp;·&nbsp; All modules operational · Mainnet deployment in progress &nbsp;·&nbsp;
-      <span style={{ color:"var(--grn)" }}>MAINNET COMING SOON →</span>
+      &nbsp;·&nbsp; All modules operational · Polygon mainnet deployment in progress &nbsp;·&nbsp;
+      <span style={{ color:"var(--grn)" }}>POLYGON MAINNET COMING SOON →</span>
       <button className="ann-close" onClick={dismiss} aria-label="Dismiss announcement">✕</button>
     </div>
   );
@@ -119,7 +118,7 @@ function SiteFooter() {
       <div className="footer-top">
         <div>
           <img src={logoImg} alt="EtherTrack" style={{ height:32, width:"auto", objectFit:"contain", marginBottom:4 }} onError={e=>{e.target.style.display="none";}} />
-          <p className="footer-brand-desc">India's blockchain-native carbon infrastructure platform — track emissions, tokenise verified credits, trade transparently, retire on-chain. Mainnet coming soon.</p>
+          <p className="footer-brand-desc">India's blockchain-native carbon infrastructure platform — track emissions, tokenise verified credits, trade transparently, retire on-chain. Polygon mainnet coming soon.</p>
           <div className="footer-network"><div className="footer-net-dot" />ETHEREUM SEPOLIA · SMART CONTRACT ACTIVE</div>
         </div>
         <div>
@@ -149,7 +148,7 @@ function SiteFooter() {
           </ul>
           <div style={{ marginTop:20, fontFamily:"var(--font-mono)", fontSize:8, color:"var(--mut2)", lineHeight:2 }}>
             <div>Sepolia Testnet · Pre-Launch</div>
-            <div>Mainnet Pending Security Audit</div>
+            <div>Polygon Mainnet Pending Security Audit</div>
             <div>Incorporated in India (MCA)</div>
             <div>CIN: U62090PN2026PTC257708</div>
             <div>PAN: AAJCE8329G</div>
@@ -174,6 +173,8 @@ export default function Layout() {
 
   return (
     <DemoModalProvider>
+      <GA4 />
+      <CookieConsent />
       <style>{GLOBAL_CSS}</style>
       <style>{NAV_RESPONSIVE_CSS}</style>
       <div className="orb orb1" /><div className="orb orb2" /><div className="orb orb3" />

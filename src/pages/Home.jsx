@@ -1,11 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useReveal, useBentoGlow, usePricing } from "../hooks";
-import { useDemoModal } from "../context/DemoModalContext";
+import { useDemoModal } from "../hooks/useDemoModal";
 import { STATS, GAPS, HOW, MQ_ITEMS, WHY_NOW, WHY_WIN } from "../data";
 import AnimatedStat from "../components/AnimatedStat";
 import CtaBand from "../components/CtaBand";
 import Seo from "../components/Seo";
+
+function formatPercent(value) {
+  if (value === null || value === undefined) return '—';
+  return Number(value).toFixed(5).replace(/\.?0+$/, '') + '%';
+}
 
 /* ─── ON THE RECORD — badge grid ────────────────────────────────────
    Drop official logo files into /public/badges/ and point each `logo`
@@ -29,12 +34,6 @@ function OnTheRecord() {
   return (
     <section className="section" id="on-the-record" style={{ paddingTop: 28, paddingBottom: 28 }}>
       <div className="s-label reveal">REGULATORY STANDING</div>
-      {/* Headline softened: every badge below is still "Application filed",
-          not "Approved" — the old copy ("Where the credibility actually
-          comes from") overpromised against that. This says the honest thing
-          instead: filings are underway, not finished. The color-coded
-          STATUS_META system already tells the truth on hover/detail; this
-          just makes sure the headline doesn't contradict it. */}
       <h2 className="s-h2 reveal">
         Building credibility<br/>
         <span style={{ color: "var(--grn)" }}>with every registry that matters</span>
@@ -150,7 +149,7 @@ export default function Home() {
       tier: "FREE", name: "Free", tag: "Start exploring today",
       desc: "Ideal for individuals, students, and companies that want to understand carbon trading before committing.",
       price: "₹0", period: "forever", gst: null, save: null,
-      fee: "1.5%", seats: "1 seat", popular: false,
+      fee: formatPercent(pricing.free?.buyer_fee_percent), seats: "1 seat", popular: false,
       locked: ["Portfolio management", "List & sell credits", "Credit retirement", "Portfolio export", "Emission tracking", "Compliance dashboard", "Team management"],
       unlocked: ["Buy credits from the marketplace", "Browse live listings & real-time prices", "On-chain transaction receipt", "Basic carbon footprint calculator", "Wallet & trading history", "Email support"],
       cta: "Get Started", solid: false,
@@ -159,7 +158,7 @@ export default function Home() {
       tier: "STARTER", name: "Starter", tag: "For active traders",
       desc: "Freelancers, ESG consultants, small NGOs, and active credit traders who need the full marketplace experience.",
       price: `₹${pricing.starter.annual.toLocaleString()}`, period: "/yr", gst: "+ 18% GST", save: `Save ₹${(pricing.starter.monthly * 12 - pricing.starter.annual).toLocaleString()} vs monthly billing`,
-      fee: "1%", seats: "3 seats", popular: false,
+      fee: formatPercent(pricing.starter?.buyer_fee_percent), seats: "3 seats", popular: false,
       locked: ["Emission tracking (Growth+)", "Compliance dashboard (Corporate)", "Team management (Corporate)"],
       unlocked: ["Everything in Free", "Full portfolio management", "List & sell credits on the marketplace", "On-chain credit retirement", "Portfolio export (CSV)", "Blockchain audit trail PDF", "3 seats included", "Priority email support"],
       cta: "Get Started", solid: false,
@@ -168,7 +167,7 @@ export default function Home() {
       tier: "GROWTH", name: "Growth", tag: "Most popular",
       desc: "MSMEs, growing businesses, and serious ESG teams that need full GHG tracking and regulatory reporting.",
       price: `₹${pricing.growth.annual.toLocaleString()}`, period: "/yr", gst: "+ 18% GST", save: `Save ₹${(pricing.growth.monthly * 12 - pricing.growth.annual).toLocaleString()} vs monthly billing`,
-      fee: "0.75%", seats: "10 seats", popular: true,
+      fee: formatPercent(pricing.growth?.buyer_fee_percent), seats: "10 seats", popular: true,
       locked: ["Compliance dashboard (Corporate)", "Team management (Corporate)", "BRSR/CDP/TCFD/GRI reports (Corporate)"],
       unlocked: ["Everything in Starter", "Scope 1 + 2 full tracking", "Basic Scope 3 (5 categories)", "GHG inventory ledger", "CSV export + analytics dashboard", "Carbon intensity metrics", "Basic decarbonisation scenarios", "GHG Protocol PDF report", "10 seats included", "Chat support"],
       cta: "Get Started", solid: true,
@@ -177,7 +176,7 @@ export default function Home() {
       tier: "CORPORATE", name: "Corporate", tag: "For listed companies",
       desc: "SEBI-listed companies, BRSR filers, large ESG teams, and organisations with CDP/TCFD obligations.",
       price: "Contact Sales", period: "", gst: null, save: null,
-      fee: "0.5%", seats: "Unlimited seats", popular: false,
+      fee: formatPercent(pricing.corporate?.buyer_fee_percent), seats: "Unlimited seats", popular: false,
       locked: [],
       unlocked: [
         "Everything in Growth",
@@ -267,10 +266,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Market Gaps — THE PROBLEM ──
-          Moved up (was after two macro/market-justification sections).
-          A visitor should see the problem being solved before they see
-          market-timing or competitive-moat arguments. */}
+
       <section className="section" id="market-gap">
         <div className="s-label reveal">WHY ETHERTRACK EXISTS</div>
         <h2 className="s-h2 reveal">India's carbon market has six<br/><span style={{ color:"var(--grn)" }}>fundamental problems — we solved them</span></h2>
@@ -307,27 +303,11 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── How It Works — THE SOLUTION ──
-          Moved up to sit right after the problem it solves. Step count is
-          now `{HOW.length} steps` instead of a hardcoded "Four" — Platform's
-          animated loop uses 5 steps (Track/Tokenise/Trade/Retire/Report);
-          hardcoding a number here risked silently drifting out of sync with
-          that page again. Whatever HOW actually contains, this headline
-          can't contradict it. */}
+
       <section className="section" id="how" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
         <div className="s-label reveal">HOW IT WORKS</div>
         <h2 className="s-h2 reveal">From zero to compliant<br/><span style={{ color:"var(--grn)" }}>{HOW.length} steps, one platform</span></h2>
         <p className="s-sub reveal">No consultants. No spreadsheets. No switching between tools. The entire carbon compliance workflow lives in a single session on EtherTrack.</p>
-        {/* GLOBAL_CSS's .how-grid is hardcoded to repeat(4, 1fr), built for
-            the old 4-step version. With HOW now at 5 steps, the 5th item
-            wrapped to its own row. This scoped override fixes the column
-            count and the connecting-line span for 5 items on desktop.
-            Mobile: 5 doesn't split evenly into 2 columns (leaves an
-            orphaned last card), so instead of mirroring GLOBAL_CSS's old
-            2-column tablet stage, this goes straight to a single stacked
-            column below 1024px — cleaner than an unbalanced 2+2+1 grid —
-            and tightens the circle/padding further at phone widths.
-            Desktop (>1024px) is untouched. */}
         <style>{`
           .how-grid-5 { grid-template-columns: repeat(5, 1fr); }
           .how-grid-5::before { left: 10%; right: 10%; }
@@ -364,10 +344,10 @@ export default function Home() {
       </section>
 
       {/* ── On the Record ── */}
-      <OnTheRecord />
+<OnTheRecord />
 
-      {/* ── Why We Win ── */}
-      <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
+       {/* ── Why We Win ── */}
+       <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
         <div className="s-label reveal">STRUCTURAL ADVANTAGES</div>
         <h2 className="s-h2 reveal">Six moats, not features<br/><span style={{ color:"var(--grn)" }}>Built into the architecture</span></h2>
         <p className="s-sub reveal">
@@ -401,11 +381,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Why Now — Five Conditions ──
-          Urgency argument. Kept, but now positioned after the product has
-          already been explained (problem → solution → credibility → why us)
-          instead of before it — urgency lands better once someone
-          understands what they'd actually be adopting. */}
+{/* ── Why Now — Five Conditions ── */}
       <section className="section">
         <div className="s-label reveal">WHY NOW AND NOT TWO YEARS AGO</div>
         <h2 className="s-h2 reveal">Five conditions had to converge<br/><span style={{ color:"var(--grn)" }}>They all did — between 2022 and 2026</span></h2>

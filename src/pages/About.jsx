@@ -1,13 +1,11 @@
 import { useReveal } from "../hooks";
 import { TL, FOUNDER_DOMAINS } from "../data";
-import { useDemoModal } from "../context/DemoModalContext";
 import founderImg from "../assets/founder.jpg";
 import CtaBand from "../components/CtaBand";
 import Seo from "../components/Seo";
 
 export default function About() {
   useReveal();
-  const { openDemo } = useDemoModal();
 
   return (
     <>
@@ -129,7 +127,7 @@ export default function About() {
             <div style={{ fontSize:13.5, color:"#9abba6", lineHeight:1.8, fontWeight:300 }}>
               EtherTrack is <strong style={{ color:"var(--txt)" }}>pre-revenue and testnet-only</strong>. No paying customers.
               No LOIs signed. Revenue is zero. The platform is real — 7 modules confirmed working on Ethereum Sepolia,
-              7 smart contracts deployed and Etherscan-verifiable. What comes before mainnet:
+              7 smart contracts deployed and Etherscan-verifiable. What comes before Polygon mainnet:
               smart contract security audit (Certik / OpenZeppelin), company incorporation, Razorpay production account,
               FEMA legal opinion, and 5 founding project developer partnerships.
               We disclose this transparently because the companies we want to work with value honesty over marketing copy.
@@ -161,7 +159,7 @@ export default function About() {
       <CtaBand
         eyebrow="JOIN THE EARLY ACCESS LIST"
         title={<>We're pre-launch —<br/><span style={{ color:"var(--grn)" }}>now is exactly the right time</span></>}
-        subtitle="Mainnet is coming. Early-access companies get priority onboarding, direct founder support, and first access to the live order book when it opens. Request a demo to get on the list."
+        subtitle="Polygon mainnet is coming. Early-access companies get priority onboarding, direct founder support, and first access to the live order book when it opens. Request a demo to get on the list."
         note="No commitment · Direct founder walkthrough · Response within 24 hours"
       />
     </>

@@ -1,7 +1,7 @@
 import { useParams, Link, Navigate } from "react-router-dom";
 import { useState } from "react";
 import { getBlogBySlug } from "../data/blogsRegistry";
-import { useDemoModal } from "../context/DemoModalContext";
+import { useDemoModal } from "../hooks/useDemoModal";
 import Seo from "../components/Seo";
 import BlogEngagement from "../components/BlogEngagement";
 

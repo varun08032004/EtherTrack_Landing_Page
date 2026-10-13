@@ -1,22 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useReveal, useBentoGlow } from "../hooks";
-import { useDemoModal } from "../context/DemoModalContext";
 import CtaBand from "../components/CtaBand";
 import Seo from "../components/Seo";
 import logoImg from "../assets/logo.png";
 import { TABS } from "../data";
 import { ExchangeFeatures, ComplianceFeatures, OperationsFeatures } from "../components/FeatureSections";
 import MockPane from "../components/MockPane";
-
-// ─── Layout constants ───────────────────────────────────────────────────────
-// The site's actual CSS (GLOBAL_CSS) already sets the real alignment rule:
-// .page-hero / .page-h1 / .page-sub are centered (site-wide, on purpose,
-// same as every other sub-page). Everything below the hero — .s-label,
-// .s-h2, .s-sub, .bento, .b-card — has no text-align rule, so it's left
-// by default. That's the correct, intentional pattern: centered hero,
-// left-aligned body. This file no longer overrides either of those —
-// it just makes sure every body paragraph wraps to the same width so
-// lines don't run to inconsistent edges.
 
 const TEXT_MAX = 640; // max width for body copy under a heading
 
@@ -161,7 +150,7 @@ const REPLACES = [
 // with specific, checkable technical credibility instead of generic "LIVE"
 // badges.
 const BUILT_ON = [
-  { name: "Ethereum Sepolia → Mainnet", detail: "7 smart contracts deployed and Etherscan-verified", color: "#22c55e" },
+  { name: "Ethereum Sepolia (Testnet) → Polygon (Mainnet)", detail: "7 smart contracts deployed and Etherscan-verified on Sepolia", color: "#22c55e" },
   { name: "Razorpay — RBI Authorised",  detail: "UPI · Net Banking · NEFT withdrawal · Section 194S TDS", color: "#a855f7" },
   { name: "Pinata IPFS",                detail: "KYC documents and retirement certificates — immutable", color: "#f97316" },
   { name: "Gnosis Safe Multi-sig",      detail: "2-of-3 admin key — no single point of control", color: "#3b82f6" },
@@ -175,12 +164,6 @@ const BUILT_ON = [
 
 function SectionIntro({ label, heading, sub, isPageTitle = false, hideDash = false }) {
   const Heading = isPageTitle ? "h1" : "h2";
-  // NOTE: intentionally NOT using the site's ".reveal" class here. That class
-  // starts at opacity:0 and only becomes visible once an IntersectionObserver
-  // (the useReveal hook) detects the element on screen. That's fine for
-  // decorative cards, but section headings are core content — if that
-  // observer ever fails to fire (iframe preview, timing quirk, fast scroll),
-  // the heading is invisible with no fallback. Headings show immediately.
   return (
     <div style={{ maxWidth: TEXT_MAX }}>
       <style>{`.s-label.no-dash::before { display: none; }`}</style>
@@ -199,29 +182,28 @@ function CarbonLoop() {
   const rafRef = useRef(null);
   const startRef = useRef(null);
 
-  useEffect(() => {
-    const prefersReduced = typeof window !== "undefined"
-      && window.matchMedia
-      && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const prefersReduced = typeof window !== "undefined"
+    && window.matchMedia
+    && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // Respect reduced-motion: freeze the loop at a neutral angle instead of
-    // spinning it. Steps are still clickable, they just don't auto-rotate.
+  useEffect(() => {
     if (prefersReduced) {
-      setRotation(0);
       return;
     }
 
     const animate = (ts) => {
       if (!startRef.current) startRef.current = ts;
       const elapsed = ts - startRef.current;
-      // Wrap at 360 so the value never grows unbounded over a long session
-      // (avoids floating-point drift on tabs left open for hours).
       setRotation((elapsed * 0.012) % 360);
       rafRef.current = requestAnimationFrame(animate);
     };
     rafRef.current = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(rafRef.current);
-  }, []);
+  }, [prefersReduced]);
+
+  if (prefersReduced) {
+    setRotation(0);
+  }
 
   const R = 190; // orbit radius
   const CX = 250; // center x
@@ -484,10 +466,8 @@ export default function Platform() {
   const [featureTab, setFeatureTab] = useState(0);
   const [activeTab, setActiveTab] = useState(0);
   const [ssImgError, setSsImgError] = useState(false);
-  const { openDemo } = useDemoModal();
   useReveal([activeModule, featureTab]);
   useBentoGlow([featureTab]);
-  useEffect(() => { setSsImgError(false); }, [activeTab]);
 
   const mod = MODULES[activeModule];
 

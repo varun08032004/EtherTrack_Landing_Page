@@ -20,7 +20,7 @@ export const STATS = [
     color: "var(--org)",
   },
   {
-    num: "0.5%",
+    num: "1%",
     lbl: "PLATFORM FEE — HARDCODED IN SMART CONTRACT",
     src: "Verifiable on Etherscan. No hidden charges, ever.",
     color: "var(--blu)",
@@ -516,7 +516,7 @@ export const TECH_STACK = [
   {
     layer: "BLOCKCHAIN",
     items: [
-      { name: "Ethereum Sepolia → Mainnet", detail: "Production-identical testnet. All 5 contracts deployed and Etherscan-verified." },
+      { name: "Ethereum Sepolia (Testnet) → Polygon (Mainnet)", detail: "Production-identical testnet. All contracts deployed and Etherscan-verified on Sepolia." },
       { name: "Marketplace.sol", detail: "Order book, 0.5% fee deduction, atomic settlement. CCTS price band enforced." },
       { name: "AMM Pool", detail: "x·y=k constant product. Instant execution up to 100 credits, 24/7." },
       { name: "KYC Registry", detail: "On-chain wallet credentialing. Duplicate identity rejected at hash level." },

@@ -1,116 +1,12 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useReveal } from "../hooks";
+import { useReveal, useJobs } from "../hooks";
 import Seo from "../components/Seo";
 
 const ETPL_OPS_API = (import.meta.env.VITE_ETPL_OPS_API || 'https://etpl-ops.onrender.com').replace(/\/$/, '');
 
-const FALLBACK_JOBS = [
-  {
-    id: '1',
-    title: 'Full Stack Engineer (React + Go)',
-    type: 'full-time',
-    department: 'Engineering',
-    location: 'Remote (India)',
-    salary_min: 1800000,
-    salary_max: 3000000,
-    description: 'Build the core platform — order book, AMM, GHG engine, compliance module, and on-chain retirement workflows. You\'ll work across the stack: React/TypeScript frontend, Go microservices, PostgreSQL, and Solidity smart contracts on Ethereum Sepolia.',
-    requirements: [
-      '3+ years production React/TypeScript experience',
-      'Strong Go or similar backend language (Node.js, Java, Rust)',
-      'PostgreSQL schema design and query optimization',
-      'Experience with blockchain/ETH development a plus',
-      'Comfortable with CI/CD, Docker, observability stacks'
-    ],
-    responsibilities: [
-      'Ship end-to-end features from API design to deployed contracts',
-      'Optimize order book matching engine and AMM curves',
-      'Build GHG calculation engine with IPCC/GHG Protocol compliance',
-      'Integrate with CERC, GRID-India, Verra, Gold Standard registries',
-      'Maintain high test coverage and documentation standards'
-    ],
-    benefits: [
-      'Competitive equity (ESOP pool)',
-      'Remote-first, flexible hours',
-      '₹50k annual learning budget',
-      'Health insurance for you + dependents',
-      '30-day notice buyout support'
-    ],
-    openings_count: 2,
-    posted_at: new Date().toISOString()
-  },
-  {
-    id: '2',
-    title: 'Carbon Markets Associate',
-    type: 'full-time',
-    department: 'Carbon Markets',
-    location: 'Remote (India)',
-    salary_min: 1200000,
-    salary_max: 2000000,
-    description: 'Bridge the gap between our platform and India\'s compliance carbon market (CCTS). Work with project developers, corporates, and verifiers to onboard credits, navigate CERC/GRID-India processes, and ensure our product matches real regulatory workflows.',
-    requirements: [
-      '2+ years in carbon markets, ESG consulting, or climate finance',
-      'Deep knowledge of CCTS, PAT scheme, BRSR Core, CERC regulations',
-      'Experience with Verra VCS, Gold Standard, or CDM projects',
-      'Strong written communication — you\'ll write specs, guides, and regulatory summaries',
-      'Comfortable talking to both engineers and compliance officers'
-    ],
-    responsibilities: [
-      'Map CCTS compliance workflows to platform features',
-      'Onboard project developers and manage credit listing pipeline',
-      'Liaise with VVBs (BV, DNV, EY, etc.) for verification integration',
-      'Maintain internal registry of gazetted sectors, methodologies, and forms',
-      'Produce content for Insights blog and developer documentation'
-    ],
-    benefits: [
-      'Competitive equity (ESOP pool)',
-      'Remote-first, flexible hours',
-      '₹50k annual learning budget',
-      'Health insurance for you + dependents',
-      'Industry conference budget'
-    ],
-    openings_count: 1,
-    posted_at: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString()
-  },
-  {
-    id: '3',
-    title: 'Product Designer (Systems-focused)',
-    type: 'full-time',
-    department: 'Product',
-    location: 'Remote (India)',
-    salary_min: 1500000,
-    salary_max: 2500000,
-    description: 'Design complex, data-dense interfaces for carbon trading, GHG inventory management, and regulatory reporting. You\'ll own the design system, work closely with engineers on implementation, and turn regulatory complexity into intuitive workflows.',
-    requirements: [
-      '4+ years product design for B2B/SaaS or developer tools',
-      'Expert in Figma — design systems, auto-layout, tokens, prototyping',
-      'Strong systems thinking — can model complex domain logic visually',
-      'Comfortable with React/TypeScript basics for designer-engineer handoff',
-      'Portfolio showing dashboards, data tables, or complex forms'
-    ],
-    responsibilities: [
-      'Own end-to-end design for trading dashboard, GHG workspace, compliance center',
-      'Evolve and maintain the EtherTrack design system (tokens, components, patterns)',
-      'Conduct user research with compliance officers, ESG leads, traders',
-      'Write design specs and collaborate with engineers on pixel-perfect implementation',
-      'Design onboarding flows for corporate, MSME, and consultant personas'
-    ],
-    benefits: [
-      'Competitive equity (ESOP pool)',
-      'Remote-first, flexible hours',
-      '₹50k annual learning budget',
-      'Health insurance for you + dependents',
-      'Latest design tools + hardware budget'
-    ],
-    openings_count: 1,
-    posted_at: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString()
-  }
-];
-
 export default function Careers() {
-  const [jobs, setJobs] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { jobs, loading, error } = useJobs();
   const [selectedJob, setSelectedJob] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [application, setApplication] = useState({
@@ -123,29 +19,12 @@ export default function Careers() {
   useReveal([jobs.length]);
 
   useEffect(() => {
-    fetchJobs();
-  }, []);
-
-  async function fetchJobs() {
-    try {
-      setLoading(true);
-      const res = await fetch(`${ETPL_OPS_API}/api/public/jobs`);
-      if (!res.ok) throw new Error('Failed to fetch jobs');
-      const data = await res.json();
-      if (data.jobs && data.jobs.length > 0) {
-        setJobs(data.jobs);
-        setError(null);
-      } else {
-        throw new Error('No jobs returned');
-      }
-    } catch (err) {
-      console.warn('[Careers] API unavailable, using fallback jobs:', err.message);
-      setJobs(FALLBACK_JOBS);
-      setError(null);
-    } finally {
-      setLoading(false);
+    if (selectedJob) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
-  }
+  }, [selectedJob]);
 
   function openJob(job) {
     setSelectedJob(job);
@@ -154,13 +33,11 @@ export default function Careers() {
     setAppStatus('idle');
     setAppError(null);
     setFormErrors({});
-    document.body.style.overflow = 'hidden';
   }
 
   function closeJob() {
     setSelectedJob(null);
     setShowForm(false);
-    document.body.style.overflow = '';
   }
 
   function showApplyForm() {
@@ -241,7 +118,6 @@ export default function Careers() {
         <div className="reveal" style={{ maxWidth: 600, margin: "0 auto", textAlign: "center", padding: 40, background: "var(--surf)", border: "1px solid var(--brd)", borderRadius: "var(--r-lg)" }}>
           <div style={{ color: "var(--red)", marginBottom: 12 }}>⚠️ Unable to load jobs</div>
           <div style={{ color: "var(--mut-lt)", marginBottom: 16 }}>{error}</div>
-          <button className="btn-p" onClick={fetchJobs}>Retry</button>
         </div>
       );
     }
