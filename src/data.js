@@ -20,8 +20,8 @@ export const STATS = [
     color: "var(--org)",
   },
   {
-    num: "1%",
-    lbl: "PLATFORM FEE — HARDCODED IN SMART CONTRACT",
+    num: "0.5–1.5%",
+    lbl: "TIERED PLATFORM FEE — HARDCODED IN SMART CONTRACT",
     src: "Verifiable on Etherscan. No hidden charges, ever.",
     color: "var(--blu)",
   },

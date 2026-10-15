@@ -3,16 +3,18 @@ import { Helmet } from "react-helmet-async";
 const SITE_URL = "https://ethertrack.in";
 
 const navigationItems = [
-  { name: "Features", url: "/platform" },
+  { name: "Platform", url: "/platform" },
   { name: "Solutions", url: "/solutions" },
-  { name: "Carbon Infrastructure for India", url: "/" },
-  { name: "Careers", url: "/careers" },
+  { name: "Industries", url: "/industries" },
+  { name: "Blogs", url: "/blogs" },
   { name: "About", url: "/about" },
+  { name: "Careers", url: "/careers" },
 ];
 
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
+  "@id": `${SITE_URL}#organization`,
   name: "EtherTrack Technologies Private Limited",
   alternateName: "EtherTrack",
   url: SITE_URL,
@@ -23,14 +25,13 @@ const organizationSchema = {
     "https://www.instagram.com/ethertrack_official/",
   ],
   email: "support@ethertrack.in",
-  telephone: "+91-XXXXXXXXXX",
   address: {
     "@type": "PostalAddress",
     addressCountry: "IN",
     addressLocality: "Pune",
     addressRegion: "Maharashtra",
   },
-  foundingDate: "2026",
+  foundingDate: "2026-07-13",
   knowsAbout: [
     "Carbon Credit Trading",
     "Blockchain Technology",
@@ -51,14 +52,6 @@ const websiteSchema = {
   publisher: {
     "@id": `${SITE_URL}#organization`,
   },
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${SITE_URL}/insights?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
 };
 
 const navigationSchema = {
@@ -78,7 +71,7 @@ const navigationSchema = {
   })),
 };
 
-export default function Seo({ title, description, path, type = "WebPage" }) {
+export default function Seo({ title, description, path, type = "WebPage", noindex = false, ogImage }) {
   const canonicalUrl = `${SITE_URL}${path === "/" ? "" : path}`;
   const pageSchema = {
     "@context": "https://schema.org",
@@ -92,22 +85,27 @@ export default function Seo({ title, description, path, type = "WebPage" }) {
     mainEntityOfPage: { "@id": `${canonicalUrl}#page` },
   };
 
+  const ogImageUrl = ogImage ? `${SITE_URL}${ogImage}` : `${SITE_URL}/logo.png`;
+
   return (
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonicalUrl} />
+      {noindex && <meta name="robots" content="noindex, follow" />}
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:type" content="website" />
+      <meta property="og:type" content={type === "BlogPosting" ? "article" : "website"} />
       <meta property="og:site_name" content="EtherTrack" />
       <meta property="og:locale" content="en_IN" />
+      <meta property="og:image" content={ogImageUrl} />
       {/* Twitter */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={ogImageUrl} />
       {/* Structured Data (JSON-LD) */}
       <script type="application/ld+json">
         {JSON.stringify({

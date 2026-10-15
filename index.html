@@ -1,7 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZHWX4SJE8S"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZHWX4SJE8S');
+    </script>
     <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="apple-touch-icon" href="/logo.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -25,36 +34,6 @@
 
     <!-- Twitter: image only -->
     <meta name="twitter:image" content="https://ethertrack.in/logo.png" />
-
-    <!-- Organization schema (route-agnostic, safe to stay static) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "EtherTrack Technologies Private Limited",
-      "alternateName": "EtherTrack",
-      "url": "https://ethertrack.in/",
-      "logo": "https://ethertrack.in/logo.png",
-      "sameAs": [
-        "https://linkedin.com/company/ethertrack-technologies-private-limited",
-        "https://x.com/EtherTrack"
-      ]
-    }
-    </script>
-
-    <!-- Product schema (route-agnostic, safe to stay static) -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "EtherTrack",
-      "applicationCategory": "BusinessApplication",
-      "description": "Blockchain-based carbon credit trading, GHG emissions tracking, and CCTS/BRSR/CDP/TCFD compliance reporting platform for India.",
-      "operatingSystem": "Web",
-      "url": "https://ethertrack.in/",
-      "offers": { "@type": "Offer", "priceCurrency": "INR" }
-    }
-    </script>
 </head>
 <body>
     <div id="root"></div>

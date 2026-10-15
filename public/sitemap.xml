@@ -1,61 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ethertrack.in/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
     <lastmod>2026-10-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ethertrack.in/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://ethertrack.in/" />
   </url>
   <url>
     <loc>https://ethertrack.in/platform</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
     <lastmod>2026-10-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ethertrack.in/platform" />
   </url>
   <url>
     <loc>https://ethertrack.in/solutions</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
     <lastmod>2026-10-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ethertrack.in/solutions" />
   </url>
   <url>
     <loc>https://ethertrack.in/industries</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
     <lastmod>2026-10-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ethertrack.in/industries" />
   </url>
   <url>
     <loc>https://ethertrack.in/about</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
     <lastmod>2026-10-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ethertrack.in/about" />
   </url>
   <url>
-    <loc>https://ethertrack.in/insights</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.75</priority>
+    <loc>https://ethertrack.in/blogs</loc>
     <lastmod>2026-10-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ethertrack.in/insights" />
   </url>
   <url>
     <loc>https://ethertrack.in/careers</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.85</priority>
     <lastmod>2026-10-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ethertrack.in/careers" />
   </url>
   <url>
-    <loc>https://ethertrack.in/#pricing</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-    <lastmod>2026-10-13</lastmod>
-    <xhtml:link rel="alternate" hreflang="en" href="https://ethertrack.in/#pricing" />
+    <loc>https://ethertrack.in/privacy</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://ethertrack.in/terms</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://ethertrack.in/disclaimer</loc>
+    <lastmod>2026-10-15</lastmod>
+  </url>
+  <url>
+    <loc>https://ethertrack.in/blogs/carbon-markets-explained</loc>
+    <lastmod>2026-08-31</lastmod>
+  </url>
+  <url>
+    <loc>https://ethertrack.in/blogs/what-are-carbon-credits</loc>
+    <lastmod>2026-07-25</lastmod>
   </url>
 </urlset>

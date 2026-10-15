@@ -18,7 +18,7 @@ function formatPercent(value) {
    confirmed — everything ships as "Application filed" until then.
    ──────────────────────────────────────────────────────────────── */
 const ON_THE_RECORD = [
-  { name: "DPIIT",          short: "DPIIT", full: "Startup India Recognition",     logo: "/badges/dpiit.png",  status: "filed" },
+  { name: "DPIIT",          short: "DPIIT", full: "Startup India Recognition",     logo: "/badges/dpiit.png",  status: "approved" },
   { name: "GRID-India ICM", short: "GI",    full: "Carbon Credit Registry",         logo: "/badges/grid.png",   status: "filed" },
   { name: "CERC",           short: "CERC",  full: "Permitted Entity, Sec 9(3)",     logo: "/badges/cerc.png",   status: "filed" },
   { name: "Verra",          short: "VCS",   full: "VCS Registry Integration",       logo: "/badges/verra.png",  status: "filed" },
@@ -27,7 +27,7 @@ const ON_THE_RECORD = [
 
 const STATUS_META = {
   filed:    { label: "Application filed", color: "var(--org)" },
-  approved: { label: "Approved",          color: "var(--grn)" },
+  approved: { label: "Recognised",        color: "var(--grn)" },
 };
 
 function OnTheRecord() {

@@ -11,6 +11,7 @@ export default function NotFound() {
         title="Page Not Found — EtherTrack"
         description="The page you're looking for doesn't exist or has been moved."
         path="/404"
+        noindex={true}
       />
       <section className="page-hero">
         <div className="eyebrow">404</div>

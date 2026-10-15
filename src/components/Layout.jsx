@@ -8,10 +8,10 @@ import GA4 from "./GA4";
 import CookieConsent from "./CookieConsent";
 
 const NAV_PAGES = [
-  ["Features",  "/platform"],
+  ["Platform",  "/platform"],
   ["Solutions", "/solutions"],
   ["Industries","/industries"],
-  ["Blogs",     "/insights"],
+  ["Blogs",     "/blogs"],
   ["About",     "/about"],
   ["Careers",   "/careers"],
 ];
@@ -63,7 +63,6 @@ function NavBar({ onOpenMobile }) {
             {label.toUpperCase()}
           </NavLink>
         ))}
-        <Link to="/#pricing">PRICING</Link>
       </div>
       <div className="nav-right">
         <div className="nav-status"><div className="nav-status-dot" />TESTNET LIVE</div>
@@ -84,7 +83,6 @@ function MobileNav({ open, onClose }) {
           {label.toUpperCase()}
         </NavLink>
       ))}
-      <Link to="/#pricing" onClick={onClose}>PRICING</Link>
       <button className="btn-p" style={{ marginTop:8 }} onClick={() => { onClose(); openDemo(); }}>REQUEST DEMO →</button>
     </div>
   );
@@ -105,8 +103,8 @@ function AnnouncementBar() {
     <div className="ann">
       <div className="ann-dot" />
       <span style={{ color:"var(--org)" }}>SEPOLIA TESTNET LIVE</span>
-      &nbsp;·&nbsp; All modules operational · Polygon mainnet deployment in progress &nbsp;·&nbsp;
-      <span style={{ color:"var(--grn)" }}>POLYGON MAINNET COMING SOON →</span>
+      &nbsp;·&nbsp; All modules operational · Polygon mainnet pending security audit &nbsp;·&nbsp;
+      <span style={{ color:"var(--grn)" }}>SECURITY AUDIT IN PROGRESS →</span>
       <button className="ann-close" onClick={dismiss} aria-label="Dismiss announcement">✕</button>
     </div>
   );
@@ -118,7 +116,7 @@ function SiteFooter() {
       <div className="footer-top">
         <div>
           <img src={logoImg} alt="EtherTrack" style={{ height:32, width:"auto", objectFit:"contain", marginBottom:4 }} onError={e=>{e.target.style.display="none";}} />
-          <p className="footer-brand-desc">India's blockchain-native carbon infrastructure platform — track emissions, tokenise verified credits, trade transparently, retire on-chain. Polygon mainnet coming soon.</p>
+          <p className="footer-brand-desc">India's blockchain-native carbon infrastructure platform — track emissions, tokenise verified credits, trade transparently, retire on-chain. Polygon mainnet pending security audit.</p>
           <div className="footer-network"><div className="footer-net-dot" />ETHEREUM SEPOLIA · SMART CONTRACT ACTIVE</div>
         </div>
         <div>
@@ -135,7 +133,6 @@ function SiteFooter() {
             <li><Link to="/industries">Industries</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/about#ccts">India CCTS</Link></li>
-            <li><Link to="/#pricing">Pricing</Link></li>
             <li><Link to="/insights">Insights</Link></li>
             <li><Link to="/careers">Careers</Link></li>
             <li><a href="mailto:support@ethertrack.in">support@ethertrack.in</a></li>
@@ -144,7 +141,9 @@ function SiteFooter() {
         <div>
           <div className="footer-col-head">LEGAL</div>
           <ul className="footer-col-links">
-            {["Privacy Policy","Terms of Service","Disclaimer"].map(l=><li key={l}><a href="#" style={{ opacity:.4, cursor:"default" }}>{l} (coming soon)</a></li>)}
+            <li><Link to="/privacy">Privacy Policy</Link></li>
+            <li><Link to="/terms">Terms of Service</Link></li>
+            <li><Link to="/disclaimer">Disclaimer</Link></li>
           </ul>
           <div style={{ marginTop:20, fontFamily:"var(--font-mono)", fontSize:8, color:"var(--mut2)", lineHeight:2 }}>
             <div>Sepolia Testnet · Pre-Launch</div>

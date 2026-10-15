@@ -6,7 +6,7 @@ import CtaBand from "../components/CtaBand";
 
 const POSTS_PER_PAGE = 6;
 
-export default function Insights() {
+export default function Blogs() {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = parseInt(searchParams.get("page") || "1", 10);
   const totalPages = Math.ceil(BLOGS.length / POSTS_PER_PAGE);
@@ -22,7 +22,7 @@ export default function Insights() {
       <Seo
         title="Blogs — Carbon Markets, CCTS & ESG | EtherTrack"
         description="In-depth articles on carbon credits, India's Carbon Credit Trading Scheme, BRSR reporting, GHG accounting, and what net zero means for Indian businesses."
-        path="/insights"
+        path="/blogs"
       />
 
       {/* ── Hero ── */}
@@ -41,14 +41,14 @@ export default function Insights() {
       <section className="section" style={{ paddingTop: 0 }}>
         <style>{`
           @media (max-width: 640px) {
-            .insights-row {
+            .blogs-row {
               grid-template-columns: 48px 1fr !important;
               gap: 14px !important;
               padding: 20px 0 !important;
             }
-            .insights-num { font-size: 36px !important; }
-            .insights-title { font-size: 16px !important; }
-            .insights-arrow { display: none !important; }
+            .blogs-num { font-size: 36px !important; }
+            .blogs-title { font-size: 16px !important; }
+            .blogs-arrow { display: none !important; }
           }
         `}</style>
         {BLOGS.length === 0 ? (
@@ -61,8 +61,8 @@ export default function Insights() {
               {paginatedBlogs.map((blog, i) => (
                 <Link
                   key={blog.slug}
-                  to={`/insights/${blog.slug}`}
-                  className="reveal insights-row"
+                  to={`/blogs/${blog.slug}`}
+                  className="reveal blogs-row"
                   style={{
                     display: "grid",
                     gridTemplateColumns: "60px 1fr auto",
@@ -75,7 +75,7 @@ export default function Insights() {
                   }}
                 >
                   {/* Index number */}
-                  <div className="insights-num" style={{
+                  <div className="blogs-num" style={{
                     fontFamily: "var(--font-head)",
                     fontSize: 42,
                     fontWeight: 900,

@@ -6,9 +6,12 @@ import Platform from "./pages/Platform";
 import Solutions from "./pages/Solutions";
 import Industries from "./pages/Industries";
 import About from "./pages/About";
-import Blogs from "./pages/Insights";
+import Blogs from "./pages/Blogs";
 import BlogPost from "./pages/BlogPost";
 import Careers from "./pages/Careers";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import Disclaimer from "./pages/Disclaimer";
 import NotFound from "./pages/NotFound";
 import ErrorBoundary from "./components/ErrorBoundary";
 
@@ -22,9 +25,12 @@ const router = createBrowserRouter([
       { path: "solutions",      element: <Solutions /> },
       { path: "industries",     element: <Industries /> },
       { path: "about",          element: <About /> },
-      { path: "insights",       element: <Blogs /> },
-      { path: "insights/:slug", element: <BlogPost /> },
+      { path: "blogs",          element: <Blogs /> },
+      { path: "blogs/:slug",    element: <BlogPost /> },
       { path: "careers",        element: <Careers /> },
+      { path: "privacy",        element: <PrivacyPolicy /> },
+      { path: "terms",          element: <TermsOfService /> },
+      { path: "disclaimer",     element: <Disclaimer /> },
     ],
     errorElement: <NotFound />,
   },

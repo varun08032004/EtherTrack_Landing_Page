@@ -414,7 +414,7 @@ export default function BlogPost() {
   const { openDemo } = useDemoModal();
   const blog = getBlogBySlug(slug);
 
-  if (!blog) return <Navigate to="/insights" replace />;
+  if (!blog) return <Navigate to="/blogs" replace />;
 
   const { seo, articleInfo, tableOfContents, article, faqs, references, relatedArticles, cta } = blog;
   const info = articleInfo;
@@ -424,7 +424,9 @@ export default function BlogPost() {
       <Seo
         title={seo.metaTitle}
         description={seo.metaDescription}
-        path={`/insights/${blog.slug}`}
+        path={`/blogs/${blog.slug}`}
+        type="BlogPosting"
+        ogImage={seo.ogImage}
       />
 
       <style>{`
@@ -707,7 +709,7 @@ export default function BlogPost() {
                       <div style={{ fontSize: 12, color: "var(--mut-lt)", lineHeight: 1.6, fontWeight: 300 }}>{rel.description}</div>
                     </div>
                   ) : (
-                    <Link key={rel.slug} to={`/insights/${rel.slug}`} style={{
+                    <Link key={rel.slug} to={`/blogs/${rel.slug}`} style={{
                       padding: "16px 20px", background: "var(--surf)",
                       border: "1px solid var(--brd)", borderRadius: "var(--r-md)",
                       textDecoration: "none", display: "block",
@@ -761,7 +763,7 @@ export default function BlogPost() {
               <div style={{ fontFamily: "var(--font-mono)", fontSize: 9, color: "var(--mut)", marginBottom: 8 }}>
                 {info.readingTime.toUpperCase()} READ
               </div>
-              <Link to="/insights" style={{
+              <Link to="/blogs" style={{
                 fontFamily: "var(--font-mono)", fontSize: 9,
                 color: "var(--grn)", textDecoration: "none",
                 letterSpacing: ".08em",

@@ -73,7 +73,7 @@ export const GLOBAL_CSS = `
     display: flex; align-items: center; justify-content: space-between;
   }
   .nav-logo { display:flex;align-items:center;gap:10px;font-family:var(--font-head);font-size:14px;font-weight:700; }
-  .nav-logo img { height:36px;width:auto;object-fit:contain; }
+  .nav-logo img { width:36px;height:36px;object-fit:contain;object-position:center; }
   .nav-links { display:flex;align-items:center;gap:32px; }
   .nav-links a { font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;color:#9cd4ad;transition:color .2s; }
   .nav-links a:hover { color:var(--grn); }
