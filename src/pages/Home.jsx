@@ -1,16 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useReveal, useBentoGlow, usePricing } from "../hooks";
+import { useReveal, useBentoGlow } from "../hooks";
 import { useDemoModal } from "../hooks/useDemoModal";
 import { STATS, GAPS, HOW, MQ_ITEMS, WHY_NOW, WHY_WIN } from "../data";
 import AnimatedStat from "../components/AnimatedStat";
 import CtaBand from "../components/CtaBand";
 import Seo from "../components/Seo";
-
-function formatPercent(value) {
-  if (value === null || value === undefined) return '—';
-  return Number(value).toFixed(5).replace(/\.?0+$/, '') + '%';
-}
 
 /* ─── ON THE RECORD — badge grid ────────────────────────────────────
    Drop official logo files into /public/badges/ and point each `logo`
@@ -139,70 +134,14 @@ function OnTheRecord() {
 export default function Home() {
   const [gapTab, setGapTab] = useState(0);
   const { openDemo } = useDemoModal();
-  const { pricing, loading: pricingLoading } = usePricing();
   useReveal([gapTab]);
   useBentoGlow();
-
-  // Build pricing cards from live data + static config for Free/Corporate
-  const pricingCards = pricing ? [
-    {
-      tier: "FREE", name: "Free", tag: "Start exploring today",
-      desc: "Ideal for individuals, students, and companies that want to understand carbon trading before committing.",
-      price: "₹0", period: "forever", gst: null, save: null,
-      fee: formatPercent(pricing.free?.buyer_fee_percent), seats: "1 seat", popular: false,
-      locked: ["Portfolio management", "List & sell credits", "Credit retirement", "Portfolio export", "Emission tracking", "Compliance dashboard", "Team management"],
-      unlocked: ["Buy credits from the marketplace", "Browse live listings & real-time prices", "On-chain transaction receipt", "Basic carbon footprint calculator", "Wallet & trading history", "Email support"],
-      cta: "Get Started", solid: false,
-    },
-    {
-      tier: "STARTER", name: "Starter", tag: "For active traders",
-      desc: "Freelancers, ESG consultants, small NGOs, and active credit traders who need the full marketplace experience.",
-      price: `₹${pricing.starter.annual.toLocaleString()}`, period: "/yr", gst: "+ 18% GST", save: `Save ₹${(pricing.starter.monthly * 12 - pricing.starter.annual).toLocaleString()} vs monthly billing`,
-      fee: formatPercent(pricing.starter?.buyer_fee_percent), seats: "3 seats", popular: false,
-      locked: ["Emission tracking (Growth+)", "Compliance dashboard (Corporate)", "Team management (Corporate)"],
-      unlocked: ["Everything in Free", "Full portfolio management", "List & sell credits on the marketplace", "On-chain credit retirement", "Portfolio export (CSV)", "Blockchain audit trail PDF", "3 seats included", "Priority email support"],
-      cta: "Get Started", solid: false,
-    },
-    {
-      tier: "GROWTH", name: "Growth", tag: "Most popular",
-      desc: "MSMEs, growing businesses, and serious ESG teams that need full GHG tracking and regulatory reporting.",
-      price: `₹${pricing.growth.annual.toLocaleString()}`, period: "/yr", gst: "+ 18% GST", save: `Save ₹${(pricing.growth.monthly * 12 - pricing.growth.annual).toLocaleString()} vs monthly billing`,
-      fee: formatPercent(pricing.growth?.buyer_fee_percent), seats: "10 seats", popular: true,
-      locked: ["Compliance dashboard (Corporate)", "Team management (Corporate)", "BRSR/CDP/TCFD/GRI reports (Corporate)"],
-      unlocked: ["Everything in Starter", "Scope 1 + 2 full tracking", "Basic Scope 3 (5 categories)", "GHG inventory ledger", "CSV export + analytics dashboard", "Carbon intensity metrics", "Basic decarbonisation scenarios", "GHG Protocol PDF report", "10 seats included", "Chat support"],
-      cta: "Get Started", solid: true,
-    },
-    {
-      tier: "CORPORATE", name: "Corporate", tag: "For listed companies",
-      desc: "SEBI-listed companies, BRSR filers, large ESG teams, and organisations with CDP/TCFD obligations.",
-      price: "Contact Sales", period: "", gst: null, save: null,
-      fee: formatPercent(pricing.corporate?.buyer_fee_percent), seats: "Unlimited seats", popular: false,
-      locked: [],
-      unlocked: [
-        "Everything in Growth",
-        "Full Scope 3 — all 15 GHG Protocol categories",
-        "BRSR Core · CDP Climate · TCFD · GRI · GHG Protocol PDF exports",
-        "Blockchain audit trail + verifier integration",
-        "BV, DNV, EY, Deloitte, TÜV SÜD, BSI, KPMG supported",
-        "GEI / BEE CCTS compliance module",
-        "PAT scheme + CCTS Forms A–E2",
-        "5-year science-based decarbonisation plan",
-        "MRV calendar + SBTi target setting",
-        "Supplier data portal",
-        "Multi-entity consolidation",
-        "Carbon neutrality certificate",
-        "Regulatory deadline alerts",
-        "Custom seats · custom pricing",
-      ],
-      cta: "Contact Sales", solid: false,
-    },
-  ] : [];
 
   return (
     <>
       <Seo
-        title="EtherTrack — Blockchain-Native Carbon Infrastructure Platform for India"
-        description="Track emissions, trade carbon credits on a live order book, retire on-chain, and generate BRSR, CDP, TCFD, GRI, and GHG Protocol reports — all on one platform built for India's CCTS compliance market."
+        title="EtherTrack | India's Carbon Infrastructure Platform"
+        description="EtherTrack brings emissions tracking, sustainability reporting, blockchain traceability and carbon-credit portfolio management and trading together in India's carbon infrastructure platform."
         path="/"
       />
       {/* ── Hero ── */}
@@ -427,44 +366,146 @@ export default function Home() {
         <div className="s-label reveal">PRICING</div>
         <h2 className="s-h2 reveal">Transparent pricing<br/><span style={{ color:"var(--grn)" }}>No surprises, ever</span></h2>
         <p className="s-sub reveal">One fixed platform fee, hardcoded in the smart contract and verifiable on Etherscan. As your usage grows, your fee rate drops.</p>
-        {pricingLoading ? (
-          <div style={{ display: "flex", justifyContent: "center", padding: 60 }}>
-            <div style={{ width: 32, height: 32, border: "3px solid var(--brd)", borderTopColor: "var(--grn)", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
+        <div className="pricing-grid">
+          {/* FREE */}
+          <div className="price-card reveal">
+            <div className="price-tier">FREE</div>
+            <div className="price-name">Free</div>
+            <div className="price-tag">Start exploring today</div>
+            <div className="price-desc">Ideal for individuals, students, and companies that want to understand carbon trading before committing.</div>
+            <div className="price-amt-row">
+              <span className="price-amt">₹0</span>
+              <span className="price-per">forever</span>
+            </div>
+            <div className="price-pills">
+              <span className="price-pill"><span className="price-pill-dot" style={{ background:"var(--org)" }} />2% trading fee</span>
+              <span className="price-pill"><span className="price-pill-dot" style={{ background:"var(--blu)" }} />1 seat</span>
+            </div>
+            <div className="price-divider" />
+            <div className="price-feats">
+              <div className="price-feat locked"><span className="price-feat-icon">🔒</span>Portfolio management</div>
+              <div className="price-feat locked"><span className="price-feat-icon">🔒</span>List & sell credits</div>
+              <div className="price-feat locked"><span className="price-feat-icon">🔒</span>Credit retirement</div>
+              <div className="price-feat locked"><span className="price-feat-icon">🔒</span>Portfolio export</div>
+              <div className="price-feat locked"><span className="price-feat-icon">🔒</span>Emission tracking</div>
+              <div className="price-feat locked"><span className="price-feat-icon">🔒</span>Compliance dashboard</div>
+              <div className="price-feat locked"><span className="price-feat-icon">🔒</span>Team management</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Buy credits from the marketplace</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Browse live listings & real-time prices</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>On-chain transaction receipt</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Basic carbon footprint calculator</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Wallet & trading history</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Email support</div>
+            </div>
+            <button className="price-cta" onClick={openDemo}>Get Started →</button>
           </div>
-        ) : (
-          <div className="pricing-grid">
-            {pricingCards.map((p) => (
-              <div key={p.tier} className={`price-card reveal${p.popular ? " popular" : ""}`}>
-                {p.popular && <div className="price-badge">★ MOST POPULAR</div>}
-                {p.tier === "CORPORATE" && <div className="price-badge org">ENTERPRISE</div>}
-                <div className="price-tier">{p.tier}</div>
-                <div className="price-name">{p.name}</div>
-                <div className="price-tag">{p.tag}</div>
-                <div className="price-desc">{p.desc}</div>
-                <div className="price-amt-row">
-                  <span className="price-amt">{p.price}</span>
-                  {p.period && <span className="price-per">{p.period}</span>}
-                </div>
-                {p.gst && <div className="price-gst">{p.gst}</div>}
-                {p.save && <div className="price-save">{p.save}</div>}
-                <div className="price-pills">
-                  <span className="price-pill"><span className="price-pill-dot" style={{ background:"var(--org)" }} />{p.fee} trading fee</span>
-                  <span className="price-pill"><span className="price-pill-dot" style={{ background:"var(--blu)" }} />{p.seats}</span>
-                </div>
-                <div className="price-divider" />
-                <div className="price-feats">
-                  {p.locked.map((f,j) => <div key={`l${j}`} className="price-feat locked"><span className="price-feat-icon">🔒</span>{f}</div>)}
-                  {p.unlocked.map((f,j) => <div key={`u${j}`} className="price-feat unlocked"><span className="price-feat-icon">✓</span>{f}</div>)}
-                </div>
-                <button className={`price-cta${p.solid ? " solid" : ""}`} onClick={openDemo}>{p.cta}{p.cta === "Get Started" ? " →" : ""}</button>
-              </div>
-            ))}
+
+          {/* STARTER */}
+          <div className="price-card reveal">
+            <div className="price-tier">STARTER</div>
+            <div className="price-name">Starter</div>
+            <div className="price-tag">For active traders</div>
+            <div className="price-desc">Freelancers, ESG consultants, small NGOs, and active credit traders who need the full marketplace experience.</div>
+            <div className="price-amt-row">
+              <span className="price-amt">₹11,999</span>
+              <span className="price-per">/yr</span>
+            </div>
+            <div className="price-gst">+ 18% GST</div>
+            <div className="price-save">Save ₹0 vs monthly billing</div>
+            <div className="price-pills">
+              <span className="price-pill"><span className="price-pill-dot" style={{ background:"var(--org)" }} />1% trading fee</span>
+              <span className="price-pill"><span className="price-pill-dot" style={{ background:"var(--blu)" }} />3 seats</span>
+            </div>
+            <div className="price-divider" />
+            <div className="price-feats">
+              <div className="price-feat locked"><span className="price-feat-icon">🔒</span>Emission tracking (Growth+)</div>
+              <div className="price-feat locked"><span className="price-feat-icon">🔒</span>Compliance dashboard (Corporate)</div>
+              <div className="price-feat locked"><span className="price-feat-icon">🔒</span>Team management (Corporate)</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Everything in Free</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Full portfolio management</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>List & sell credits on the marketplace</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>On-chain credit retirement</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Portfolio export (CSV)</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Blockchain audit trail PDF</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>3 seats included</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Priority email support</div>
+            </div>
+            <button className="price-cta" onClick={openDemo}>Get Started →</button>
           </div>
-        )}
+
+          {/* GROWTH */}
+          <div className="price-card reveal popular">
+            <div className="price-badge">★ MOST POPULAR</div>
+            <div className="price-tier">GROWTH</div>
+            <div className="price-name">Growth</div>
+            <div className="price-tag">Most popular</div>
+            <div className="price-desc">MSMEs, growing businesses, and serious ESG teams that need full GHG tracking and regulatory reporting.</div>
+            <div className="price-amt-row">
+              <span className="price-amt">₹1,56,000</span>
+              <span className="price-per">/yr</span>
+            </div>
+            <div className="price-gst">+ 18% GST</div>
+            <div className="price-save">Save ₹0 vs monthly billing</div>
+            <div className="price-pills">
+              <span className="price-pill"><span className="price-pill-dot" style={{ background:"var(--org)" }} />0.75% trading fee</span>
+              <span className="price-pill"><span className="price-pill-dot" style={{ background:"var(--blu)" }} />10 seats</span>
+            </div>
+            <div className="price-divider" />
+            <div className="price-feats">
+              <div className="price-feat locked"><span className="price-feat-icon">🔒</span>Compliance dashboard (Corporate)</div>
+              <div className="price-feat locked"><span className="price-feat-icon">🔒</span>Team management (Corporate)</div>
+              <div className="price-feat locked"><span className="price-feat-icon">🔒</span>BRSR/CDP/TCFD/GRI reports (Corporate)</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Everything in Starter</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Scope 1 + 2 full tracking</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Basic Scope 3 (5 categories)</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>GHG inventory ledger</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>CSV export + analytics dashboard</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Carbon intensity metrics</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Basic decarbonisation scenarios</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>GHG Protocol PDF report</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>10 seats included</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Chat support</div>
+            </div>
+            <button className="price-cta solid" onClick={openDemo}>Get Started →</button>
+          </div>
+
+          {/* CORPORATE */}
+          <div className="price-card reveal">
+            <div className="price-badge org">ENTERPRISE</div>
+            <div className="price-tier">CORPORATE</div>
+            <div className="price-name">Corporate</div>
+            <div className="price-tag">For listed companies</div>
+            <div className="price-desc">SEBI-listed companies, BRSR filers, large ESG teams, and organisations with CDP/TCFD obligations.</div>
+            <div className="price-amt-row">
+              <span className="price-amt">Contact Sales</span>
+            </div>
+            <div className="price-pills">
+              <span className="price-pill"><span className="price-pill-dot" style={{ background:"var(--org)" }} />0.5% trading fee</span>
+              <span className="price-pill"><span className="price-pill-dot" style={{ background:"var(--blu)" }} />Unlimited seats</span>
+            </div>
+            <div className="price-divider" />
+            <div className="price-feats">
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Everything in Growth</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Full Scope 3 — all 15 GHG Protocol categories</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>BRSR Core · CDP Climate · TCFD · GRI · GHG Protocol PDF exports</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Blockchain audit trail + verifier integration</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>BV, DNV, EY, Deloitte, TÜV SÜD, BSI, KPMG supported</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>GEI / BEE CCTS compliance module</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>PAT scheme + CCTS Forms A–E2</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>5-year science-based decarbonisation plan</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>MRV calendar + SBTi target setting</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Supplier data portal</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Multi-entity consolidation</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Carbon neutrality certificate</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Regulatory deadline alerts</div>
+              <div className="price-feat unlocked"><span className="price-feat-icon">✓</span>Custom seats · custom pricing</div>
+            </div>
+            <button className="price-cta" onClick={openDemo}>Contact Sales</button>
+          </div>
+        </div>
         <div className="price-app-note reveal">
           <span style={{ color:"var(--grn)" }}>●</span>&nbsp;
           All prices exclude GST where noted · Trading fee hardcoded in Marketplace.sol · Verifiable on Etherscan
-          {pricing && !pricingLoading && <span style={{ marginLeft: 16, color: "var(--mut-lt)", fontFamily: "var(--font-mono)", fontSize: 11 }}>· Sourced from ERP</span>}
         </div>
       </section>
 

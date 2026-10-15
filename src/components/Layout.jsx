@@ -133,7 +133,7 @@ function SiteFooter() {
             <li><Link to="/industries">Industries</Link></li>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/about#ccts">India CCTS</Link></li>
-            <li><Link to="/insights">Insights</Link></li>
+            <li><Link to="/blogs">Insights</Link></li>
             <li><Link to="/careers">Careers</Link></li>
             <li><a href="mailto:support@ethertrack.in">support@ethertrack.in</a></li>
           </ul>

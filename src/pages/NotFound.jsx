@@ -33,7 +33,7 @@ export default function NotFound() {
             <Link to="/solutions" style={{ color: "var(--mut-lt)", transition: "color .2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--grn)"} onMouseLeave={e => e.currentTarget.style.color = "var(--mut-lt)"}>Solutions</Link>
             <Link to="/industries" style={{ color: "var(--mut-lt)", transition: "color .2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--grn)"} onMouseLeave={e => e.currentTarget.style.color = "var(--mut-lt)"}>Industries</Link>
             <Link to="/about" style={{ color: "var(--mut-lt)", transition: "color .2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--grn)"} onMouseLeave={e => e.currentTarget.style.color = "var(--mut-lt)"}>About</Link>
-            <Link to="/insights" style={{ color: "var(--mut-lt)", transition: "color .2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--grn)"} onMouseLeave={e => e.currentTarget.style.color = "var(--mut-lt)"}>Insights</Link>
+            <Link to="/blogs" style={{ color: "var(--mut-lt)", transition: "color .2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--grn)"} onMouseLeave={e => e.currentTarget.style.color = "var(--mut-lt)"}>Blogs</Link>
             <Link to="/careers" style={{ color: "var(--mut-lt)", transition: "color .2s" }} onMouseEnter={e => e.currentTarget.style.color = "var(--grn)"} onMouseLeave={e => e.currentTarget.style.color = "var(--mut-lt)"}>Careers</Link>
           </div>
         </div>

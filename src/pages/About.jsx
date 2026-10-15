@@ -47,83 +47,50 @@ export default function About() {
       <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
         <div className="s-label reveal">ABOUT THE COMPANY</div>
         <h2 className="s-h2 reveal">Our Story<br/><span style={{ color:"var(--grn)" }}>Powering India's Net Zero Ambition</span></h2>
+
         <div className="company-story reveal" style={{ marginTop:32 }}>
-          <h3 style={{ fontFamily:"var(--font-head)", fontSize:22, fontWeight:700, marginBottom:16, color:"var(--txt)" }}>The Founding Vision</h3>
+          <h3 style={{ fontFamily:"var(--font-head)", fontSize:22, fontWeight:700, marginBottom:16, color:"var(--txt)" }}>Big Ambitions. A Beginning From Scratch.</h3>
           <p style={{ fontSize:15, color:"var(--mut-lt)", lineHeight:1.8, marginBottom:16 }}>
-            EtherTrack Technologies Private Limited was incorporated on <strong style={{color:"var(--txt)"}}>13 July 2026</strong> by a solo founder, <strong style={{color:"var(--txt)"}}>Varun Girish Deshmukh</strong>, at the age of <strong style={{color:"var(--txt)"}}>22</strong>. 
+            Every meaningful company begins with a belief that something can be done better. EtherTrack began with that belief. EtherTrack Technologies Private Limited was incorporated on <strong style={{color:"var(--txt)"}}>13 July 2026</strong> by a solo founder, <strong style={{color:"var(--txt)"}}>Varun Girish Deshmukh</strong>, at the age of <strong style={{color:"var(--txt)"}}>22</strong>. The ambition was bigger than the company itself: to contribute to India's journey towards a net-zero future.
           </p>
           <p style={{ fontSize:15, color:"var(--mut-lt)", lineHeight:1.8, marginBottom:16 }}>
-            The vision was clear from day one: <strong style={{color:"var(--txt)"}}>power India's net zero ambition with transparent, verifiable carbon infrastructure</strong>. 
+            There was no established playbook to follow. No legacy to inherit. Just a vision, the willingness to learn, and the determination to turn an idea into something real. Building a company from the ground up means confronting the distance between what you imagine and what you can actually build. It means making decisions with limited resources, figuring things out as you go, solving problems nobody sees, and showing up again when progress takes longer than expected.
           </p>
           <p style={{ fontSize:15, color:"var(--mut-lt)", lineHeight:1.8, marginBottom:16 }}>
-            India's carbon market is projected to exceed <strong style={{color:"var(--txt)"}}>₹20,000 crore by 2030</strong>. 490 entities face mandatory CCTS compliance from FY2026. SEBI BRSR Core GHG assurance is legally required for India's top 1,000 listed companies. 
-            CBAM is applying to Indian steel, aluminium, and cement exports. The regulatory window is not opening — it is already open.
-          </p>
-          <p style={{ fontSize:15, color:"var(--mut-lt)", lineHeight:1.8, marginBottom:16 }}>
-            What this market has never had is infrastructure worthy of its scale. That is what we are building.
+            We are at the beginning of that journey. But we believe that the size of an ambition should not be limited by the size of the team that starts it.
           </p>
         </div>
 
-        {/* ── Why EtherTrack: Our Manifesto ── */}
-        <div className="reveal" style={{ marginTop:48 }}>
-          <h3 style={{ fontFamily:"var(--font-head)", fontSize:22, fontWeight:700, marginBottom:16, color:"var(--txt)" }}>Why EtherTrack Exists</h3>
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(280px, 1fr))", gap:24, marginTop:24 }}>
-            <div style={{ padding:"24px", background:"var(--bg)", border:"1px solid var(--brd)", borderRadius:"var(--r-lg)", borderLeft:"3px solid var(--grn)" }}>
-              <div style={{ fontFamily:"var(--font-mono)", fontSize:9, letterSpacing:".12em", color:"var(--grn)", marginBottom:8 }}>01 / TRANSPARENCY OVER TRUST</div>
-              <h4 style={{ fontFamily:"var(--font-head)", fontSize:16, fontWeight:700, color:"var(--txt)", marginBottom:8 }}>No Black Boxes</h4>
-              <p style={{ fontSize:14, color:"var(--mut-lt)", lineHeight:1.7 }}>
-                Every credit, every transaction, every retirement is on-chain. Auditors verify directly on Etherscan — no calls to us, no PDFs to trust. The infrastructure is the proof.
-              </p>
-            </div>
-            <div style={{ padding:"24px", background:"var(--bg)", border:"1px solid var(--brd)", borderRadius:"var(--r-lg)", borderLeft:"3px solid var(--vio)" }}>
-              <div style={{ fontFamily:"var(--font-mono)", fontSize:9, letterSpacing:".12em", color:"var(--vio)", marginBottom:8 }}>02 / INTEGRATED BY DESIGN</div>
-              <h4 style={{ fontFamily:"var(--font-head)", fontSize:16, fontWeight:700, color:"var(--txt)", marginBottom:8 }}>One Platform, Zero Reconciliation</h4>
-              <p style={{ fontSize:14, color:"var(--mut-lt)", lineHeight:1.7 }}>
-                Emissions logged once flow into GHG inventory, credit gap, marketplace orders, retirement certificates, and BRSR/CDP/TCFD reports automatically. One source of truth.
-              </p>
-            </div>
-            <div style={{ padding:"24px", background:"var(--bg)", border:"1px solid var(--brd)", borderRadius:"var(--r-lg)", borderLeft:"3px solid var(--org)" }}>
-              <div style={{ fontFamily:"var(--font-mono)", fontSize:9, letterSpacing:".12em", color:"var(--org)", marginBottom:8 }}>03 / INDIA-FIRST ARCHITECTURE</div>
-              <h4 style={{ fontFamily:"var(--font-head)", fontSize:16, fontWeight:700, color:"var(--txt)", marginBottom:8 }}>Built for CCTS, BRSR, CBAM</h4>
-              <p style={{ fontSize:14, color:"var(--mut-lt)", lineHeight:1.7 }}>
-                CEA V20.0 grid factors, BEE Form 1, CCTS GEI formulas, Forms A–E2, 194S TDS, UPI/NEFT rails — every India-specific rule encoded natively, not patched.
-              </p>
-            </div>
-            <div style={{ padding:"24px", background:"var(--bg)", border:"1px solid var(--brd)", borderRadius:"var(--r-lg)", borderLeft:"3px solid var(--blu)" }}>
-              <div style={{ fontFamily:"var(--font-mono)", fontSize:9, letterSpacing:".12em", color:"var(--blu)", marginBottom:8 }}>04 / LIQUIDITY FOR EVERY SCALE</div>
-              <h4 style={{ fontFamily:"var(--font-head)", fontSize:16, fontWeight:700, color:"var(--txt)", marginBottom:8 }}>From 1 Credit to 1 Million</h4>
-              <p style={{ fontSize:14, color:"var(--mut-lt)", lineHeight:1.7 }}>
-                Hybrid AMM gives instant liquidity under 100 credits. Live order book for larger sizes. A 50-credit cookstove project has the same market access as a 50,000-credit industrial portfolio.
-              </p>
-            </div>
-          </div>
+        <div className="reveal" style={{ marginTop:40 }}>
+          <h3 style={{ fontFamily:"var(--font-head)", fontSize:22, fontWeight:700, marginBottom:16, color:"var(--txt)" }}>Built on Conviction. Driven by Possibility.</h3>
+          <p style={{ fontSize:15, color:"var(--mut-lt)", lineHeight:1.8, marginBottom:16 }}>
+            India's net-zero journey will be one of the defining transformations of our generation. We believe the companies building its future infrastructure have an opportunity to create something that lasts.
+          </p>
+          <p style={{ fontSize:15, color:"var(--mut-lt)", lineHeight:1.8, marginBottom:16 }}>
+            That belief is what drives EtherTrack. We are not here simply to follow a trend. We are here to build a company that grows alongside India's carbon economy, earns the trust of the people it serves, and creates lasting value through the work it does.
+          </p>
+          <p style={{ fontSize:15, color:"var(--mut-lt)", lineHeight:1.8, marginBottom:16 }}>
+            Every milestone is a beginning. Every challenge is part of the process. And every improvement brings the vision closer to reality.
+          </p>
         </div>
 
-        {/* ── Our Commitments ── */}
-        <div className="reveal" style={{ marginTop:48 }}>
-          <h3 style={{ fontFamily:"var(--font-head)", fontSize:22, fontWeight:700, marginBottom:16, color:"var(--txt)" }}>What We Stand For</h3>
-          <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(260px, 1fr))", gap:16, marginTop:24 }}>
-            {[
-              ["🛡️","Radical Transparency","Every number traceable. Every assumption declared. Every methodology documented."],
-              ["🔬","Scientific Rigour","CEA factors, IPCC AR6 GWPs, GHG Protocol boundaries — no shortcuts, no hidden assumptions."],
-              ["🤝","Founder-Led Accountability","Solo founder, 22 at incorporation. My name, my reputation, my code on every line."],
-              ["🇮🇳","India-First, Always","Built in Pune, for India. CEA factors, BEE forms, CCTS rules, UPI rails — native, not adapted."],
-              ["♾️","Permanence Over Hype","On-chain retirement to 0x0. Permanent. Immutable. Auditable by anyone, forever."],
-              ["🚀","Build for the Long Game","Pre-revenue by choice. 7 modules, 7 contracts, Sepolia-tested. Mainnet when ready, not when funded."],
-            ].map(([icon,title,desc],i)=>(
-              <div key={i} style={{ padding:"20px 24px", background:"var(--bg)", border:"1px solid var(--brd)", borderRadius:"var(--r-lg)", transition:"all .2s" }} style={{ boxShadow:"0 1px 3px rgba(0,0,0,.1)" }}>
-                <span style={{ fontSize:24, display:"block", marginBottom:12 }}>{icon}</span>
-                <h4 style={{ fontFamily:"var(--font-head)", fontSize:15, fontWeight:700, color:"var(--txt)", marginBottom:8 }}>{title}</h4>
-                <p style={{ fontSize:13, color:"var(--mut-lt)", lineHeight:1.7 }}>{desc}</p>
-              </div>
-            ))}
-          </div>
+        <div className="reveal" style={{ marginTop:40 }}>
+          <h3 style={{ fontFamily:"var(--font-head)", fontSize:22, fontWeight:700, marginBottom:16, color:"var(--txt)" }}>The Journey Starts Here.</h3>
+          <p style={{ fontSize:15, color:"var(--mut-lt)", lineHeight:1.8, marginBottom:16 }}>
+            Today, EtherTrack is an early-stage company with a long road ahead and a clear ambition for where it wants to go. We know that trust must be earned, that meaningful progress takes time, and that ambition only matters when it is matched by execution.
+          </p>
+          <p style={{ fontSize:15, color:"var(--mut-lt)", lineHeight:1.8, marginBottom:16 }}>
+            We intend to build with that understanding. <strong>Started with a vision. Built through persistence. Driven by India's net-zero ambition.</strong>
+          </p>
+          <p style={{ fontSize:15, color:"var(--mut-lt)", lineHeight:1.8, marginBottom:16 }}>
+            This is the beginning of EtherTrack's story. We intend to make what comes next count.
+          </p>
         </div>
       </section>
 
       {/* ── Company Details Cards ── */}
-      <section className="section">
-        <div className="reveal" style={{ marginTop:48, padding:"28px 32px", background:"rgba(0,224,80,.04)", border:"1px solid var(--grnd)", borderRadius:"var(--r-lg)", display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(220px, 1fr))", gap:24 }}>
+      <section className="section" style={{ marginTop:16 }}>
+        <div className="reveal" style={{ marginTop:16, padding:"28px 32px", background:"rgba(0,224,80,.04)", border:"1px solid var(--grnd)", borderRadius:"var(--r-lg)", display:"grid", gridTemplateColumns:"repeat(auto-fit, minmax(220px, 1fr))", gap:24 }}>
           <div>
             <div style={{ fontFamily:"var(--font-mono)", fontSize:9, letterSpacing:".12em", color:"var(--grn)", marginBottom:8 }}>COMPANY DETAILS</div>
             <div style={{ fontSize:13, color:"var(--mut-lt)", lineHeight:1.8 }}>
@@ -164,15 +131,15 @@ export default function About() {
       </section>
 
       {/* ── From the Founder (Full Width) ── */}
-      <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
+      <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)", marginTop:16, paddingTop:16 }}>
         <div className="s-label reveal">FROM THE FOUNDER</div>
         <h2 className="s-h2 reveal">Built for a market<br/><span style={{ color:"var(--grn)" }}>that deserved better</span></h2>
-        <div className="founder-card reveal" style={{ maxWidth:"100%", display:"grid", gridTemplateColumns:"200px 1fr", gap:48, alignItems:"start", marginTop:32 }}>
-          <div className="founder-photo reveal" style={{ width:200, height:200, borderRadius:"50%", overflow:"hidden", marginBottom:16, background:"var(--bg)", border:"1px solid var(--brd)" }}>
+        <div className="founder-card reveal" style={{ maxWidth:"100%", display:"grid", gridTemplateColumns:"1fr", gap:24, alignItems:"start", marginTop:24 }}>
+          <div className="founder-photo reveal" style={{ width:160, height:160, borderRadius:"50%", overflow:"hidden", marginBottom:16, background:"var(--bg)", border:"1px solid var(--brd)", justifySelf:"center" }}>
             <img
               src={founderImg}
               alt="Varun Girish Deshmukh, Founder — EtherTrack Technologies"
-              style={{ width:200, height:200, objectFit:"cover" }}
+              style={{ width:160, height:160, objectFit:"cover" }}
               onError={e => {
                 const p = e.target.parentElement;
                 p.style.background = "var(--surf2)";
@@ -184,7 +151,7 @@ export default function About() {
               }}
             />
           </div>
-          <div>
+          <div style={{ textAlign:"center" }}>
             <p className="f-quote" style={{ fontSize:16, color:"var(--mut-lt)", lineHeight:1.8, marginBottom:16, fontStyle:"italic" }}>
               "India supplied <strong style={{ color:"var(--txt)" }}>17% of all global voluntary carbon credits</strong> between
               2010 and 2022 — yet had no domestic blockchain exchange to price, trade, or retire them
@@ -203,7 +170,7 @@ export default function About() {
             <div style={{ fontSize:13, color:"var(--mut-lt)", lineHeight:1.8 }}>
               Vision: <strong style={{color:"var(--grn)"}}>Powering India's net zero ambition</strong> with transparent, verifiable carbon infrastructure.
             </div>
-            <div style={{ marginTop:24, display:"flex", alignItems:"center", gap:12, flexWrap:"wrap" }}>
+            <div style={{ marginTop:24, display:"flex", alignItems:"center", gap:12, flexWrap:"wrap", justifyContent:"center" }}>
               <a className="f-email" href="mailto:founder@ethertrack.in" style={{ display:"inline-flex", alignItems:"center", gap:8, color:"var(--grn)", fontFamily:"var(--font-mono)", fontSize:11, letterSpacing:".1em" }}>
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink:0 }}>
                   <rect x="2" y="4" width="20" height="16" rx="2"></rect>
@@ -229,7 +196,7 @@ export default function About() {
       </section>
 
       {/* ── CCTS Timeline ── */}
-      <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }} id="ccts">
+      <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)", marginTop:16 }} id="ccts">
         <div className="s-label reveal">THE REGULATORY TIMELINE</div>
         <h2 className="s-h2 reveal">The window opened —<br/><span style={{ color:"var(--org)" }}>most companies haven't noticed yet</span></h2>
         <p className="s-sub reveal">India's carbon compliance regime has been activating quietly since 2022. The pace is about to become impossible to ignore.</p>
