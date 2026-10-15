@@ -285,7 +285,7 @@ export default function Home() {
       {/* ── On the Record ── */}
 <OnTheRecord />
 
-       {/* ── Why We Win ── */}
+{/* ── Why We Win ── */}
        <section className="section" style={{ background:"var(--surf)", borderTop:"1px solid var(--brd)" }}>
         <div className="s-label reveal">STRUCTURAL ADVANTAGES</div>
         <h2 className="s-h2 reveal">Six moats, not features<br/><span style={{ color:"var(--grn)" }}>Built into the architecture</span></h2>
@@ -293,27 +293,67 @@ export default function Home() {
           Features can be copied. These six advantages compound over time and become harder to replicate
           the longer EtherTrack operates. None of them rest on being first with a feature alone.
         </p>
+        <style>{`
+          .moat-grid {
+            display: grid;
+            grid-template-columns: 56px 1fr 1fr;
+            gap: 28px;
+            align-items: start;
+            padding: 28px 32px;
+            background: var(--surf2);
+            border: 1px solid var(--brd);
+            border-radius: var(--r-lg);
+          }
+          .moat-grid .moat-icon {
+            width: 52px; height: 52px; border-radius: 50%;
+            background: var(--bg); border: 1px solid var(--brd);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; flex-shrink: 0;
+          }
+          .moat-grid .moat-title-row {
+            font-family: var(--font-mono); font-size: 9px; letter-spacing: .15em; margin-bottom: 8px;
+          }
+          .moat-grid h3 {
+            font-family: var(--font-head); font-size: 15px; font-weight: 700; margin-bottom: 10px; line-height: 1.3;
+          }
+          .moat-grid .moat-desc {
+            font-size: 13px; color: #9abba6; line-height: 1.75; font-weight: 300;
+          }
+          .moat-grid .moat-moat {
+            border-left: 1px solid var(--brd); padding-left: 28px;
+          }
+          .moat-grid .moat-moat-label {
+            font-family: var(--font-mono); font-size: 9px; color: var(--mut-lt); letter-spacing: .12em; margin-bottom: 8px;
+          }
+          .moat-grid .moat-moat-text {
+            font-size: 13px; color: var(--txt); line-height: 1.75; font-weight: 300;
+          }
+          @media (max-width: 900px) {
+            .moat-grid {
+              grid-template-columns: 1fr;
+              gap: 16px;
+              padding: 24px;
+            }
+            .moat-grid .moat-icon {
+              width: 48px; height: 48px; font-size: 20px;
+            }
+            .moat-grid .moat-moat {
+              border-left: none; padding-left: 0; border-top: 1px solid var(--brd); padding-top: 16px; margin-top: 8px;
+            }
+          }
+        `}</style>
         <div style={{ display:"flex", flexDirection:"column", gap:12 }}>
           {WHY_WIN.map((w,i) => (
-            <div key={i} className="reveal" style={{
-              background:"var(--surf2)", border:"1px solid var(--brd)",
-              borderRadius:"var(--r-lg)", padding:"28px 32px",
-              display:"grid", gridTemplateColumns:"56px 1fr 1fr", gap:28, alignItems:"start",
-            }}>
-              <div style={{
-                width:52, height:52, borderRadius:"50%",
-                background:"var(--bg)", border:`1px solid ${w.color}33`,
-                display:"flex", alignItems:"center", justifyContent:"center",
-                fontSize:22, flexShrink:0,
-              }}>{w.icon}</div>
+            <div key={i} className="reveal moat-grid" style={{ borderColor: `${w.color}33` }}>
+              <div className="moat-icon" style={{ borderColor: `${w.color}33` }}>{w.icon}</div>
               <div>
-                <div style={{ fontFamily:"var(--font-mono)", fontSize:9, color:w.color, letterSpacing:".15em", marginBottom:8 }}>ADVANTAGE {w.n}</div>
-                <div style={{ fontFamily:"var(--font-head)", fontSize:15, fontWeight:700, marginBottom:10, lineHeight:1.3 }}>{w.title}</div>
-                <div style={{ fontSize:13, color:"#9abba6", lineHeight:1.75, fontWeight:300 }}>{w.desc}</div>
+                <div className="moat-title-row" style={{ color: w.color }}>ADVANTAGE {w.n}</div>
+                <h3>{w.title}</h3>
+                <div className="moat-desc">{w.desc}</div>
               </div>
-              <div style={{ borderLeft:"1px solid var(--brd)", paddingLeft:28 }}>
-                <div style={{ fontFamily:"var(--font-mono)", fontSize:9, color:"var(--mut-lt)", letterSpacing:".12em", marginBottom:8 }}>WHY IT'S HARD TO REPLICATE</div>
-                <div style={{ fontSize:13, color:"var(--txt)", lineHeight:1.75, fontWeight:300 }}>{w.moat}</div>
+              <div className="moat-moat">
+                <div className="moat-moat-label">WHY IT'S HARD TO REPLICATE</div>
+                <div className="moat-moat-text">{w.moat}</div>
               </div>
             </div>
           ))}
@@ -329,22 +369,60 @@ export default function Home() {
           had to be true simultaneously — and they all became true in a four-year window
           that is still open, but narrowing fast.
         </p>
+        <style>{`
+          .why-now-grid {
+            display: grid;
+            grid-template-columns: 40px 1fr 1fr;
+            gap: 24px;
+            align-items: start;
+            padding: 24px 28px;
+            background: var(--surf);
+            border: 1px solid var(--brd);
+            border-radius: var(--r-lg);
+            border-left: 3px solid var(--grn);
+          }
+          .why-now-grid .wn-icon { font-size: 24px; flex-shrink: 0; }
+          .why-now-grid .wn-col {
+            min-width: 0;
+          }
+          .why-now-grid .wn-label {
+            font-family: var(--font-mono); font-size: 9px; letter-spacing: .15em; margin-bottom: 8px;
+          }
+          .why-now-grid .wn-text {
+            font-size: 14px; line-height: 1.7; font-weight: 300;
+          }
+          .why-now-grid .wn-after {
+            border-left: 1px solid var(--brd); padding-left: 24px;
+          }
+          .why-now-grid .wn-after-label {
+            font-family: var(--font-mono); font-size: 9px; letter-spacing: .15em; margin-bottom: 8px; font-weight: 400;
+          }
+          .why-now-grid .wn-after-text {
+            font-size: 14px; color: var(--txt); line-height: 1.7; font-weight: 400;
+          }
+          @media (max-width: 900px) {
+            .why-now-grid {
+              grid-template-columns: 1fr;
+              gap: 16px;
+              padding: 20px;
+            }
+            .why-now-grid .wn-after {
+              border-left: none; padding-left: 0; border-top: 1px solid var(--brd); padding-top: 16px; margin-top: 8px;
+            }
+            .why-now-grid .wn-icon { font-size: 28px; }
+          }
+        `}</style>
         <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
           {WHY_NOW.map((item,i) => (
-            <div key={i} className="reveal" style={{
-              display:"grid", gridTemplateColumns:"40px 1fr 1fr", gap:24,
-              background:"var(--surf)", border:"1px solid var(--brd)",
-              borderRadius:"var(--r-lg)", padding:"24px 28px", alignItems:"start",
-              borderLeft:`3px solid ${item.color}`,
-            }}>
-              <div style={{ fontSize:24 }}>{item.icon}</div>
-              <div>
-                <div style={{ fontFamily:"var(--font-mono)", fontSize:9, letterSpacing:".15em", color:"var(--mut-lt)", marginBottom:8 }}>{item.label} — BEFORE</div>
-                <div style={{ fontSize:14, color:"var(--mut-lt)", lineHeight:1.7, fontWeight:300 }}>{item.before}</div>
+            <div key={i} className="reveal why-now-grid" style={{ borderLeftColor: item.color }}>
+              <div className="wn-icon">{item.icon}</div>
+              <div className="wn-col">
+                <div className="wn-label" style={{ color: "var(--mut-lt)" }}>{item.label} — BEFORE</div>
+                <div className="wn-text" style={{ color: "var(--mut-lt)" }}>{item.before}</div>
               </div>
-              <div style={{ borderLeft:"1px solid var(--brd)", paddingLeft:24 }}>
-                <div style={{ fontFamily:"var(--font-mono)", fontSize:9, letterSpacing:".15em", color:item.color, marginBottom:8 }}>STATUS TODAY</div>
-                <div style={{ fontSize:14, color:"var(--txt)", lineHeight:1.7, fontWeight:400 }}>{item.after}</div>
+              <div className="wn-col wn-after">
+                <div className="wn-after-label" style={{ color: item.color }}>STATUS TODAY</div>
+                <div className="wn-after-text">{item.after}</div>
               </div>
             </div>
           ))}
