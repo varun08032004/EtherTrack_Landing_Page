@@ -146,7 +146,7 @@ function SiteFooter() {
             <li><Link to="/disclaimer">Disclaimer</Link></li>
           </ul>
           <div style={{ marginTop:20, fontFamily:"var(--font-mono)", fontSize:8, color:"var(--mut2)", lineHeight:2 }}>
-            <div>Amoy Testnet · Pre-Launch</div>
+            <div>Sepolia Testnet · Pre-Launch</div>
             <div>Polygon Mainnet Pending Security Audit</div>
             <div>Incorporated in India (MCA)</div>
             <div>CIN: U62090PN2026PTC257708</div>

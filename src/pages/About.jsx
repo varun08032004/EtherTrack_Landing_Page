@@ -30,7 +30,7 @@ export default function About() {
         <div className="bento">
           {[
             ["🎯","The Problem We Exist to Solve","India supplied 17% of all global voluntary carbon credits between 2010 and 2022. There was no domestic exchange where those credits could be priced transparently, traded without a broker, or retired in a way any auditor could verify independently. EtherTrack is the answer to that absence.","var(--grn)"],
-            ["⛓️","Why Blockchain Is Not Optional","A private database can be edited. A retirement record in someone's SQL table is not a retirement — it is a promise. On-chain retirement to the Polygon null address is permanent, public, and verifiable by anyone in the world without contacting us. That is the only standard that should exist for carbon accountability.","var(--vio)"],
+            ["⛓️","Why Blockchain Is Not Optional","A private database can be edited. A retirement record in someone's SQL table is not a retirement — it is a promise. On-chain retirement to the Polygon mainnet null address is permanent, public, and verifiable by anyone in the world without contacting us. That is the only standard that should exist for carbon accountability.","var(--vio)"],
             ["🇮🇳","Why Now Is the Only Time That Matters","490 entities face mandatory CCTS compliance from FY2026. SEBI BRSR Core GHG assurance is legally required for India's top 1,000 listed companies. CBAM is applying to Indian steel, aluminium, and cement exports. The regulatory window is not opening — it is already open.","var(--org)"],
           ].map(([icon,title,desc,c],i)=>(
             <div key={i} className="b-card c4 reveal">
@@ -113,7 +113,7 @@ export default function About() {
             <div style={{ fontFamily:"var(--font-mono)", fontSize:9, letterSpacing:".12em", color:"var(--grn)", marginBottom:8 }}>STATUS</div>
             <div style={{ fontSize:13, color:"var(--mut-lt)", lineHeight:1.8 }}>
               <div><strong style={{color:"var(--org)"}}>Pre-revenue, Testnet-only</strong></div>
-              <div style={{marginTop:8}}>7 modules confirmed working on Polygon Amoy</div>
+              <div style={{marginTop:8}}>7 modules confirmed working on Ethereum Sepolia</div>
               <div>7 smart contracts deployed and Etherscan-verifiable</div>
               <div>Polygon mainnet pending security audit</div>
             </div>

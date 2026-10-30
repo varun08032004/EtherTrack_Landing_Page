@@ -84,7 +84,7 @@ const MODULES = [
     n: "04", icon: "📈", name: "Carbon Credits Market",
     for: "Procurement teams, treasury",
     headline: "Buy or sell credits — and never wait for a buyer",
-    body: "Trade on a live order book — every bid and ask visible to all participants simultaneously. Price is set by supply and demand, not a broker. Pay in INR via UPI, settle on Polygon.",
+    body: "Trade on a live order book — every bid and ask visible to all participants simultaneously. Price is set by supply and demand, not a broker. Pay in INR via UPI, settle on Polygon mainnet.",
     points: [
       "See every live bid and ask before you trade",
       "GST invoice generated automatically on every purchase",
@@ -150,11 +150,11 @@ const REPLACES = [
 // with specific, checkable technical credibility instead of generic "LIVE"
 // badges.
 const BUILT_ON = [
-  { name: "Polygon Amoy (Testnet) → Polygon (Mainnet)", detail: "7 smart contracts deployed and Polygonscan-verified on Amoy", color: "#22c55e" },
+  { name: "Ethereum Sepolia (Testnet) → Polygon (Mainnet)", detail: "7 smart contracts deployed and Etherscan-verified on Sepolia", color: "#22c55e" },
   { name: "Razorpay — RBI Authorised",  detail: "UPI · Net Banking · NEFT withdrawal · Section 194S TDS", color: "#a855f7" },
   { name: "Pinata IPFS",                detail: "KYC documents and retirement certificates — immutable", color: "#f97316" },
   { name: "Gnosis Safe Multi-sig",      detail: "2-of-3 admin key — no single point of control", color: "#3b82f6" },
-  { name: "Alchemy Polygon RPC",       detail: "On-chain event monitoring and transaction verification", color: "#22c55e" },
+  { name: "Alchemy RPC (Ethereum & Polygon)",       detail: "On-chain event monitoring and transaction verification", color: "#22c55e" },
   { name: "Cloudflare WAF",             detail: "DDoS protection · global CDN · SSL", color: "#a855f7" },
 ];
 
@@ -495,7 +495,7 @@ export default function Platform() {
           Seven modules. One platform. Every step from your first emission log to a filed regulatory report — without switching tools, calling a consultant, or rebuilding a spreadsheet.
         </p>
         <div className="hero-verb-row">TRACK · TOKENISE · TRADE · RETIRE · REPORT</div>
-        <p className="hero-note">Seven live modules · Polygon Amoy testnet · Built for India CCTS compliance</p>
+        <p className="hero-note">Seven live modules · Ethereum Sepolia testnet · Built for India CCTS compliance</p>
       </section>
 
       {/* ── Carbon Loop — Animated Circle ── */}
@@ -981,7 +981,7 @@ export default function Platform() {
         <SectionIntro
           label="THE PRODUCT"
           heading={<>Every module —<span style={{ color: "var(--grn)" }}> live on testnet</span></>}
-          sub="Real screenshots from the live Amoy build. Click any tab to explore."
+          sub="Real screenshots from the live Sepolia build. Click any tab to explore."
         />
         <div className="ss-tabs" style={{ marginTop: 32 }}>
           {TABS.map((t, i) => (
