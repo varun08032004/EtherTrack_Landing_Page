@@ -38,7 +38,7 @@ const organizationSchema = {
     "GHG Protocol",
     "SEBI BRSR Compliance",
     "India CCTS",
-    "Ethereum Smart Contracts",
+    "Polygon Smart Contracts",
   ],
 };
 

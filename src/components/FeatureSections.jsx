@@ -105,7 +105,7 @@ export function ComplianceFeatures() {
       <div className="b-card c6 reveal">
         <span className="b-icon">🔗</span>
         <div className="b-title">Blockchain Audit Trail</div>
-        <div className="b-desc">Every emission log, edit, credit submission, retirement, and verifier action anchored as a real Ethereum transaction. SHA-256 hash-chained entries — any tampering breaks the chain. Public verifyChain() callable by anyone without login.</div>
+        <div className="b-desc">Every emission log, edit, credit submission, retirement, and verifier action anchored as a real Polygon transaction. SHA-256 hash-chained entries — any tampering breaks the chain. Public verifyChain() callable by anyone without login.</div>
         <div style={{ marginTop:14, display:"flex", flexDirection:"column", gap:5 }}>
           {[["Entry hash","#a3f...c2d","var(--grn)"],["Prev hash","#8b1...f9a","var(--vio)"],["Block","7,234,891","var(--blu)"],["Chain status","Verified ✓","var(--grn)"]].map(([l,v,c])=>(
             <div key={l} style={{ display:"flex", justifyContent:"space-between", padding:"5px 10px", background:"var(--bg)", borderRadius:5, border:"1px solid var(--brd)", fontFamily:"var(--font-mono)", fontSize:8.5 }}>
@@ -138,7 +138,7 @@ export function OperationsFeatures() {
       <div className="b-card c6 reveal">
         <span className="b-icon">🪙</span>
         <div className="b-title">On-Chain Credit Tokens</div>
-        <div className="b-desc">Every credit tokenised on Ethereum with full metadata — Token ID, VCS serial, vintage, Art.6.2 status, SDG co-benefits, CBAM eligibility. Portfolio tracks held, listed, partially listed, retired, and pending states.</div>
+        <div className="b-desc">Every credit tokenised on Polygon with full metadata — Token ID, VCS serial, vintage, Art.6.2 status, SDG co-benefits, CBAM eligibility. Portfolio tracks held, listed, partially listed, retired, and pending states.</div>
         <div style={{ marginTop:14, background:"var(--bg)", borderRadius:8, padding:"12px 14px", border:"1px solid var(--brd)", fontFamily:"var(--font-mono)", fontSize:9, lineHeight:2 }}>
           {[["Standard","Verra VCS"],["Serial","VCS-2023-1234-5678"],["Vintage","2023"],["Art.6.2 CA","Not issued"],["SDG tags","SDG 7 · SDG 13"],["CBAM","Eligible ✓"]].map(([l,v])=>(
             <div key={l} style={{ display:"flex", justifyContent:"space-between" }}>

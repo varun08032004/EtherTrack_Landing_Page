@@ -177,7 +177,7 @@ export default function Home() {
           <button className="btn-p" onClick={openDemo}>REQUEST A DEMO →</button>
           <a className="btn-g" href="https://app.ethertrack.in" target="_blank" rel="noopener noreferrer">EXPLORE LIVE TESTNET ↗</a>
         </div>
-        <p className="hero-note">Live on Ethereum Sepolia testnet · Real smart contracts · Real workflows · No financial value yet</p>
+        <p className="hero-note">Live on Polygon Amoy testnet · Real smart contracts · Real workflows · No financial value yet</p>
       </section>
 
       {/* ── Marquee ── */}
@@ -209,7 +209,7 @@ export default function Home() {
       <section className="section" id="market-gap">
         <div className="s-label reveal">WHY ETHERTRACK EXISTS</div>
         <h2 className="s-h2 reveal">India's carbon market has six<br/><span style={{ color:"var(--grn)" }}>fundamental problems — we solved them</span></h2>
-        <p className="s-sub reveal">Every solution below is live on Ethereum Sepolia testnet today. Not a roadmap. Not a promise. Working software.</p>
+        <p className="s-sub reveal">Every solution below is live on Polygon Amoy testnet today. Not a roadmap. Not a promise. Working software.</p>
         <div className="gap-tabs">
           {GAPS.map((g,i) => (
             <button key={i} className={`gap-tab-btn${gapTab === i ? " on" : ""}`} onClick={() => setGapTab(i)}>

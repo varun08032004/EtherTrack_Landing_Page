@@ -437,7 +437,7 @@
         "infoBox": {
           "type": "cta-soft",
           "title": "Both Markets, One Platform",
-          "content": "EtherTrack handles compliance credits (CCTS, GEI tracking, IEX/PXIL routing) and voluntary credits (Verra, Gold Standard) in one platform. All seven modules are live on Ethereum Sepolia testnet today. Visit app.ethertrack.in to explore."
+          "content": "EtherTrack handles compliance credits (CCTS, GEI tracking, IEX/PXIL routing) and voluntary credits (Verra, Gold Standard) in one platform. All seven modules are live on Polygon Amoy testnet today. Visit app.ethertrack.in to explore."
         }
       },
       {
