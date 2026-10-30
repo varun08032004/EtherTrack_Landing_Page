@@ -77,7 +77,7 @@ export default function About() {
         <div className="reveal" style={{ marginTop:40 }}>
           <h3 style={{ fontFamily:"var(--font-head)", fontSize:22, fontWeight:700, marginBottom:16, color:"var(--txt)" }}>The Journey Starts Here.</h3>
           <p style={{ fontSize:15, color:"var(--mut-lt)", lineHeight:1.8, marginBottom:16 }}>
-            Today, EtherTrack is an early-stage company with a long road ahead and a clear ambition for where it wants to go. We know that trust must be earned, that meaningful progress takes time, and that ambition only matters when it is matched by execution.
+            <span data-nosnippet>Today, EtherTrack is an early-stage company with a long road ahead and a clear ambition for where it wants to go. We know that trust must be earned, that meaningful progress takes time, and that ambition only matters when it is matched by execution.</span>
           </p>
           <p style={{ fontSize:15, color:"var(--mut-lt)", lineHeight:1.8, marginBottom:16 }}>
             We intend to build with that understanding. <strong>Started with a vision. Built through persistence. Driven by India's net-zero ambition.</strong>

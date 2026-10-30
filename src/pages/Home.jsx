@@ -141,7 +141,7 @@ export default function Home() {
     <>
       <Seo
         title="EtherTrack | India's Carbon Infrastructure Platform"
-        description="EtherTrack brings emissions tracking, sustainability reporting, blockchain traceability and carbon-credit portfolio management and trading together in India's carbon infrastructure platform."
+        description="India's blockchain-native carbon platform: track emissions, trade credits on a live order book, retire on-chain, generate BRSR/CDP/TCFD/GRI/GHG reports."
         path="/"
       />
       {/* ── Hero ── */}
